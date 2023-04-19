@@ -141,10 +141,11 @@ rendered notebooks."
   fi
 
   echo "Searching for built jupyter book"
-  if [ -d "notebooks/_build/html" ]; then
+  if [ -f "notebooks/_build/html/index.html" ]; then
     echo "Moving the built jupyter book to the docs directory"
+    rm -r docs/_static/jupyter_book 2>/dev/null || true
     mkdir -p docs/_static/jupyter_book
-    mv notebooks/_build/html/* docs/_static/jupyter_book/
+    cp -r notebooks/_build/html/* docs/_static/jupyter_book/
   else
     echo "Could not find the built jupyter book in notebooks/_build/html"
     echo "This is normal in CI, as the built files may be committed inside the docs"
