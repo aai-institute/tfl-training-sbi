@@ -17,6 +17,7 @@ nbconvert = "^7.2.10"
 torch = "^2.0.0"
 sbi = "^0.21.0"
 matplotlib = "^3.7.1"
+jupyter-contrib-nbextensions = "^0.7.0"
 
 [tool.poetry.dev-dependencies]
 
