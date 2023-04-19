@@ -8,6 +8,9 @@ name = "tfl-training-sbi"
 version = "0.1.0"
 description = ""
 authors = ["Maternus Herold, Jan Boelts"]
+packages = [
+    { include = "tfl_training_sbi", from = "src" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
