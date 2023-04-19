@@ -17,7 +17,7 @@ class __Configuration(DefaultDataConfiguration):
 
     @property
     def housing_data(self):
-        return self._get_existing_path("housing_data")
+        return self._get_existing_path("housing_data", create=False)
 
 
 class ConfigProvider(ConfigProviderBase[__Configuration]):
