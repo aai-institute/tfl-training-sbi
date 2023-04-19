@@ -227,6 +227,17 @@ optional = false
 python-versions = ">=3.7.0"
 
 [[package]]
+name = "click"
+version = "8.1.3"
+description = "Composable command line interface toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
 name = "cmake"
 version = "3.26.3"
 description = "CMake is an open-source, cross-platform family of tools designed to build, test and package software"
@@ -2244,7 +2255,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<4"
-content-hash = "3bf40aa9d39c9d1802cddc990f598f9c80ae65ff478222970cc611cd1757d798"
+content-hash = "bef3d96f9556b739ced4ffe709f30f5dc9ccc89ee13e514cbce8128b1354076c"
 
 [metadata.files]
 absl-py = []
@@ -2265,6 +2276,7 @@ cachetools = []
 certifi = []
 cffi = []
 charset-normalizer = []
+click = []
 cmake = []
 colorama = []
 comm = []
