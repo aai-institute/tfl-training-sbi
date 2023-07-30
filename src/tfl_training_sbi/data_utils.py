@@ -120,6 +120,23 @@ class SIRStdScaler:
 
         return {"theta": theta, "obs": x}
 
+    def rescale(self, batch: torch.tensor) -> dict:
+        """Rescale theta and x.
+
+        Args:
+            theta (torch.Tensor): Parameters.
+            x (torch.Tensor): Observations.
+
+        Returns:
+            dict: {"theta": theta, "obs": x}
+        """
+        theta, x = batch["theta"], batch["obs"]
+
+        theta = theta * self.std_theta + self.mean_theta
+        x = x * self.std_x + self.mean_x
+
+        return {"theta": theta, "obs": x}
+
 
 def load_sir_data(
     base_path: str,
