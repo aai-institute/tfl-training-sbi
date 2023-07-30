@@ -64,21 +64,22 @@ class SIRSimulation(Dataset):
         """
         return self.data_length
 
-    def __getitem__(self, idx: int) -> tuple:
+    def __getitem__(self, idx: int) -> dict:
         """Get an item from the dataset.
 
         Args:
             idx (int): Index of the item.
 
         Returns:
-            tuple: theta, x
+            dict: {"theta": theta, "obs": x}
         """
-        theta, x = self.data_theta[idx], self.data_x[idx]
+        theta, x = torch.tensor(self.data_theta[idx]), torch.tensor(self.data_x[idx])
+        data = {"theta": theta, "obs": x}
 
         if self.transformations:
-            theta, x = self.transformations(theta, x)
+            data = self.transformations(data)
 
-        return theta, x
+        return data
 
 
 class SIRStdScaler:
@@ -102,7 +103,7 @@ class SIRStdScaler:
         self.mean_x = mean_x
         self.std_x = std_x
 
-    def __call__(self, theta: torch.Tensor, x: torch.Tensor) -> tuple:
+    def __call__(self, batch: torch.tensor) -> dict:
         """Standardize theta and x.
 
         Args:
@@ -110,12 +111,14 @@ class SIRStdScaler:
             x (torch.Tensor): Observations.
 
         Returns:
-            tuple: theta, x
+            dict: {"theta": theta, "obs": x}
         """
+        theta, x = batch["theta"], batch["obs"]
+
         theta = (theta - self.mean_theta) / self.std_theta
         x = (x - self.mean_x) / self.std_x
 
-        return theta, x
+        return {"theta": theta, "obs": x}
 
 
 def load_sir_data(
