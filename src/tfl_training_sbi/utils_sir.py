@@ -22,7 +22,8 @@ def eval_sir_model(
         grid_points (np.array, optional): Grid point, i.e. time. Defaults to np.linspace(0, 160, 160).
 
     Returns:
-        np.array: three dim. array of shape (grid_points.shape[0], 3)
+        np.array: three dim. array of shape (grid_points.shape[0], 3) where the
+        order is SIR.
     """
     # unpack initial conditions and params passed to function
     S0, I0, R0, N = initial_cond[0], initial_cond[1], initial_cond[2], population_size
