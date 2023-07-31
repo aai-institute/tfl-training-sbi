@@ -16,6 +16,7 @@ packages = [
 python = ">=3.9,<3.13"
 rise = "^5.7.1"
 jupyter = "^1.0.0"
+notebook = "^6.4.3, <7"
 nbconvert = "^7.2.10"
 sbi = "^0.21.0"
 matplotlib = "^3.7.1"
