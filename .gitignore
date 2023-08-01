@@ -141,3 +141,7 @@ dmypy.json
 
 # reports
 pylint.html
+
+# custom
+.DS_Store
+*sbi-logs/
