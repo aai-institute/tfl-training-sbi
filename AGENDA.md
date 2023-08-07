@@ -1,27 +1,17 @@
 # Agenda
 
-Welcome to the TfL training tfl-training-sbi!. 
+Welcome to the TfL training on Simulation-based Inference! 
 
-Here the Agenda for the next days: 
+Here's the Agenda for the upcoming hours: 
 
-TODO: replace by real agenda
-
-| Day No. | Title                                             | Duration |   Schedule    |
-|:-------:|---------------------------------------------------|:--------:|:-------------:|
-|    1    | Greeting and setting up the execution environment |  10 min  | 09:00 - 09:10 |
-|    1    | Introduction to the awesome topic                 |  30 min  | 09:10 - 10:30 |
-|    1    | Coffee Break                                      |  15 min  | 10:30 - 10:45 |
-|    1    | Second part                                       |  90 min  | 10:45 - 12:15 |
-|    1    | Lunch Break                                       |  60 min  | 12:15 - 13:15 |
-|    1    | Third part                                        |  60 min  | 13:15 - 15:00 |
-|    1    | Coffee Break                                      |  15 min  | 15:00 - 15:15 |
-|    1    | Hold it...                                        |  45 min  | 15:15 - 17:00 |
-|    2    | A new day's topic                                 |  60 min  | 09:00 - 10:30 |
-|    2    | Coffee Break                                      |  15 min  | 10:30 - 10:45 |
-|    2    | Continued                                         |  90 min  | 10:45 - 12:15 |
-|    2    | Lunch Break                                       |  60 min  | 12:15 - 13:15 |
-|    2    | Third part                                        |  60 min  | 13:15 - 15:00 |
-|    2    | Coffee Break                                      |  15 min  | 15:00 - 15:15 |
-|    2    | Last part                                         |  45 min  | 15:15 - 16:45 |
-|    2    | Concluding Remarks                                |  15 min  | 16:45 - 17:00 |
-
+| Title                                             | Duration |   Schedule    |
+|---------------------------------------------------|:--------:|:-------------:|
+| Greeting and setting up the environment           |  15 min  | 09:00 - 09:15 |
+| Introduction to Simulation-based Inference        |  60 min  | 09:15 - 10:15 |
+| _Coffee Break_                                    |  15 min  | 10:15 - 10:30 |
+| Conditional Density Estimation                    |  60 min  | 10:30 - 11:30 |
+| Neural Posterior Estimation                       |  60 min  | 11:30 - 12:30 |
+| _Lunch Break_                                     |  60 min  | 12:30 - 13:30 |
+| Further methods for Simulation-based Inference    |  45 min  | 13:30 - 14:30 |
+| _Coffee Break_                                    |  15 min  | 14:30 - 14:45 |
+| Performance Assessment                            |  45 min  | 14:45 - 15:30 |

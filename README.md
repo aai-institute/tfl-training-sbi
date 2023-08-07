@@ -6,7 +6,7 @@ This is the readme for the participants of the training.
 ## During the training
 
 If you are currently participating in the training, you can find the agenda
-in the file `AGENDA.md`. Everything is already set up, so feel free
+in the file [`AGENDA`](./AGENDA.md). Everything is already set up, so feel free
 to follow the trainer's presentation or to explore the notebooks and
 source code on your own.
 
