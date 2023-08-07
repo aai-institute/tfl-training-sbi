@@ -14,6 +14,12 @@ and when to use these methods in place of traditional likelihood-based inference
 techniques. The training will also provide the participants with hands-on
 experience in applying these methods.
 
+<figure>
+    <center>
+    <img src="./notebooks/_static/images/sbi_concept_figure.png" style="width:100%"/>
+    <figcaption>Schematic overview of the Simulation-based Inference workflow (Jan Boelts, 2023).</figcaption>
+</figure>
+
 ## During the training
 
 If you are currently participating in the training, you can find the agenda
