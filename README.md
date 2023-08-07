@@ -3,6 +3,17 @@
 Welcome to the TransferLab training: Simulation-based Inference.
 This is the readme for the participants of the training.
 
+Simulation-based inference is a statistical method used to enable Bayesian
+inference when the likelihood function of a complex model is computationally
+intractable or unknown. It does so by approximating a certain part of Bayes
+theorem from observations of the model. 
+
+This training provides the participants with a thorough understanding of the
+fundamental principles and methods of Simulation-based Inference, including why
+and when to use these methods in place of traditional likelihood-based inference
+techniques. The training will also provide the participants with hands-on
+experience in applying these methods.
+
 ## During the training
 
 If you are currently participating in the training, you can find the agenda
