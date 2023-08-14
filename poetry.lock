@@ -1348,18 +1348,14 @@ requests-oauthlib = ">=0.7.0"
 tool = ["click (>=6.0.0)"]
 
 [[package]]
-name = "gpy"
+name = "GPy"
 version = "1.12.0"
 description = "The Gaussian Process Toolbox"
 category = "main"
 optional = false
 python-versions = "*"
-files = [
-    {file = "GPy-1.12.0-cp36-cp36m-win_amd64.whl", hash = "sha256:e0e955a10aa023b3a146d8d4b0ba6cf2d282b827b0737815f10c3a26ab2f1ebb"},
-    {file = "GPy-1.12.0-cp37-cp37m-win_amd64.whl", hash = "sha256:060af246b5693121580a584b0004c13e9b7d06610510035c1a2f058a7c54a0d5"},
-    {file = "GPy-1.12.0-cp38-cp38-win_amd64.whl", hash = "sha256:322c6f01c9872d209732aa36f7b885a79961bae7a82b500b7576695e202e8986"},
-    {file = "GPy-1.12.0-cp39-cp39-win_amd64.whl", hash = "sha256:a19cb6f5b265a33f35a59adc4af6c711adf406ca713eabfa47e7688d5b1045f2"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 cython = ">=0.29"
@@ -1370,9 +1366,15 @@ six = "*"
 
 [package.extras]
 docs = ["sphinx"]
-notebook = ["ipykernel (>=4.1.0)", "ipywidgets (>=4.0.3)", "jupyter-client (>=4.0.6)", "notebook (>=4.0.5)"]
+notebook = ["ipykernel (>=4.1.0)", "ipywidgets (>=4.0.3)", "jupyter_client (>=4.0.6)", "notebook (>=4.0.5)"]
 optional = ["ipython (>=4.0.0)", "mpi4py"]
 plotting = ["matplotlib (==3.3.4)", "plotly (>=1.8.6)"]
+
+[package.source]
+type = "git"
+url = "https://github.com/SheffieldML/GPy.git"
+reference = "devel"
+resolved_reference = "9ec3e50e3b96a10db58175a206ed998ec5a8e3e3"
 
 [[package]]
 name = "greenlet"
@@ -5920,4 +5922,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.10"
-content-hash = "d3aed46cbac3b9084901baf07a6d229981f5bc1665d3dc75f1c62fad5dc33a35"
+content-hash = "b57dfbaa515778b584b757fdef7805974f4b34e4b168bd08eaaca81282edaecb"

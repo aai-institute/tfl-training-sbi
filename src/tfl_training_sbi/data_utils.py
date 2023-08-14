@@ -3,6 +3,7 @@
 
 import numpy as np
 import os
+import sbibm
 import time
 import torch
 
@@ -16,6 +17,7 @@ class SIRSimulation(Dataset):
         data_theta: torch.tensor,
         data_x: torch.tensor,
         simulator_lag: float = 0.1,
+        prior: torch.distributions.Distribution = None,
         transformations: transforms.Compose = None,
     ):
         """Simulate from the SIR model.
@@ -26,17 +28,19 @@ class SIRSimulation(Dataset):
         evaluate the simulation on the sampled parameters.
 
         Args:
-            data_theta (torch.tensor): Parameters.
-            data_x (torch.tensor): Observations.
-            simulator_lag (float, optional): Time to sleep to imitate the lag of
-            a simulation. Defaults to 0.1.
-            transformations (transforms.Compose, optional): Transformations.
+            data_theta (torch.tensor): Parameters. data_x (torch.tensor):
+            Observations. simulator_lag (float, optional): Time to sleep to
+            imitate the lag of a simulation. Defaults to 0.1. prior
+            (torch.distributions.Distribution, optional): Prior. Defaults to
+            None. transformations (transforms.Compose, optional):
+            Transformations.
         """
         super().__init__()
         self.data_theta = data_theta
         self.data_x = data_x
         self.data_length = data_theta.shape[0]
         self.lag = simulator_lag
+        self.prior = sbibm.get_task("sir").get_prior() if prior is None else prior
         self.transformations = transformations
 
     def __call__(self, num_samples: int = 1) -> tuple:
