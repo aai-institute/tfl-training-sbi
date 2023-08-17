@@ -28,12 +28,13 @@ class SIRSimulation(Dataset):
         evaluate the simulation on the sampled parameters.
 
         Args:
-            data_theta (torch.tensor): Parameters. data_x (torch.tensor):
-            Observations. simulator_lag (float, optional): Time to sleep to
-            imitate the lag of a simulation. Defaults to 0.1. prior
-            (torch.distributions.Distribution, optional): Prior. Defaults to
-            None. transformations (transforms.Compose, optional):
-            Transformations.
+            data_theta (torch.tensor): Parameters. 
+            data_x (torch.tensor): Observations. 
+            simulator_lag (float, optional): Time to sleep to imitate the lag of
+            a simulation. Defaults to 0.1. 
+            prior (torch.distributions.Distribution, optional): Prior. Defaults to
+            None. 
+            transformations (transforms.Compose, optional): Transformations.
         """
         super().__init__()
         self.data_theta = data_theta
