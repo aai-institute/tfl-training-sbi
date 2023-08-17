@@ -32,6 +32,7 @@ torch = "1.13.0"
 torchvision = "0.14.0"
 gpy = {git = "https://github.com/SheffieldML/GPy.git", rev = "devel"}
 sbibm = "^1.1.0"
+tensorboard = "^2.14.0"
 
 [tool.poetry.dev-dependencies]
 
