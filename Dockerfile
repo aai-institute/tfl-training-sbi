@@ -1,8 +1,11 @@
-FROM jupyter/minimal-notebook:python-3.9.7
+FROM jupyter/minimal-notebook:python-3.10
+
+USER root
 
 # keep env var name in sync with config_local.yml
 ARG PARTICIPANT_BUCKET_READ_SECRET
 ENV PARTICIPANT_BUCKET_READ_SECRET=${PARTICIPANT_BUCKET_READ_SECRET}
+ENV POETRY_VERSION=1.4.2
 
 RUN if [ -z "$PARTICIPANT_BUCKET_READ_SECRET" ]; \
       then echo "The build arg PARTICIPANT_BUCKET_READ_SECRET must be set to non-zero, e.g. \
@@ -19,15 +22,11 @@ RUN apt-get update && apt-get upgrade -y
 # pandoc needed for docs, see https://nbsphinx.readthedocs.io/en/0.7.1/installation.html?highlight=pandoc#pandoc
 # gh-pages action uses rsync
 RUN apt-get -y install pandoc git-lfs rsync
+RUN pip install poetry==${POETRY_VERSION}
 
 USER ${NB_UID}
 
 WORKDIR /tmp
-COPY build_scripts build_scripts
-RUN bash build_scripts/install_presentation_requirements.sh
-
-COPY requirements-test.txt .
-RUN pip install -r requirements-test.txt
 
 
 # NOTE: this breaks down when requirements contain pytorch (file system too large to fit in RAM, even with 16GB)
@@ -35,8 +34,8 @@ RUN pip install -r requirements-test.txt
 # If pytorch is a requirement, the suggested solution is to keep a requirements-docker.txt and only install
 # the lighter requirements. The install of the remaining requirements then has to happen at runtime
 # instead of build time (usually as part of the entrypoint)
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+# COPY requirements.txt .
+# RUN pip install -r requirements.txt
 
 
 # Start of HACK: the home directory is overwritten by a mount when a jhub server is started off this image
@@ -58,3 +57,6 @@ ENTRYPOINT ["/tmp/code/entrypoint.sh"]
 WORKDIR "${HOME}"
 
 COPY --chown=${NB_UID}:${NB_GID} . $CODE_DIR
+WORKDIR $CODE_DIR
+RUN poetry install
+RUN bash build_scripts/install_presentation_requirements.sh
