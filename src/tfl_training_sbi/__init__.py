@@ -1,5 +1,5 @@
 __version__ = "1.0.0"
-# from .nb_utils import TflWorkshopMagic
+from .nb_utils import TflWorkshopMagic
 
 
 def load_ipython_extension(ipython):
