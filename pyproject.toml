@@ -7,7 +7,7 @@ profile = "black"
 name = "tfl-training-sbi"
 version = "0.1.0"
 description = ""
-authors = ["Maternus Herold, Jan Boelts"]
+authors = ["Maternus Herold, Jan Boelts (Teusen)"]
 packages = [
     { include = "tfl_training_sbi", from = "src" },
 ]
