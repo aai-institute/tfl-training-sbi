@@ -37,7 +37,7 @@ BUILD_DIR=$(dirname "$0")
 
 (
   cd "${BUILD_DIR}/.." || (echo "Unknown error, could not find directory ${BUILD_DIR}" && exit 255)
-  conda install -y -c conda-forge notebook==6.5.6 jupyter jupyter_contrib_nbextensions jupyter_nbextensions_configurator
+  conda install -y -c conda-forge notebook==6.5.6 jupyter sphinx sphinx_rtd_theme jupyter-book jupyter_contrib_nbextensions jupyter_nbextensions_configurator
   # conda install -y -c anaconda rise==5.7.1
   pip install rise
   python build_scripts/configure_spellcheck_dict.py
