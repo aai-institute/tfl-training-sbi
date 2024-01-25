@@ -38,7 +38,7 @@ h5netcdf==1.3.0
 h5py==3.10.0
 idna==3.6
 ipykernel==6.29.0
-ipython==8.20.0
+ipython==8.6.0
 ipython-genutils==0.2.0
 ipywidgets==8.1.1
 isoduration==20.11.0
@@ -65,11 +65,11 @@ Markdown==3.5.2
 MarkupSafe==2.1.4
 matplotlib==3.8.2
 matplotlib-inline==0.1.6
-mistune==3.0.2
+mistune==2.0.5
 mpmath==1.3.0
 nbclassic==1.0.0
-nbclient==0.9.0
-nbconvert==7.14.2
+nbclient==0.7.4
+nbconvert==7.2.10
 nbformat==5.9.2
 nest-asyncio==1.6.0
 networkx==3.2.1
