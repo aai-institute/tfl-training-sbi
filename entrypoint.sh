@@ -2,7 +2,9 @@
 
 shopt -s dotglob
 
+
 ROOT_DIR="${HOME}"/tfl-training-sbi
+
 
 if [ ! -d  "${ROOT_DIR}" ]; then
   echo "Code not found in ${ROOT_DIR}, copying it during entrypoint. With jupyterhub this should happen only once"
@@ -10,10 +12,10 @@ if [ ! -d  "${ROOT_DIR}" ]; then
   cp -rf "${CODE_DIR}"/* "${ROOT_DIR}/"
 fi
 
+
 cd "${ROOT_DIR}" || exit
 jupyter trust notebooks/*.ipynb
-pip install -e "."; echo "Installed tfl_training_sbi" ; python scripts/download_data.py
-
+# pip install -e "."; echo "Installed tfl_training_sbi"
 
 
 # original entrypoint, see https://github.com/jupyter/docker-stacks/blob/master/base-notebook/Dockerfile#L150
