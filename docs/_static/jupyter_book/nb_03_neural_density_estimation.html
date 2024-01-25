@@ -1,0 +1,1141 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction to Neural Density Estimation with SBI &#8212; thesan_output</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configmacros"]}, "tex": {"packages": {"[+]": ["configmacros"]}, "macros": {"vect": ["{\\mathbf{\\boldsymbol{#1}} }", 1], "E": "{\\mathbb{E}}", "P": "{\\mathbb{P}}", "R": "{\\mathbb{R}}", "abs": ["{\\left| #1 \\right|}", 1], "simpl": ["{\\Delta^{#1} }", 1], "amax": "{\\text{argmax}}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"33ebb8a7358b42b08b899e4d39b0d087": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1c535c77f7994ca6b6c75dbcda75d51f": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "ecace988a9ee4b34ab834c0cf2fbe49b": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_33ebb8a7358b42b08b899e4d39b0d087", "max": 10.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_1c535c77f7994ca6b6c75dbcda75d51f", "tabbable": null, "tooltip": null, "value": 10.0}}, "b74e013de86e4dfe969d31df92728afc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "98542f6b98e547f8885228e3ed915ff8": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "72c1650ec20e4caf83c62add950ead99": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_b74e013de86e4dfe969d31df92728afc", "placeholder": "\u200b", "style": "IPY_MODEL_98542f6b98e547f8885228e3ed915ff8", "tabbable": null, "tooltip": null, "value": "100%"}}, "4e1078aafcd848279a98333d831d8270": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "dd3ec13b5aed41519d16bbc1b666ca3e": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "00c1dfc2b8b84221b38e237f289fa7d1": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_4e1078aafcd848279a98333d831d8270", "placeholder": "\u200b", "style": "IPY_MODEL_dd3ec13b5aed41519d16bbc1b666ca3e", "tabbable": null, "tooltip": null, "value": " 10/10 [00:08&lt;00:00,  1.19it/s]"}}, "50af2beb856c4667b34b474496d6f1d3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "72493d6b6082424eab0802c0a34ccb53": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_72c1650ec20e4caf83c62add950ead99", "IPY_MODEL_ecace988a9ee4b34ab834c0cf2fbe49b", "IPY_MODEL_00c1dfc2b8b84221b38e237f289fa7d1"], "layout": "IPY_MODEL_50af2beb856c4667b34b474496d6f1d3", "tabbable": null, "tooltip": null}}, "59ee271795f9475f93bc625d049dc1d1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b1e9318a06f44ccd9477f2379451186a": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "3a636f62dad74b83adf7f65bfcd06e91": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_59ee271795f9475f93bc625d049dc1d1", "max": 50000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_b1e9318a06f44ccd9477f2379451186a", "tabbable": null, "tooltip": null, "value": 50000.0}}, "0d2bfcf917184db69225f833bf4f9642": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b5d72774eeed4bf7a4689627322e8eef": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "f26fe9bab547414c9393107fa9dabe47": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_0d2bfcf917184db69225f833bf4f9642", "placeholder": "\u200b", "style": "IPY_MODEL_b5d72774eeed4bf7a4689627322e8eef", "tabbable": null, "tooltip": null, "value": "100%"}}, "2e2755545ce84d458acbe89e06b3543e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "37def43d5e924a68a664347046ff3d26": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "4034a2b8c615442aa07f6d9d4ca0d113": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_2e2755545ce84d458acbe89e06b3543e", "placeholder": "\u200b", "style": "IPY_MODEL_37def43d5e924a68a664347046ff3d26", "tabbable": null, "tooltip": null, "value": " 50000/50000 [00:01&lt;00:00, 34781.91it/s]"}}, "b29a461e80454ceaa0183879718bc168": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7688c79b8236425491cbb36d6e7cace1": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_f26fe9bab547414c9393107fa9dabe47", "IPY_MODEL_3a636f62dad74b83adf7f65bfcd06e91", "IPY_MODEL_4034a2b8c615442aa07f6d9d4ca0d113"], "layout": "IPY_MODEL_b29a461e80454ceaa0183879718bc168", "tabbable": null, "tooltip": null}}, "37c6b6f33e354d3ca03ffc0acad8cd5d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "57bd7493707b429fbd3a00a422ef0906": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "61b79dbb94034ea7bcbd4874659d064b": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_37c6b6f33e354d3ca03ffc0acad8cd5d", "max": 1000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_57bd7493707b429fbd3a00a422ef0906", "tabbable": null, "tooltip": null, "value": 1000.0}}, "d4b820269ad7480d8fc55f4fc7ce9aa4": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d435d0c9a0b542c19e6c81875e3dda6b": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "884b1b40356c408f9f84ac9062a90519": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d4b820269ad7480d8fc55f4fc7ce9aa4", "placeholder": "\u200b", "style": "IPY_MODEL_d435d0c9a0b542c19e6c81875e3dda6b", "tabbable": null, "tooltip": null, "value": "100%"}}, "5d0b4f60cf8d40509a60a4229d513ded": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7882541c24a44401a71a4ce435fabe3f": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "ebf24ed3dd19439ca4d72bd08bc5e460": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_5d0b4f60cf8d40509a60a4229d513ded", "placeholder": "\u200b", "style": "IPY_MODEL_7882541c24a44401a71a4ce435fabe3f", "tabbable": null, "tooltip": null, "value": " 1000/1000 [00:05&lt;00:00, 192.17it/s]"}}, "e5fb9442093745aab9ffa9478285c0db": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2edf1df8319f4e78b54823bdf080ad53": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_884b1b40356c408f9f84ac9062a90519", "IPY_MODEL_61b79dbb94034ea7bcbd4874659d064b", "IPY_MODEL_ebf24ed3dd19439ca4d72bd08bc5e460"], "layout": "IPY_MODEL_e5fb9442093745aab9ffa9478285c0db", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb_03_neural_density_estimation';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Neural Likelihood and Ratio Estimation" href="nb_04_neural_likelihood_and_ratio_estimation.html" />
+    <link rel="prev" title="Conditional Density Estimation" href="nb_02_conditional_density_estimation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/transferlab-logo.svg" class="logo__image only-light" alt="thesan_output - Home"/>
+    <script>document.write(`<img src="_static/transferlab-logo.svg" class="logo__image only-dark" alt="thesan_output - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Simulation-based Inference - Notebook Pages
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nb_01_introduction_to_sbi.html">Simulators are abundant in science and engineering</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="nb_02_conditional_density_estimation.html">Conditional Density Estimation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Neural Density Estimation with SBI</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="nb_04_neural_likelihood_and_ratio_estimation.html">Neural Likelihood and Ratio Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb_05_evaluation_of_sbi.html">How can we evaluate the performance of SBI?</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/nb_03_neural_density_estimation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Neural Density Estimation with SBI</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Neural Density Estimation with SBI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-density-estimation-for-sbi">Neural Density Estimation for SBI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#idea-of-neural-posterior-estimation">Idea of Neural Posterior Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-the-joint-distribution">Sampling from the Joint Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-decomposition">Posterior decomposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-neural-posterior-estimation">Example: Neural Posterior Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-sir-dataset">Example Data: SIR Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-learned-distribution">Inspecting the Learned Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#great-you-ve-run-through-your-first-sbi-workflow">Great, you’ve run through your first SBI workflow! 🎉</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-resulting-posterior-approximation">Inspect Resulting Posterior Approximation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-of-time-series-data">Treatment of Time Series Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-neural-estimation">Sequential Neural * Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-sequential-posterior-estimation-snpe">Example: Sequential Posterior Estimation (SNPE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-sn-e">The Problem with SN*E</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#popular-methods-for-snpe">Popular Methods for SNPE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-posterior-estimation-works-by">Neural Posterior Estimation works by</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits">Benefits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-npe">Sequential NPE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell tag_remove-input tag_remove-input-nbconv docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style>/*
+This file is mainly copy-pasta from rise's examples
+https://github.com/damianavila/RISE/blob/master/examples/rise.css
+that was further customized for appliedAI purposes
+*/
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
+
+
+body {
+    font-family: 'Work Sans', sans-serif !important;
+    text-transform: initial !important;
+    letter-spacing: initial !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    text-size-adjust: 100% !important;
+    ‑webkit‑text‑size‑adjust: 100% !important;
+}
+
+
+.reveal, div.text_cell_render, .md-slide, .sidebar-wrapper {
+    font-size: 1.5rem !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #00747b !important;
+}
+
+.filename {
+    font-size: 2.4rem !important;
+    color: #212529 !important;
+    font-weight: 600 !important;
+}
+
+.reveal, .md-slide {
+    color: white !important;
+}
+
+h1, h2 {
+    color: #00747b !important;
+}
+
+h3, h4, h5, h6 {
+    color: #808080 !important;
+}
+
+.reveal p, .reveal ol, .reveal dl, .reveal ul,
+div.text_cell_render {
+    color: #212529 !important;
+}
+
+/*copied from stackoverflow, better spacing between list items*/
+li + li {
+  margin-top: 0.2em;
+}
+
+body.rise-enabled .reveal ol, body.rise-enabled .reveal dl, body.rise-enabled .reveal ul {
+    margin-left: 0.1em;
+    margin-top: 0.2em;
+}
+
+.reveal .rendered_html h1:first-child,
+.reveal .rendered_html h2:first-child,
+.reveal .rendered_html h3:first-child,
+.reveal .rendered_html h4:first-child,
+.reveal .rendered_html h5:first-child {
+    margin-top: 0.2em;
+}
+
+.CodeMirror-lines, .output_text {
+    font-size: 1.5rem !important;
+}
+
+
+h1.plan, h2.plan, h3.plan {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+ul.plan>li>span.plan-bold {
+    font-size: 110%;
+    padding: 4px;
+    font-weight: bold;
+    background-color: #eee;
+}
+
+ul.plan>li>ul.subplan>li>span.plan-bold {
+    font-weight: bold;
+}
+
+.plan-strike {
+    opacity: 0.4;
+/*    text-decoration: line-through; */
+}
+
+div.plan-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+/*
+ * this is to void xarray's html output to show the fallback textual representation
+ * see also
+   * xarray.md and
+   * https://github.com/damianavila/RISE/issues/594
+ */
+.reveal pre.xr-text-repr-fallback {
+    display: none;
+}
+
+#toc-header, .toc-item li {
+    margin: auto !important;
+    color: #808080 !important;
+}
+
+#toc, #toc-wrapper, .toc-item-num, #toc a, .toc {
+    margin: auto !important;
+    color: #00747b !important;
+}
+
+#toc-wrapper {
+    top: auto !important;
+    bottom: auto !important;
+    margin-top: 2rem !important;
+    color: #00747b !important;
+}
+
+
+#rise-header {
+    margin: 10px;
+    left: 5%;
+}
+
+#rise-footer {
+    margin: 10px;
+    right: 5%;
+}
+
+#rise-backimage {
+    opacity: 0.70;
+}
+
+.reveal img {
+    max-width: 100%;
+}
+
+
+.md-slide.title {
+  position: relative;
+  top: -50%;
+  margin-left: 5%;
+}</style></div></div>
+</div>
+<img src="_static/images/aai-institute-cover.svg" alt="Snow" style="width:100%;">
+<div class="md-slide title">Include title and greeting with divs</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sbi.analysis</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">torchvision.transforms</span> <span class="kn">import</span> <span class="n">Compose</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">trange</span><span class="p">,</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">tfl_training_sbi</span> <span class="kn">import</span> <span class="n">mdn</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.config</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">default_remote_storage</span><span class="p">,</span>
+    <span class="n">get_config</span><span class="p">,</span>
+    <span class="n">root_dir</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.data_utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SIRSimulation</span><span class="p">,</span>
+    <span class="n">SIRStdScaler</span><span class="p">,</span>
+    <span class="n">load_sir_data</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.utils_sir</span> <span class="kn">import</span> <span class="n">eval_sir_model</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">default_remote_storage</span><span class="p">()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">(</span><span class="n">reload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-neural-density-estimation-with-sbi">
+<h1>Introduction to Neural Density Estimation with SBI<a class="headerlink" href="#introduction-to-neural-density-estimation-with-sbi" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>We’ve seen Likelihood-free inference with ABC</p></li>
+<li><p>We’ve seen Density Estimation</p></li>
+</ul>
+<p>Now we’ll combine the idea of Likelihood-free inference with Density Estimation, i.e. Simulation-based inference (SBI)</p>
+<figure>
+    <center>
+    <img src="_static/images/sbi_concept_figure.png" style="width:50%"/>
+    <figcaption>Fig. 1 - Schematic overview of SBI. Figure taken from Jan Boelts, 2023</figcaption>
+</figure>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="neural-density-estimation-for-sbi">
+<h1>Neural Density Estimation for SBI<a class="headerlink" href="#neural-density-estimation-for-sbi" title="Permalink to this heading">#</a></h1>
+<p>Parameterization vs. Learning of a distribution.</p>
+<p>Methodologies:</p>
+<ul class="simple">
+<li><p>Neural Posterior Estimation (NPE) <span class="math notranslate nohighlight">\(\leftarrow\)</span> <strong>This notebook</strong></p></li>
+<li><p>Neural Likelihood Estimation (NLE)</p></li>
+<li><p>Neural Ratio Estimation (NRE)</p></li>
+<li><p>Neural Score Estimation (NSE)</p></li>
+<li><p>…</p></li>
+<li><p>And even sequential variants!</p></li>
+</ul>
+<section id="idea-of-neural-posterior-estimation">
+<h2>Idea of Neural Posterior Estimation<a class="headerlink" href="#idea-of-neural-posterior-estimation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Learn the posterior <span class="math notranslate nohighlight">\(p(\theta|x)\)</span> of a parameter <span class="math notranslate nohighlight">\(\theta\)</span> given data <span class="math notranslate nohighlight">\(x\)</span> <span class="math notranslate nohighlight">\(\to\)</span> Conditional Density Estimation</p></li>
+<li><p>Learn an estimator for <span class="math notranslate nohighlight">\(p(\theta|x)\)</span> on data from the joint distribution <span class="math notranslate nohighlight">\(p(\theta, x)\)</span>
+$<span class="math notranslate nohighlight">\(
+p(\theta \mid x) \propto p(x \mid \theta) p(\theta) = p(\theta, x)
+\)</span>$</p></li>
+</ul>
+</section>
+<section id="sampling-from-the-joint-distribution">
+<h2>Sampling from the Joint Distribution<a class="headerlink" href="#sampling-from-the-joint-distribution" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Define a prior <span class="math notranslate nohighlight">\(p(\theta)\)</span></p></li>
+<li><p>Define a simulator / generator <span class="math notranslate nohighlight">\(g(\theta)\)</span></p></li>
+<li><p>Draw sample <span class="math notranslate nohighlight">\(\theta \sim p(\theta)\)</span> and obtain <span class="math notranslate nohighlight">\(x = g(\theta)\)</span>, where <span class="math notranslate nohighlight">\(x\sim p(x\mid\theta)\)</span></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+p(\theta, x) = p(\theta) p(x \mid \theta)
+\]</div>
+</section>
+<section id="posterior-decomposition">
+<h2>Posterior decomposition<a class="headerlink" href="#posterior-decomposition" title="Permalink to this heading">#</a></h2>
+<figure>
+    <center>
+    <img src="_static/images/illustration_posterior.png" style="width:50%"/>
+    <figcaption>Fig. 2 - Figure taken from <a href="https://mlcolab.org/simulation-based-inference-for-scientific-discovery">MLColab</a></figcaption>
+</figure></section>
+<section id="example-neural-posterior-estimation">
+<h2>Example: Neural Posterior Estimation<a class="headerlink" href="#example-neural-posterior-estimation" title="Permalink to this heading">#</a></h2>
+<p>We will learn the parameterization of Gaussian mixture model using a neural
+network.</p>
+<p>Parameters will be adapted using the maximum likelihood principle: minimizing
+the negative log-likelihood of the data under the model.</p>
+<p>We will use a Mixture Density Network (MDN) to do so, as seen before.</p>
+<p>Note: there are more powerful neural density estimators, e.g. Normalizing Flows.</p>
+<figure>
+    <center>
+    <img src="_static/images/illustration_npe_mdn.png" style="width:50%"/>
+    <figcaption>Fig. 3 - Figure taken from <a href="https://mlcolab.org/simulation-based-inference-for-scientific-discovery">MLColab</a></figcaption>
+</figure>
+<section id="example-data-sir-dataset">
+<h3>Example Data: SIR Dataset<a class="headerlink" href="#example-data-sir-dataset" title="Permalink to this heading">#</a></h3>
+<p>For this example, the SIR dataset is used.</p>
+<p><strong>Task:</strong> Load the data and get familiar with it. Again, a pseudo simulator is
+provided.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we provide a pre-computed dataset according to the differential equations</span>
+<span class="c1"># defining the SIR model.</span>
+<span class="c1"># the pseudo simulator draws samples at random</span>
+<span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">sir_scaler</span> <span class="o">=</span> <span class="n">SIRStdScaler</span><span class="p">()</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">SIRSimulation</span><span class="p">(</span>
+    <span class="n">data_theta</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">data_x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">transformations</span><span class="o">=</span><span class="n">Compose</span><span class="p">([</span><span class="n">sir_scaler</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s fix the last pair as observation</span>
+<span class="n">obs_theta</span><span class="p">,</span> <span class="n">obs_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_theta</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
+    <span class="n">data_x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sir_scaler</span><span class="p">({</span><span class="s2">&quot;theta&quot;</span><span class="p">:</span> <span class="n">obs_theta</span><span class="p">,</span> <span class="s2">&quot;obs&quot;</span><span class="p">:</span> <span class="n">obs_x</span><span class="p">})</span>
+<span class="n">obs_theta_z</span><span class="p">,</span> <span class="n">obs_x_z</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;theta&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;obs&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># todo: think about inc. the density of samples and plotting everything</span>
+<span class="c1"># familiarize yourself with the data; feel free to call this cell several times</span>
+<span class="c1"># as the observation is randomly sampled</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">simulator</span><span class="p">()[</span><span class="mi">1</span><span class="p">][:],</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sample from the simulator; infection rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b08f37568c29cec98cfba6a56beed15c5a1478b39151302d2344d8e966cd6e29.png" src="_images/b08f37568c29cec98cfba6a56beed15c5a1478b39151302d2344d8e966cd6e29.png" />
+</div>
+</div>
+<p><strong>Task:</strong> Define a <code class="docutils literal notranslate"><span class="pre">torch</span> <span class="pre">DataLoader</span></code> object which uses the above defined dataset with a suitable batch size. Feel free to experiment with <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> and <code class="docutils literal notranslate"><span class="pre">drop_last</span></code> options. Why and how would you use them?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a torch DatLoader</span>
+<span class="c1"># preprocessing of data, e.g. standardization happens in the Dataset, i.e. simulator</span>
+<span class="n">sir_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Task:</strong> We’re using a Gaussian mixture model to approximate the posterior. The here used <code class="docutils literal notranslate"><span class="pre">MDN</span></code> module allows to provide a <code class="docutils literal notranslate"><span class="pre">hidden_net</span></code> for feature extraction. Define a fully connected feature extractor and initialize a Mixture Density Network as density estimator. Feel free to use the below structure.</p>
+<p>Furthermore, think about the following parameters. What did you choose?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">features</span></code>: number of variable in the problem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_components</span></code>: number of Gaussians in the mixture</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hidden_features</span></code>: output dim. of the linear layer from the feature extractor</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">YOUR</span><span class="o">-</span><span class="n">FEAT</span><span class="o">-</span><span class="n">EXTRACTOR</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="o">...</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">mixture_density_net</span> <span class="o">=</span> <span class="n">mdn</span><span class="o">.</span><span class="n">MultivariateGaussianMDN</span><span class="p">(</span>
+    <span class="n">features</span><span class="o">=&lt;</span><span class="n">TODO</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">hidden_net</span><span class="o">=&lt;</span><span class="n">YOUR</span><span class="o">-</span><span class="n">FEAT</span><span class="o">-</span><span class="n">EXTRACTOR</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">num_components</span><span class="o">=&lt;</span><span class="n">TODO</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">hidden_features</span><span class="o">=&lt;</span><span class="n">TODO</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the mixture density network, parameterizing a</span>
+<span class="c1"># `num_components`-component mixture of Gaussians with `features`</span>
+<span class="c1"># features, i.e. variables</span>
+<span class="n">mixture_density_net</span> <span class="o">=</span> <span class="n">mdn</span><span class="o">.</span><span class="n">MultivariateGaussianMDN</span><span class="p">(</span>
+    <span class="n">features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">hidden_net</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="p">),</span>
+    <span class="n">num_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">hidden_features</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss_hist</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># fit MDN using negative log-likelihood loss</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">mixture_density_net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">sir_dataloader</span><span class="p">:</span>
+        <span class="n">theta_batch</span><span class="p">,</span> <span class="n">x_batch</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">&quot;theta&quot;</span><span class="p">],</span> <span class="n">batch</span><span class="p">[</span><span class="s2">&quot;obs&quot;</span><span class="p">]</span>
+
+        <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+        <span class="c1"># get the mixture components</span>
+        <span class="p">(</span>
+            <span class="n">weights_of_each_gaussian</span><span class="p">,</span>
+            <span class="n">means</span><span class="p">,</span>
+            <span class="n">variances</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">mixture_density_net</span><span class="o">.</span><span class="n">get_mixture_components</span><span class="p">(</span><span class="n">x_batch</span><span class="p">)</span>
+
+        <span class="c1"># compute Likelihood of sample under current parameterization</span>
+        <span class="n">log_probs</span> <span class="o">=</span> <span class="n">mdn</span><span class="o">.</span><span class="n">mog_log_prob</span><span class="p">(</span>
+            <span class="n">theta_batch</span><span class="p">,</span> <span class="n">weights_of_each_gaussian</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span>
+        <span class="p">)</span>
+
+        <span class="c1"># compute the negative log-likelihood loss</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">log_probs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+        <span class="c1"># track  the loss per batch</span>
+        <span class="n">loss_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+        <span class="c1"># update the parameters using gradient descent</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "72493d6b6082424eab0802c0a34ccb53"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loss_hist</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Step&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d64e3f7c6cd08651225b77e1f1b91fef26b4dd95ea25a9713c2f2cab000e7bec.png" src="_images/d64e3f7c6cd08651225b77e1f1b91fef26b4dd95ea25a9713c2f2cab000e7bec.png" />
+</div>
+</div>
+</section>
+<section id="inspecting-the-learned-distribution">
+<h3>Inspecting the Learned Distribution<a class="headerlink" href="#inspecting-the-learned-distribution" title="Permalink to this heading">#</a></h3>
+<p>Sample <code class="docutils literal notranslate"><span class="pre">50_000</span></code> times from learned posterior distribution <span class="math notranslate nohighlight">\(\hat{p}(\theta \mid
+x_o)\)</span>.</p>
+<ul class="simple">
+<li><p>Following, we the samples will be re-scaled.</p></li>
+<li><p>A subset will be used to plot the resulting infection rate against the true rate.</p></li>
+<li><p>All samples will be used to plot the marginal distributions of the parameters.</p></li>
+</ul>
+<p><strong>Task:</strong> Use the trained posterior approximator to sample from the conditional distribution, given the test observation.</p>
+<p>Therefore, obtain the parameters for the Gaussian mixture using the <code class="docutils literal notranslate"><span class="pre">.get_mixture_components(..)</span></code> method of the density estimator object. Then, use the <code class="docutils literal notranslate"><span class="pre">mog_sample(..)</span></code> function of the <code class="docutils literal notranslate"><span class="pre">mdn</span></code> module.</p>
+<p>In order to stick with following cells, please store the obtained samples in a tensor called <code class="docutils literal notranslate"><span class="pre">samples</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># get the posterior, i.e. get the mixture components</span>
+<span class="n">weights</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span> <span class="o">=</span> <span class="n">mixture_density_net</span><span class="o">.</span><span class="n">get_mixture_components</span><span class="p">(</span><span class="n">obs_x_z</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">50_000</span><span class="p">):</span>
+    <span class="c1"># sample form mixture of Gaussians</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">mdn</span><span class="o">.</span><span class="n">mog_sample</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
+    <span class="n">samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+
+<span class="n">samples</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7688c79b8236425491cbb36d6e7cace1"}</script></div>
+</div>
+<section id="great-you-ve-run-through-your-first-sbi-workflow">
+<h4>Great, you’ve run through your first SBI workflow! 🎉<a class="headerlink" href="#great-you-ve-run-through-your-first-sbi-workflow" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># unscale the dat params first</span>
+<span class="n">samples_subset</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">samples_unscaled</span> <span class="o">=</span> <span class="n">sir_scaler</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;theta&quot;</span><span class="p">:</span> <span class="n">samples_subset</span><span class="p">,</span> <span class="s2">&quot;obs&quot;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">samples_subset</span><span class="p">)}</span>
+<span class="p">)[</span><span class="s2">&quot;theta&quot;</span><span class="p">]</span>
+
+<span class="c1"># eval. the SIR model for a selected number of samples</span>
+<span class="n">sample_obs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">1_000</span><span class="p">):</span>
+    <span class="n">samples_obs</span> <span class="o">=</span> <span class="n">eval_sir_model</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">samples_unscaled</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">population_size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+    <span class="n">sample_obs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">samples_obs</span><span class="p">)</span>
+
+<span class="c1"># stack the collected samples into a big array of shape (N, 160, 3)</span>
+<span class="n">sample_obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">sample_obs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2edf1df8319f4e78b54823bdf080ad53"}</script></div>
+</div>
+</section>
+</section>
+<section id="inspect-resulting-posterior-approximation">
+<h3>Inspect Resulting Posterior Approximation<a class="headerlink" href="#inspect-resulting-posterior-approximation" title="Permalink to this heading">#</a></h3>
+<p>Plot the marginal distributions per parameter and the joint distribution of the
+parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">samples_unscaled</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="n">obs_theta</span><span class="p">,</span> <span class="n">points_offdiag</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;markersize&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span> <span class="n">points_colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/550a7722853f33512857a35e90d90e7cccb26f371ebf359700ebc34a76cd0a32.png" src="_images/550a7722853f33512857a35e90d90e7cccb26f371ebf359700ebc34a76cd0a32.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># eval the SIR model for the true parameters to get a full scale observation</span>
+<span class="n">obs_x_full_scale</span> <span class="o">=</span> <span class="n">eval_sir_model</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">obs_theta</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">population_size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_obs</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;y--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">obs_x_full_scale</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;observed&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time $t$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;infection rate $I(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/58d3155716c2b80d9f7454befdf07d264d72a070e17eb36c06d3a40e28821833.png" src="_images/58d3155716c2b80d9f7454befdf07d264d72a070e17eb36c06d3a40e28821833.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="treatment-of-time-series-data">
+<h2>Treatment of Time Series Data<a class="headerlink" href="#treatment-of-time-series-data" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Subsampling</p></li>
+<li><p>Summary Statistics</p></li>
+<li><p>Feature Extraction via different models</p></li>
+</ul>
+<figure>
+    <center>
+    <img src="_static/images/illustration_mdn_feat_extraction.png" style="width:50%"/>
+    <figcaption>Fig. 4 - Pre-pending a powerful feature extractor might be necessary in order to obtain meaningful features from time series data. Figure taken from <a href="https://mlcolab.org/simulation-based-inference-for-scientific-discovery">MLColab</a></figcaption>
+</figure></section>
+<section id="sequential-neural-estimation">
+<h2>Sequential Neural * Estimation<a class="headerlink" href="#sequential-neural-estimation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Sample inefficiency is a problem of SBI, esp. for costly simulators</p></li>
+<li><p>Many samples from the prior yield observations with low likelihood</p></li>
+<li><p><strong>Idea:</strong> re-condition the prior sequentially on the observed data to narrow
+the “search space” –&gt; Sequential Estimation</p></li>
+</ul>
+</section>
+<section id="example-sequential-posterior-estimation-snpe">
+<h2>Example: Sequential Posterior Estimation (SNPE)<a class="headerlink" href="#example-sequential-posterior-estimation-snpe" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Train a neural density estimator <span class="math notranslate nohighlight">\(\hat{p}_{\phi}^{(i)}(\theta \mid
+\mathbf{x})\)</span> based on <span class="math notranslate nohighlight">\(\theta \sim p^{(i-1)}(\theta)\)</span></p></li>
+<li><p>Substitute the prior <span class="math notranslate nohighlight">\(p^{(i-1)}(\theta)\)</span> by <span class="math notranslate nohighlight">\(\hat{p}_{\phi}^{(i)}(\theta)\)</span></p></li>
+<li><p>Train <span class="math notranslate nohighlight">\(\hat{p}_{\phi}^{(i+1)}(\theta \mid \mathbf{x})\)</span> based on <span class="math notranslate nohighlight">\(\hat{p}_{\phi}^{(i)}(\theta)\)</span></p></li>
+<li><p>Iterate until convergence</p></li>
+</ol>
+<figure>
+    <center>
+    <img src="_static/images/illustration_snpe.png" style="width:25%"/>
+    <figcaption>Fig. 5 - Illustrating the iterative refinement of the posterior approximation with multi-round inference. Figure obtained JM Lueckmann.</figcaption>
+</figure></section>
+<section id="the-problem-with-sn-e">
+<h2>The Problem with SN*E<a class="headerlink" href="#the-problem-with-sn-e" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We want to obtain <span class="math notranslate nohighlight">\(\hat{p}(\theta \mid \mathbf{x}) \approx p(\theta \mid \mathbf{x})\)</span>.</p></li>
+<li><p>But when altering the prior, we also alter the posterior.
+$<span class="math notranslate nohighlight">\(
+     \bar{\hat{p}}(\theta \mid \mathbf{x}) \approx p(\mathbf{x} \mid \theta) \bar{p}(\theta)
+ \)</span>$</p></li>
+<li><p>The divergence of the posterior has to be corrected</p></li>
+</ul>
+</section>
+<section id="popular-methods-for-snpe">
+<h2>Popular Methods for SNPE<a class="headerlink" href="#popular-methods-for-snpe" title="Permalink to this heading">#</a></h2>
+<p>All methods introduce a different method to correct the posterior approximation.</p>
+<ul class="simple">
+<li><p>SNPE-A (Papamakarios, Murray, 2016, <em>“Fast <span class="math notranslate nohighlight">\(\epsilon\)</span>-free Bayesian inference…”</em>)</p></li>
+<li><p>SNPE-B (Lueckmann, Goncalves, et al. 2017, <em>“Flexible statistical inference…”</em>)</p></li>
+<li><p>SNPE-C (APT) (Greenberg, Nonnenmacher, Macke, 2019, <em>“Automatic posterior transformation…”</em>)</p></li>
+</ul>
+<p><strong>Note</strong>: Without the sequential approach, all methods are the same and train by
+maximizing the log-Likelihood.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<section id="neural-posterior-estimation-works-by">
+<h3>Neural Posterior Estimation works by<a class="headerlink" href="#neural-posterior-estimation-works-by" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Sampling from the prior <span class="math notranslate nohighlight">\(\theta \sim p(\theta)\)</span></p></li>
+<li><p>Drawing samples from the joint by forward propagation <span class="math notranslate nohighlight">\(\mathbf{x} \sim p(\mathbf{x}|\theta)\)</span></p></li>
+<li><p>Train a conditional density estimator <span class="math notranslate nohighlight">\(\hat{p}_{\phi}(\theta|\mathbf{x})\)</span>
+on the samples <span class="math notranslate nohighlight">\(\{ (\theta, \mathbf{x}) \}^N_{i=1}\)</span></p></li>
+<li><p>Evaluate the conditional density estimator at certain observations <span class="math notranslate nohighlight">\(\mathbf{x}_o\)</span></p></li>
+</ol>
+</section>
+<section id="benefits">
+<h3>Benefits<a class="headerlink" href="#benefits" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>NPE is <strong>amortized</strong> s.t. no re-training is required for new observations;
+contrary to ABC</p></li>
+<li><p>(Embedding) Networks allow to cope with high-dimensional data</p></li>
+</ul>
+</section>
+<section id="sequential-npe">
+<h3>Sequential NPE<a class="headerlink" href="#sequential-npe" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Enhances <strong>sample efficiency</strong></p></li>
+<li><p>Requires adaptations to correct the diverging posterior</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nb_02_conditional_density_estimation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Conditional Density Estimation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nb_04_neural_likelihood_and_ratio_estimation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Neural Likelihood and Ratio Estimation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Neural Density Estimation with SBI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-density-estimation-for-sbi">Neural Density Estimation for SBI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#idea-of-neural-posterior-estimation">Idea of Neural Posterior Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-the-joint-distribution">Sampling from the Joint Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-decomposition">Posterior decomposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-neural-posterior-estimation">Example: Neural Posterior Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-sir-dataset">Example Data: SIR Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-learned-distribution">Inspecting the Learned Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#great-you-ve-run-through-your-first-sbi-workflow">Great, you’ve run through your first SBI workflow! 🎉</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-resulting-posterior-approximation">Inspect Resulting Posterior Approximation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treatment-of-time-series-data">Treatment of Time Series Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-neural-estimation">Sequential Neural * Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-sequential-posterior-estimation-snpe">Example: Sequential Posterior Estimation (SNPE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-sn-e">The Problem with SN*E</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#popular-methods-for-snpe">Popular Methods for SNPE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-posterior-estimation-works-by">Neural Posterior Estimation works by</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits">Benefits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-npe">Sequential NPE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By appliedAI TransferLab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1221 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>How can we evaluate the performance of SBI? &#8212; thesan_output</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configmacros"]}, "tex": {"packages": {"[+]": ["configmacros"]}, "macros": {"vect": ["{\\mathbf{\\boldsymbol{#1}} }", 1], "E": "{\\mathbb{E}}", "P": "{\\mathbb{P}}", "R": "{\\mathbb{R}}", "abs": ["{\\left| #1 \\right|}", 1], "simpl": ["{\\Delta^{#1} }", 1], "amax": "{\\text{argmax}}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"5c298799c7ce48c08417217ff95091c8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "23e712ed05ba4a66abee5bcf8365acbe": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "10b2770ee93c49aa89ddd09fbb9abe61": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_5c298799c7ce48c08417217ff95091c8", "max": 1000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_23e712ed05ba4a66abee5bcf8365acbe", "tabbable": null, "tooltip": null, "value": 1000.0}}, "f8854d8a6b13482c95c01476c4f85aba": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8ade48f763e049c39a42d71df3f05240": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "f081b75f6f11408abe643249475ba75b": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_f8854d8a6b13482c95c01476c4f85aba", "placeholder": "\u200b", "style": "IPY_MODEL_8ade48f763e049c39a42d71df3f05240", "tabbable": null, "tooltip": null, "value": "Drawing 1000 posterior samples: 100%"}}, "851b5e1af69e4b8d81f3debd682c0b4f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4e201b261335446cbd1d58a5609adcaf": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "b76f5573ef974b9a96425170c905aadc": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_851b5e1af69e4b8d81f3debd682c0b4f", "placeholder": "\u200b", "style": "IPY_MODEL_4e201b261335446cbd1d58a5609adcaf", "tabbable": null, "tooltip": null, "value": " 1000/1000 [00:00&lt;00:00, 92320.48it/s]"}}, "b5873e0dbc274073b9d72edd58da978e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f0125b87775742fe823cbe89358d2dda": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_f081b75f6f11408abe643249475ba75b", "IPY_MODEL_10b2770ee93c49aa89ddd09fbb9abe61", "IPY_MODEL_b76f5573ef974b9a96425170c905aadc"], "layout": "IPY_MODEL_b5873e0dbc274073b9d72edd58da978e", "tabbable": null, "tooltip": null}}, "3359718ff607462b90a2e6aa6bfc3ba2": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a5f8d257e72e4cdf93e8f6b397325857": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "0301f38472fc43bb9ef5897341124087": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_3359718ff607462b90a2e6aa6bfc3ba2", "max": 1000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_a5f8d257e72e4cdf93e8f6b397325857", "tabbable": null, "tooltip": null, "value": 1000.0}}, "356a1e9c714b41198f5d93b5f58515a6": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "dcf119d700bf406283805f1a75d44ab3": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "821c608e936e4333b49e4d8148d9add9": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_356a1e9c714b41198f5d93b5f58515a6", "placeholder": "\u200b", "style": "IPY_MODEL_dcf119d700bf406283805f1a75d44ab3", "tabbable": null, "tooltip": null, "value": "Running 1000 sbc samples.: 100%"}}, "df87a35cc9a145e5a83f8b6727706730": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "254418ba1b1b4322aad8835c61489fcf": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "b7548e54a04d4158b0900fcd90d52f35": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_df87a35cc9a145e5a83f8b6727706730", "placeholder": "\u200b", "style": "IPY_MODEL_254418ba1b1b4322aad8835c61489fcf", "tabbable": null, "tooltip": null, "value": " 1000/1000 [00:05&lt;00:00, 177.83it/s]"}}, "5c48360496bb4c81b0c382fa339234b5": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "76d8d932c67346e9803f527ad8914da7": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_821c608e936e4333b49e4d8148d9add9", "IPY_MODEL_0301f38472fc43bb9ef5897341124087", "IPY_MODEL_b7548e54a04d4158b0900fcd90d52f35"], "layout": "IPY_MODEL_5c48360496bb4c81b0c382fa339234b5", "tabbable": null, "tooltip": null}}, "036c341c622e48d2bfb520073d4510e0": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "423c4bccd6cc404dbf24a56d0762cd63": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "b93e939616024cf7b9381d21c3573b1c": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_036c341c622e48d2bfb520073d4510e0", "max": 1000.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_423c4bccd6cc404dbf24a56d0762cd63", "tabbable": null, "tooltip": null, "value": 1000.0}}, "1874237ab3924d0b81bdfd0d2ae48f00": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "45c823196f154e53a72f29e8d42b08b4": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "184c8c1f75374b8f8c5c67dd6794d974": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_1874237ab3924d0b81bdfd0d2ae48f00", "placeholder": "\u200b", "style": "IPY_MODEL_45c823196f154e53a72f29e8d42b08b4", "tabbable": null, "tooltip": null, "value": "Running 1000 sbc samples.: 100%"}}, "c1f28cf9a8364ac1b1f1e77842026f31": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "213658172d0b4a5b8e582627a9e4548a": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "94f5d248b8f74fcb96b3388f36913e71": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_c1f28cf9a8364ac1b1f1e77842026f31", "placeholder": "\u200b", "style": "IPY_MODEL_213658172d0b4a5b8e582627a9e4548a", "tabbable": null, "tooltip": null, "value": " 1000/1000 [00:05&lt;00:00, 189.52it/s]"}}, "13de7d151fee4851924524111faae1c7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "42dfc270964647f98d0547f84c5d1cbe": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_184c8c1f75374b8f8c5c67dd6794d974", "IPY_MODEL_b93e939616024cf7b9381d21c3573b1c", "IPY_MODEL_94f5d248b8f74fcb96b3388f36913e71"], "layout": "IPY_MODEL_13de7d151fee4851924524111faae1c7", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb_05_evaluation_of_sbi';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Neural Likelihood and Ratio Estimation" href="nb_04_neural_likelihood_and_ratio_estimation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/transferlab-logo.svg" class="logo__image only-light" alt="thesan_output - Home"/>
+    <script>document.write(`<img src="_static/transferlab-logo.svg" class="logo__image only-dark" alt="thesan_output - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Simulation-based Inference - Notebook Pages
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nb_01_introduction_to_sbi.html">Simulators are abundant in science and engineering</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="nb_02_conditional_density_estimation.html">Conditional Density Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb_03_neural_density_estimation.html">Introduction to Neural Density Estimation with SBI</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="nb_04_neural_likelihood_and_ratio_estimation.html">Neural Likelihood and Ratio Estimation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How can we evaluate the performance of SBI?</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/nb_05_evaluation_of_sbi.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How can we evaluate the performance of SBI?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How can we evaluate the performance of SBI?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-to-evaluate-the-performance-of-sbi">Methods to evaluate the performance of SBI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-training-convergence">1) Neural network training convergence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-example">Gaussian example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-training-convergence">1) Check training convergence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-posterior">Visualize posterior</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-checks">2) Posterior predictive checks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-calibration-checks">3) Posterior calibration checks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-based-calibration">Simulation-based calibration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-idea">Rough idea</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Simulation-based calibration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuition">Intuition</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Simulation-based calibration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-applying-sbc-to-gaussian-simulator-from-above">Example: applying SBC to Gaussian simulator from above</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-ranks-as-an-empirical-cdf">Plot the ranks as an empirical CDF</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-detecting-mis-calibration-using-sbc">Exercise: detecting mis-calibration using SBC</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reason-for-sbi-evaluation">Reason for SBI evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-sbi-evaluation">Methods for SBI evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell tag_remove-input tag_remove-input-nbconv docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style>/*
+This file is mainly copy-pasta from rise's examples
+https://github.com/damianavila/RISE/blob/master/examples/rise.css
+that was further customized for appliedAI purposes
+*/
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
+
+
+body {
+    font-family: 'Work Sans', sans-serif !important;
+    text-transform: initial !important;
+    letter-spacing: initial !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    text-size-adjust: 100% !important;
+    ‑webkit‑text‑size‑adjust: 100% !important;
+}
+
+
+.reveal, div.text_cell_render, .md-slide, .sidebar-wrapper {
+    font-size: 1.5rem !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #00747b !important;
+}
+
+.filename {
+    font-size: 2.4rem !important;
+    color: #212529 !important;
+    font-weight: 600 !important;
+}
+
+.reveal, .md-slide {
+    color: white !important;
+}
+
+h1, h2 {
+    color: #00747b !important;
+}
+
+h3, h4, h5, h6 {
+    color: #808080 !important;
+}
+
+.reveal p, .reveal ol, .reveal dl, .reveal ul,
+div.text_cell_render {
+    color: #212529 !important;
+}
+
+/*copied from stackoverflow, better spacing between list items*/
+li + li {
+  margin-top: 0.2em;
+}
+
+body.rise-enabled .reveal ol, body.rise-enabled .reveal dl, body.rise-enabled .reveal ul {
+    margin-left: 0.1em;
+    margin-top: 0.2em;
+}
+
+.reveal .rendered_html h1:first-child,
+.reveal .rendered_html h2:first-child,
+.reveal .rendered_html h3:first-child,
+.reveal .rendered_html h4:first-child,
+.reveal .rendered_html h5:first-child {
+    margin-top: 0.2em;
+}
+
+.CodeMirror-lines, .output_text {
+    font-size: 1.5rem !important;
+}
+
+
+h1.plan, h2.plan, h3.plan {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+ul.plan>li>span.plan-bold {
+    font-size: 110%;
+    padding: 4px;
+    font-weight: bold;
+    background-color: #eee;
+}
+
+ul.plan>li>ul.subplan>li>span.plan-bold {
+    font-weight: bold;
+}
+
+.plan-strike {
+    opacity: 0.4;
+/*    text-decoration: line-through; */
+}
+
+div.plan-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+/*
+ * this is to void xarray's html output to show the fallback textual representation
+ * see also
+   * xarray.md and
+   * https://github.com/damianavila/RISE/issues/594
+ */
+.reveal pre.xr-text-repr-fallback {
+    display: none;
+}
+
+#toc-header, .toc-item li {
+    margin: auto !important;
+    color: #808080 !important;
+}
+
+#toc, #toc-wrapper, .toc-item-num, #toc a, .toc {
+    margin: auto !important;
+    color: #00747b !important;
+}
+
+#toc-wrapper {
+    top: auto !important;
+    bottom: auto !important;
+    margin-top: 2rem !important;
+    color: #00747b !important;
+}
+
+
+#rise-header {
+    margin: 10px;
+    left: 5%;
+}
+
+#rise-footer {
+    margin: 10px;
+    right: 5%;
+}
+
+#rise-backimage {
+    opacity: 0.70;
+}
+
+.reveal img {
+    max-width: 100%;
+}
+
+
+.md-slide.title {
+  position: relative;
+  top: -50%;
+  margin-left: 5%;
+}</style></div></div>
+</div>
+<img src="_static/images/aai-institute-cover.svg" alt="Snow" style="width:100%;">
+<div class="md-slide title">
+    <h1>Evaluating simulation-based inference</h1>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">ones</span><span class="p">,</span> <span class="n">zeros</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.config</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">default_remote_storage</span><span class="p">,</span>
+    <span class="n">get_config</span><span class="p">,</span>
+    <span class="n">root_dir</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.data_utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SIRSimulation</span><span class="p">,</span>
+    <span class="n">load_sir_data</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">default_remote_storage</span><span class="p">()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">(</span><span class="n">reload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="how-can-we-evaluate-the-performance-of-sbi">
+<h1>How can we evaluate the performance of SBI?<a class="headerlink" href="#how-can-we-evaluate-the-performance-of-sbi" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Neural density estimators are accurate only in the limit of infinite training data</p></li>
+<li><p>The posteriors we get are only approximations</p></li>
+<li><p>How do we know SBI is reliable?</p></li>
+</ul>
+</section>
+<section id="methods-to-evaluate-the-performance-of-sbi">
+<h1>Methods to evaluate the performance of SBI<a class="headerlink" href="#methods-to-evaluate-the-performance-of-sbi" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Checking neural network training convergence</p>
+<ul class="simple">
+<li><p>Monitor posterior log-probability of test data pairs <span class="math notranslate nohighlight">\((\theta, x)\)</span></p></li>
+</ul>
+</li>
+<li><p>Posterior predictive checks</p>
+<ul class="simple">
+<li><p>Test whether the inferred parameters <span class="math notranslate nohighlight">\(\theta \sim q(\theta | x_o)\)</span> reproduce the observed data <span class="math notranslate nohighlight">\(x_o\)</span></p></li>
+</ul>
+</li>
+<li><p>Calibration checks</p>
+<ul class="simple">
+<li><p>Check whether the uncertainties of the inferred posteriors are well-calibrated</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="neural-network-training-convergence">
+<h1>1) Neural network training convergence<a class="headerlink" href="#neural-network-training-convergence" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Use logging tools like <code class="docutils literal notranslate"><span class="pre">lightning</span></code>, <code class="docutils literal notranslate"><span class="pre">tensorboard</span></code> or <code class="docutils literal notranslate"><span class="pre">wandb</span></code> (weights and biases, <a class="reference external" href="http://wandb.ai">wandb.ai</a>) to track training convergence via the validation loss.</p></li>
+<li><p>Validation loss: use unseen data simulated from the prior to evaluate the conditional density estimator:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">validation_loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">net</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># - log p(theta | x)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Stop training when <code class="docutils literal notranslate"><span class="pre">validation_loss</span></code> converges (e.g., no decrease for 20 epochs)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">SNPE</span><span class="p">()</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">validation_fractior</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">stop_after_epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">validation_loss</span></code> to perform neural architecture search (e.g., for embedding nets)</p></li>
+</ul>
+</section>
+<section id="gaussian-example">
+<h1>Gaussian example<a class="headerlink" href="#gaussian-example" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">ones</span><span class="p">,</span> <span class="n">zeros</span>
+<span class="kn">from</span> <span class="nn">sbi.inference</span> <span class="kn">import</span> <span class="n">SNPE</span>
+<span class="kn">from</span> <span class="nn">sbi.utils</span> <span class="kn">import</span> <span class="n">BoxUniform</span>
+<span class="kn">from</span> <span class="nn">sbi.analysis</span> <span class="kn">import</span> <span class="n">pairplot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulator</span><span class="p">(</span><span class="n">theta</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">simulator_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">simulator_scale</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta</span>
+
+<span class="c1"># choose prior</span>
+<span class="n">dim</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">prior</span> <span class="o">=</span> <span class="n">BoxUniform</span><span class="p">(</span><span class="o">-</span><span class="n">ones</span><span class="p">(</span><span class="n">dim</span><span class="p">),</span> <span class="n">ones</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
+
+<span class="c1"># run simulations</span>
+<span class="n">num_simulations</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">prior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">num_simulations</span><span class="p">,))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">simulator</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="c1"># train</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">SNPE</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 1
+ Training neural network. Epochs trained: 2
+ Training neural network. Epochs trained: 3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 4
+ Training neural network. Epochs trained: 5
+ Training neural network. Epochs trained: 6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 7
+ Training neural network. Epochs trained: 8
+ Training neural network. Epochs trained: 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 10
+ Training neural network. Epochs trained: 11
+ Training neural network. Epochs trained: 12
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 13
+ Training neural network. Epochs trained: 14
+ Training neural network. Epochs trained: 15
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 16
+ Training neural network. Epochs trained: 17
+ Training neural network. Epochs trained: 18
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 19
+ Training neural network. Epochs trained: 20
+ Training neural network. Epochs trained: 21
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 22
+ Training neural network. Epochs trained: 23
+ Training neural network. Epochs trained: 24
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 25
+ Training neural network. Epochs trained: 26
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 27
+ Training neural network. Epochs trained: 28
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 29
+ Training neural network. Epochs trained: 30
+ Training neural network. Epochs trained: 31
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 32
+ Training neural network. Epochs trained: 33
+ Training neural network. Epochs trained: 34
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 35
+ Training neural network. Epochs trained: 36
+ Training neural network. Epochs trained: 37
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 38
+ Training neural network. Epochs trained: 39
+ Training neural network. Epochs trained: 40
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 41
+ Training neural network. Epochs trained: 42
+ Training neural network. Epochs trained: 43
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 44
+ Training neural network. Epochs trained: 45
+ Training neural network. Epochs trained: 46
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 47
+ Training neural network. Epochs trained: 48
+ Training neural network. Epochs trained: 49
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 50
+ Training neural network. Epochs trained: 51
+ Training neural network. Epochs trained: 52
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 53
+ Training neural network. Epochs trained: 54
+ Training neural network. Epochs trained: 55
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 56
+ Training neural network. Epochs trained: 57
+ Training neural network. Epochs trained: 58
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 59
+ Training neural network. Epochs trained: 60
+ Training neural network. Epochs trained: 61
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 62
+ Training neural network. Epochs trained: 63
+ Training neural network. Epochs trained: 64
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 65
+ Training neural network. Epochs trained: 66
+ Training neural network. Epochs trained: 67
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 68
+ Training neural network. Epochs trained: 69
+ Training neural network. Epochs trained: 70
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 71
+ Training neural network. Epochs trained: 72
+ Training neural network. Epochs trained: 73
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 74
+ Training neural network. Epochs trained: 75
+ Training neural network. Epochs trained: 76
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 77
+ Training neural network. Epochs trained: 78
+ Training neural network. Epochs trained: 79
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 80
+ Training neural network. Epochs trained: 81
+ Training neural network. Epochs trained: 82
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 83
+ Training neural network. Epochs trained: 84
+ Training neural network. Epochs trained: 85
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 86
+ Training neural network. Epochs trained: 87
+ Training neural network. Epochs trained: 88
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 89
+ Training neural network. Epochs trained: 90
+ Training neural network. Epochs trained: 91
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 92
+ Training neural network. Epochs trained: 93
+ Training neural network. Epochs trained: 94
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 95
+ Training neural network. Epochs trained: 96
+ Training neural network. Epochs trained: 97
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 98
+ Training neural network. Epochs trained: 99
+ Neural network successfully converged after 99 epochs.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="check-training-convergence">
+<h1>1) Check training convergence<a class="headerlink" href="#check-training-convergence" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="s2">&quot;training_log_probs&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="s2">&quot;validation_log_probs&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;epochs&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;posterior log prob&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;training&quot;</span><span class="p">,</span> <span class="s2">&quot;validation&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/58ab31e354d0c00b9a0e879031887851d3ef982d9ee0acdd4ca345d2d634a7fd.png" src="_images/58ab31e354d0c00b9a0e879031887851d3ef982d9ee0acdd4ca345d2d634a7fd.png" />
+</div>
+</div>
+</section>
+<section id="visualize-posterior">
+<h1>Visualize posterior<a class="headerlink" href="#visualize-posterior" title="Permalink to this heading">#</a></h1>
+<p>Parameter space</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta_o</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<span class="n">x_o</span> <span class="o">=</span> <span class="n">simulator</span><span class="p">(</span><span class="n">theta_o</span><span class="p">)</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">posterior_samples</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">num_samples</span><span class="p">,),</span> <span class="n">x</span><span class="o">=</span><span class="n">x_o</span><span class="p">)</span>
+
+<span class="n">pairplot</span><span class="p">([</span><span class="n">theta</span><span class="p">,</span> <span class="n">posterior_samples</span><span class="p">],</span> <span class="n">points</span><span class="o">=</span><span class="n">theta_o</span><span class="p">,</span> 
+         <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;theta 1&quot;</span><span class="p">,</span> <span class="s2">&quot;theta 2&quot;</span><span class="p">],</span> <span class="n">samples_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;prior&quot;</span><span class="p">,</span> <span class="s2">&quot;posterior&quot;</span><span class="p">],</span> 
+         <span class="n">points_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;true theta&quot;</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hist_diag</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+        <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f0125b87775742fe823cbe89358d2dda"}</script><img alt="_images/4a6c13505f9d295e951ffb3909db2e13a43b6f6e0a31e8761d368ad8d2581108.png" src="_images/4a6c13505f9d295e951ffb3909db2e13a43b6f6e0a31e8761d368ad8d2581108.png" />
+</div>
+</div>
+</section>
+<section id="posterior-predictive-checks">
+<h1>2) Posterior predictive checks<a class="headerlink" href="#posterior-predictive-checks" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The posterior characterizes those model parameters that are likely to have generate the observed data <span class="math notranslate nohighlight">\(x_o\)</span></p></li>
+<li><p>Thus, simulating data with inferred parameters should reproduce <span class="math notranslate nohighlight">\(x_o\)</span> (<span class="math notranslate nohighlight">\(\pm\)</span> simulator noise)</p></li>
+<li><p>Posterior predictive checks:</p>
+<ul>
+<li><p>Simulate data with parameters sampled from the posterior</p></li>
+<li><p>Visually or quantitatively compare to <span class="math notranslate nohighlight">\(x_o\)</span></p></li>
+<li><p>If they do not match, something is off!</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">posterior_predictive_samples</span> <span class="o">=</span> <span class="n">simulator</span><span class="p">(</span><span class="n">posterior_samples</span><span class="p">)</span>
+<span class="n">pairplot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">posterior_predictive_samples</span><span class="p">],</span> <span class="n">points</span><span class="o">=</span><span class="n">x_o</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x_1&quot;</span><span class="p">,</span> <span class="s2">&quot;x_2&quot;</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+         <span class="n">samples_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;prior</span><span class="se">\n</span><span class="s2">predictive&quot;</span><span class="p">,</span> <span class="s2">&quot;posterior</span><span class="se">\n</span><span class="s2">predictive&quot;</span><span class="p">],</span> <span class="n">points_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;observed data&quot;</span><span class="p">],</span> 
+         <span class="n">hist_diag</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
+        <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3379f1c47d060187f616f4fea4bbf77acd95d81316b9ba3be9b2184fc9396210.png" src="_images/3379f1c47d060187f616f4fea4bbf77acd95d81316b9ba3be9b2184fc9396210.png" />
+</div>
+</div>
+</section>
+<section id="posterior-calibration-checks">
+<h1>3) Posterior calibration checks<a class="headerlink" href="#posterior-calibration-checks" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Check whether the SBI posterior uncertainties are well-calibrated: whether the posterior is over- or underconfident (on average)</p></li>
+<li><p>Indirect check: we do not need access to the true posterior</p></li>
+<li><p>Requirements</p>
+<ul>
+<li><p>Access to a set of unseen test data <span class="math notranslate nohighlight">\((\theta, x)\)</span> (~100s)</p></li>
+<li><p>Fast inference for each test data point (computationally feasible only for amortized SBI methods)</p></li>
+<li><p>Fast posterior sampling (computationally demanding for NLE / NRE).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="simulation-based-calibration">
+<h1>Simulation-based calibration<a class="headerlink" href="#simulation-based-calibration" title="Permalink to this heading">#</a></h1>
+<section id="rough-idea">
+<h2>Rough idea<a class="headerlink" href="#rough-idea" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Repeat inference many times with different test data pairs <span class="math notranslate nohighlight">\((\theta_i, x_i)\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    \theta^* &amp;\sim p(\theta)\\
+    x^* &amp;\sim p(x | \theta^*)\\
+    \{\theta_1, \ldots \theta_L\} &amp;\sim p_i(\theta | x^*)\\
+\end{align}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Calculate the rank of <span class="math notranslate nohighlight">\(\theta_i\)</span> under corresponding posterior <span class="math notranslate nohighlight">\(p_i(\theta | x_i)\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+    r_i = \sum_{j=1}^L \mathbb{I}[f(\theta_j) &lt; f(\theta_i^*)] \in [0, L], 
+\end{align}
+\]</div>
+<ul class="simple">
+<li><p>Check whether distribution of ranks is uniform</p></li>
+</ul>
+</section>
+</section>
+<section id="id1">
+<h1>Simulation-based calibration<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="intuition">
+<h2>Intuition<a class="headerlink" href="#intuition" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>There is uncertainty in the simulator (aleatoric) and in the data (epistemic)</p></li>
+<li><p>Posterior is <strong>not centered on true parameter</strong></p></li>
+<li><p>But should be somewhere within the posterior (randomly)</p></li>
+<li><p>On average, it should be everywhere within posterior mass (uniform ranks)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairplot</span><span class="p">([</span><span class="n">theta</span><span class="p">,</span> <span class="n">posterior_samples</span><span class="p">],</span> <span class="n">points</span><span class="o">=</span><span class="n">theta_o</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;theta 1&quot;</span><span class="p">,</span> <span class="s2">&quot;theta 2&quot;</span><span class="p">],</span>
+         <span class="n">samples_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;prior&quot;</span><span class="p">,</span> <span class="s2">&quot;posterior&quot;</span><span class="p">],</span> <span class="n">points_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;true theta&quot;</span><span class="p">],</span>
+         <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hist_diag</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
+        <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f4dd441d411f0c1a9eb4b9b13544c939d5554261f8c275f853afb4b8fe89a76f.png" src="_images/f4dd441d411f0c1a9eb4b9b13544c939d5554261f8c275f853afb4b8fe89a76f.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="id2">
+<h1>Simulation-based calibration<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h1>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this heading">#</a></h2>
+<img src="_static/images/fig2.4_sbc_illustration.png" alt="Snow" style="width:50%;">
+<ul class="simple">
+<li><p>The posterior is <strong>well-calibrated</strong> only if the ranks are distributed uniformly (necessary condition)</p></li>
+<li><p>Shape of rank-distribution gives insight about <strong>mis-calibration</strong></p></li>
+<li><p>Can be gamed by setting posterior=prior (it’s not a sufficient condition)</p></li>
+</ul>
+</section>
+</section>
+<section id="example-applying-sbc-to-gaussian-simulator-from-above">
+<h1>Example: applying SBC to Gaussian simulator from above<a class="headerlink" href="#example-applying-sbc-to-gaussian-simulator-from-above" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate test data set from prior</span>
+<span class="n">num_sbc_simulations</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">num_posterior_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">theta_test</span> <span class="o">=</span> <span class="n">prior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">num_sbc_simulations</span><span class="p">,))</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">simulator</span><span class="p">(</span><span class="n">theta_test</span><span class="p">,</span> <span class="n">simulator_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># run SBC</span>
+<span class="kn">from</span> <span class="nn">sbi.analysis</span> <span class="kn">import</span> <span class="n">run_sbc</span><span class="p">,</span> <span class="n">sbc_rank_plot</span>
+
+<span class="n">ranks</span><span class="p">,</span> <span class="n">dap_samples</span> <span class="o">=</span> <span class="n">run_sbc</span><span class="p">(</span><span class="n">theta_test</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">posterior</span><span class="p">,</span> <span class="n">num_posterior_samples</span><span class="o">=</span><span class="n">num_posterior_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "76d8d932c67346e9803f527ad8914da7"}</script></div>
+</div>
+</section>
+<section id="plot-the-ranks-as-an-empirical-cdf">
+<h1>Plot the ranks as an empirical CDF<a class="headerlink" href="#plot-the-ranks-as-an-empirical-cdf" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">sbc_rank_plot</span><span class="p">(</span><span class="n">ranks</span><span class="p">,</span> <span class="n">num_posterior_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/32b39cdeb205f394459d2396047b3f340a5ae1f1e4812be11d50564ecea22e08.png" src="_images/32b39cdeb205f394459d2396047b3f340a5ae1f1e4812be11d50564ecea22e08.png" />
+</div>
+</div>
+</section>
+<section id="exercise-detecting-mis-calibration-using-sbc">
+<h1>Exercise: detecting mis-calibration using SBC<a class="headerlink" href="#exercise-detecting-mis-calibration-using-sbc" title="Permalink to this heading">#</a></h1>
+<p>Note: the posterior estimator was trained on data with <code class="docutils literal notranslate"><span class="pre">simulator_scale=0.1</span></code></p>
+<ol class="arabic simple">
+<li><p>Task 1: generate slightly mis-specified test data by using <code class="docutils literal notranslate"><span class="pre">simulator_scale=0.05</span></code></p></li>
+<li><p>Task 2: run SBC using that test data and plot the distribution of ranks.</p></li>
+<li><p>Task 3: interpret the results</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution</span>
+<span class="n">theta_test</span> <span class="o">=</span> <span class="n">prior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">num_sbc_simulations</span><span class="p">,))</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">simulator</span><span class="p">(</span><span class="n">theta_test</span><span class="p">,</span> <span class="n">simulator_scale</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">ranks</span><span class="p">,</span> <span class="n">dap_samples</span> <span class="o">=</span> <span class="n">run_sbc</span><span class="p">(</span><span class="n">theta_test</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">posterior</span><span class="p">,</span> <span class="n">num_posterior_samples</span><span class="o">=</span><span class="n">num_posterior_samples</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">sbc_rank_plot</span><span class="p">(</span><span class="n">ranks</span><span class="p">,</span> <span class="n">num_posterior_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "42dfc270964647f98d0547f84c5d1cbe"}</script><img alt="_images/8daf9ca19e0edbdcb15ab2d63bbfdf1a173eb59b6b3ffcba14786df13da2e264.png" src="_images/8daf9ca19e0edbdcb15ab2d63bbfdf1a173eb59b6b3ffcba14786df13da2e264.png" />
+</div>
+</div>
+</section>
+<section id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<section id="reason-for-sbi-evaluation">
+<h2>Reason for SBI evaluation<a class="headerlink" href="#reason-for-sbi-evaluation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Training data is limited</p></li>
+<li><p>SBI posteriors are approximate,</p></li>
+<li><p>No access to ground-truth posterior</p></li>
+</ul>
+</section>
+<section id="methods-for-sbi-evaluation">
+<h2>Methods for SBI evaluation<a class="headerlink" href="#methods-for-sbi-evaluation" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Checking training convergence of neural-networks via validation-loss (optimize architectures)</p></li>
+<li><p>Posterior predictive checks: test whether data simulator from the posterior matches observation (sufficient)</p></li>
+<li><p>Calibration checks: test whether posterior-uncertainties are well-calibrated</p></li>
+</ol>
+</section>
+</section>
+<section id="acknowledgments">
+<h1>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>SBI package for code and figures.</p></li>
+<li><p>Talts et al. 2018 for Simulation-based calibration paper.</p></li>
+<li><p>SBC intuition figure taken from Jan Boelts’ phd thesis.</p></li>
+</ul>
+<img src="_static/images/aai-institute-cover.svg" alt="Snow" style="width:100%;">
+<div class="md-slide title">Thank you for the attention!</div></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nb_04_neural_likelihood_and_ratio_estimation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Neural Likelihood and Ratio Estimation</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How can we evaluate the performance of SBI?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-to-evaluate-the-performance-of-sbi">Methods to evaluate the performance of SBI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-training-convergence">1) Neural network training convergence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-example">Gaussian example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-training-convergence">1) Check training convergence</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-posterior">Visualize posterior</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-predictive-checks">2) Posterior predictive checks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-calibration-checks">3) Posterior calibration checks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-based-calibration">Simulation-based calibration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-idea">Rough idea</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Simulation-based calibration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intuition">Intuition</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Simulation-based calibration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-applying-sbc-to-gaussian-simulator-from-above">Example: applying SBC to Gaussian simulator from above</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-ranks-as-an-empirical-cdf">Plot the ranks as an empirical CDF</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-detecting-mis-calibration-using-sbc">Exercise: detecting mis-calibration using SBC</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reason-for-sbi-evaluation">Reason for SBI evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-sbi-evaluation">Methods for SBI evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By appliedAI TransferLab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

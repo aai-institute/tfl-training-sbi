@@ -1,0 +1,1261 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Neural Likelihood and Ratio Estimation &#8212; thesan_output</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configmacros"]}, "tex": {"packages": {"[+]": ["configmacros"]}, "macros": {"vect": ["{\\mathbf{\\boldsymbol{#1}} }", 1], "E": "{\\mathbb{E}}", "P": "{\\mathbb{P}}", "R": "{\\mathbb{R}}", "abs": ["{\\left| #1 \\right|}", 1], "simpl": ["{\\Delta^{#1} }", 1], "amax": "{\\text{argmax}}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb_04_neural_likelihood_and_ratio_estimation';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How can we evaluate the performance of SBI?" href="nb_05_evaluation_of_sbi.html" />
+    <link rel="prev" title="Introduction to Neural Density Estimation with SBI" href="nb_03_neural_density_estimation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/transferlab-logo.svg" class="logo__image only-light" alt="thesan_output - Home"/>
+    <script>document.write(`<img src="_static/transferlab-logo.svg" class="logo__image only-dark" alt="thesan_output - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Simulation-based Inference - Notebook Pages
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nb_01_introduction_to_sbi.html">Simulators are abundant in science and engineering</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="nb_02_conditional_density_estimation.html">Conditional Density Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb_03_neural_density_estimation.html">Introduction to Neural Density Estimation with SBI</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Neural Likelihood and Ratio Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb_05_evaluation_of_sbi.html">How can we evaluate the performance of SBI?</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/nb_04_neural_likelihood_and_ratio_estimation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Neural Likelihood and Ratio Estimation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-the-goal-of-sbi">Recap: the Goal of SBI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-neural-posterior-estimation">Recap: Neural Posterior Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-likelihood">The Likelihood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-likelihood-with-a-neural-network">Learning the Likelihood with a Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-the-nle-posterior">Sampling from the NLE Posterior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-use-nle">Why should I use NLE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-intro-to-the-sbi-toolkit">Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application-of-nle-on-the-sir-dataset">Example: Application of NLE on the SIR Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-inference-object">Saving the Inference Object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-investigate-the-learned-posterior">Let’s Investigate the Learned Posterior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-ratio-estimation">Neural Ratio Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-about-nre">Considerations about NRE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-nre">Usage of NRE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations-for-npe-vs-nle-and-nre">Practical Considerations for NPE vs. NLE and NRE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell tag_remove-input tag_remove-input-nbconv docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style>/*
+This file is mainly copy-pasta from rise's examples
+https://github.com/damianavila/RISE/blob/master/examples/rise.css
+that was further customized for appliedAI purposes
+*/
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
+
+
+body {
+    font-family: 'Work Sans', sans-serif !important;
+    text-transform: initial !important;
+    letter-spacing: initial !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    text-size-adjust: 100% !important;
+    ‑webkit‑text‑size‑adjust: 100% !important;
+}
+
+
+.reveal, div.text_cell_render, .md-slide, .sidebar-wrapper {
+    font-size: 1.5rem !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #00747b !important;
+}
+
+.filename {
+    font-size: 2.4rem !important;
+    color: #212529 !important;
+    font-weight: 600 !important;
+}
+
+.reveal, .md-slide {
+    color: white !important;
+}
+
+h1, h2 {
+    color: #00747b !important;
+}
+
+h3, h4, h5, h6 {
+    color: #808080 !important;
+}
+
+.reveal p, .reveal ol, .reveal dl, .reveal ul,
+div.text_cell_render {
+    color: #212529 !important;
+}
+
+/*copied from stackoverflow, better spacing between list items*/
+li + li {
+  margin-top: 0.2em;
+}
+
+body.rise-enabled .reveal ol, body.rise-enabled .reveal dl, body.rise-enabled .reveal ul {
+    margin-left: 0.1em;
+    margin-top: 0.2em;
+}
+
+.reveal .rendered_html h1:first-child,
+.reveal .rendered_html h2:first-child,
+.reveal .rendered_html h3:first-child,
+.reveal .rendered_html h4:first-child,
+.reveal .rendered_html h5:first-child {
+    margin-top: 0.2em;
+}
+
+.CodeMirror-lines, .output_text {
+    font-size: 1.5rem !important;
+}
+
+
+h1.plan, h2.plan, h3.plan {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+ul.plan>li>span.plan-bold {
+    font-size: 110%;
+    padding: 4px;
+    font-weight: bold;
+    background-color: #eee;
+}
+
+ul.plan>li>ul.subplan>li>span.plan-bold {
+    font-weight: bold;
+}
+
+.plan-strike {
+    opacity: 0.4;
+/*    text-decoration: line-through; */
+}
+
+div.plan-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+/*
+ * this is to void xarray's html output to show the fallback textual representation
+ * see also
+   * xarray.md and
+   * https://github.com/damianavila/RISE/issues/594
+ */
+.reveal pre.xr-text-repr-fallback {
+    display: none;
+}
+
+#toc-header, .toc-item li {
+    margin: auto !important;
+    color: #808080 !important;
+}
+
+#toc, #toc-wrapper, .toc-item-num, #toc a, .toc {
+    margin: auto !important;
+    color: #00747b !important;
+}
+
+#toc-wrapper {
+    top: auto !important;
+    bottom: auto !important;
+    margin-top: 2rem !important;
+    color: #00747b !important;
+}
+
+
+#rise-header {
+    margin: 10px;
+    left: 5%;
+}
+
+#rise-footer {
+    margin: 10px;
+    right: 5%;
+}
+
+#rise-backimage {
+    opacity: 0.70;
+}
+
+.reveal img {
+    max-width: 100%;
+}
+
+
+.md-slide.title {
+  position: relative;
+  top: -50%;
+  margin-left: 5%;
+}</style></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">sbi.analysis</span>
+<span class="kn">import</span> <span class="nn">sbi.inference</span>
+<span class="kn">import</span> <span class="nn">sbi.utils</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">sbi.utils</span> <span class="kn">import</span> <span class="n">process_prior</span>
+<span class="kn">from</span> <span class="nn">torch.distributions</span> <span class="kn">import</span> <span class="n">LogNormal</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">torchvision.transforms</span> <span class="kn">import</span> <span class="n">Compose</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">trange</span><span class="p">,</span> <span class="n">tqdm</span>
+
+<span class="c1"># from tfl_training_sbi.config import (</span>
+<span class="c1">#     default_remote_storage,</span>
+<span class="c1">#     get_config,</span>
+<span class="c1">#     root_dir,</span>
+<span class="c1"># )</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.data_utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SIRSimulation</span><span class="p">,</span>
+    <span class="n">load_sir_data</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.utils_models</span> <span class="kn">import</span> <span class="n">save_posterior_obj</span>
+<span class="c1"># from tfl_training_sbi.utils_sir import eval_sir_model</span>
+
+<span class="c1"># set manual seed for reproducibility</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># ignore user warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="c1"># configure storage location</span>
+<span class="c1"># storage = default_remote_storage()</span>
+<span class="c1"># c = get_config(reload=True)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="neural-likelihood-and-ratio-estimation">
+<h1>Neural Likelihood and Ratio Estimation<a class="headerlink" href="#neural-likelihood-and-ratio-estimation" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Recap of Neural Posterior Estimation</p></li>
+<li><p>Introduction to Neural Likelihood Estimation (NLE)</p></li>
+<li><p>Exercise</p></li>
+<li><p>Neural Ratio Estimation (NRE)</p></li>
+<li><p>Pros &amp; Cons of all three methods</p></li>
+</ul>
+<section id="recap-the-goal-of-sbi">
+<h2>Recap: the Goal of SBI<a class="headerlink" href="#recap-the-goal-of-sbi" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We want to learn the posterior <span class="math notranslate nohighlight">\(p(\theta | \mathbf{x})\)</span> of a model <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> given some data <span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p></li>
+<li><p>We do so using Bayes rule:
+$<span class="math notranslate nohighlight">\(
+  p(\theta | \mathbf{x}) = \frac{p(\mathbf{x} | \theta)
+  p(\theta)}{p(\mathbf{x})}
+  \)</span>$</p></li>
+<li><p>However, the Likelihood is usually intractable</p></li>
+<li><p>We overcome this challenge by sampling from the joint distribution
+<span class="math notranslate nohighlight">\(p(\mathbf{x}, \theta)=p(\mathbf{x}\mid \theta)p(\theta)\)</span> and learn a conditional density estimator</p></li>
+</ul>
+</section>
+<section id="recap-neural-posterior-estimation">
+<h2>Recap: Neural Posterior Estimation<a class="headerlink" href="#recap-neural-posterior-estimation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Direct mapping from observations <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to posterior <span class="math notranslate nohighlight">\(p(\theta|\mathbf{x})\)</span></p></li>
+<li><p>E.g. learning Gaussian mixture, parameterized by neural network</p></li>
+</ul>
+</section>
+<section id="the-likelihood">
+<h2>The Likelihood<a class="headerlink" href="#the-likelihood" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The Likelihood is the conditional probability density of the data given the model parameters, i.e. <span class="math notranslate nohighlight">\(p(\mathbf{x}|\theta)\)</span></p></li>
+<li><p>This is a density function in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> for fixed <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
+</ul>
+</section>
+<section id="learning-the-likelihood-with-a-neural-network">
+<h2>Learning the Likelihood with a Neural Network<a class="headerlink" href="#learning-the-likelihood-with-a-neural-network" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>NLE learns <span class="math notranslate nohighlight">\(p(\mathbf{x}|\theta)\)</span> instead of <span class="math notranslate nohighlight">\(p(\theta|\mathbf{x})\)</span></p></li>
+<li><p>Both are conditional density estimation problems (<a class="reference internal" href="nb_02_conditional_density_estimation.html"><span class="doc std std-doc">NB 02</span></a>)</p></li>
+<li><p>NLE is a Maximum Likelihood Estimation problem on <span class="math notranslate nohighlight">\(\{(\theta, \mathbf{x})_i
+\}^N_{i=1}\)</span> where <span class="math notranslate nohighlight">\(\mathcal{M}(\theta_i) = \mathbf{x}_i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{p}(\theta \mid \mathbf{x}) = p(\theta\mid\mathbf{x})p(\theta)\)</span> is a scaled version with constant <span class="math notranslate nohighlight">\(\frac{1}{p(\mathbf{x})}\)</span></p></li>
+</ul>
+</section>
+<section id="sampling-from-the-nle-posterior">
+<h2>Sampling from the NLE Posterior<a class="headerlink" href="#sampling-from-the-nle-posterior" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In contrast to NPE, NLE and NRE require MCMC to sample from the posterior</p></li>
+<li><p>This should be taken into account when deciding which method to use</p></li>
+<li><p>We refer to the training <em>Introduction to Bayesian Machine Learning</em> for a
+more in-depth coverage of accessing the posterior with MCMC</p></li>
+</ul>
+</section>
+<section id="why-should-i-use-nle">
+<h2>Why should I use NLE<a class="headerlink" href="#why-should-i-use-nle" title="Permalink to this heading">#</a></h2>
+<p>The goal is to obtain the posterior <span class="math notranslate nohighlight">\(p(\theta \mid \mathbf{x})\)</span>, why learn
+<span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta)\)</span>?</p>
+<ul class="simple">
+<li><p>Reduced complexity due to factorization for i.i.d. observations</p></li>
+<li><p>Amortized when increasing the hierarchy</p></li>
+<li><p>Advantage when <span class="math notranslate nohighlight">\(\operatorname{dim}(\theta) \gg \operatorname{dim}(\mathbf{x})\)</span></p></li>
+<li><p>Only the Likelihood is intractable</p></li>
+<li><p>No correction for sequential learning</p></li>
+</ul>
+</section>
+<section id="quick-intro-to-the-sbi-toolkit">
+<h2>Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit<a class="headerlink" href="#quick-intro-to-the-sbi-toolkit" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Open Source Software for Simulation-Based Inference; <i class="fa-brands fa-github"></i><a class="reference external" href="https://www.mackelab.org/sbi/">GitHub</a></p></li>
+<li><p>Provides SNPE, SNLE and SNRE as well as analysis tools out of the box</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a uninformative prior</span>
+<span class="n">prior</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">BoxUniform</span><span class="p">(</span>
+    <span class="n">low</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span> <span class="n">high</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="p">)</span>
+
+
+<span class="c1"># define a simple simulator</span>
+<span class="k">def</span> <span class="nf">example_simulator</span><span class="p">(</span><span class="n">theta</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+
+
+<span class="c1"># obtain samples from joint distribution</span>
+<span class="n">thetas</span> <span class="o">=</span> <span class="n">prior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="mi">1_000</span><span class="p">,))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">example_simulator</span><span class="p">(</span><span class="n">thetas</span><span class="p">)</span>
+
+
+<span class="c1"># use the first sample as observation</span>
+<span class="n">thetas</span><span class="p">,</span> <span class="n">theta_obs</span> <span class="o">=</span> <span class="n">thetas</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:],</span> <span class="n">thetas</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">x_obs</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># obtain a posterior approx. via NPE</span>
+<span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNPE</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span> <span class="n">density_estimator</span><span class="o">=</span><span class="s2">&quot;maf&quot;</span><span class="p">)</span>
+<span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">(</span><span class="n">density_estimator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 1
+ Training neural network. Epochs trained: 2
+ Training neural network. Epochs trained: 3
+ Training neural network. Epochs trained: 4
+ Training neural network. Epochs trained: 5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 6
+ Training neural network. Epochs trained: 7
+ Training neural network. Epochs trained: 8
+ Training neural network. Epochs trained: 9
+ Training neural network. Epochs trained: 10
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 11
+ Training neural network. Epochs trained: 12
+ Training neural network. Epochs trained: 13
+ Training neural network. Epochs trained: 14
+ Training neural network. Epochs trained: 15
+ Training neural network. Epochs trained: 16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 17
+ Training neural network. Epochs trained: 18
+ Training neural network. Epochs trained: 19
+ Training neural network. Epochs trained: 20
+ Training neural network. Epochs trained: 21
+ Training neural network. Epochs trained: 22
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 23
+ Training neural network. Epochs trained: 24
+ Training neural network. Epochs trained: 25
+ Training neural network. Epochs trained: 26
+ Training neural network. Epochs trained: 27
+ Training neural network. Epochs trained: 28
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 29
+ Training neural network. Epochs trained: 30
+ Training neural network. Epochs trained: 31
+ Training neural network. Epochs trained: 32
+ Training neural network. Epochs trained: 33
+ Training neural network. Epochs trained: 34
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 35
+ Training neural network. Epochs trained: 36
+ Training neural network. Epochs trained: 37
+ Training neural network. Epochs trained: 38
+ Training neural network. Epochs trained: 39
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 40
+ Training neural network. Epochs trained: 41
+ Training neural network. Epochs trained: 42
+ Training neural network. Epochs trained: 43
+ Training neural network. Epochs trained: 44
+ Training neural network. Epochs trained: 45
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 46
+ Training neural network. Epochs trained: 47
+ Training neural network. Epochs trained: 48
+ Training neural network. Epochs trained: 49
+ Training neural network. Epochs trained: 50
+ Training neural network. Epochs trained: 51
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 52
+ Training neural network. Epochs trained: 53
+ Training neural network. Epochs trained: 54
+ Training neural network. Epochs trained: 55
+ Training neural network. Epochs trained: 56
+ Training neural network. Epochs trained: 57
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 58
+ Training neural network. Epochs trained: 59
+ Training neural network. Epochs trained: 60
+ Training neural network. Epochs trained: 61
+ Training neural network. Epochs trained: 62
+ Training neural network. Epochs trained: 63
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 64
+ Training neural network. Epochs trained: 65
+ Training neural network. Epochs trained: 66
+ Training neural network. Epochs trained: 67
+ Training neural network. Epochs trained: 68
+ Training neural network. Epochs trained: 69
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 70
+ Training neural network. Epochs trained: 71
+ Training neural network. Epochs trained: 72
+ Training neural network. Epochs trained: 73
+ Training neural network. Epochs trained: 74
+ Training neural network. Epochs trained: 75
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 76
+ Training neural network. Epochs trained: 77
+ Training neural network. Epochs trained: 78
+ Training neural network. Epochs trained: 79
+ Training neural network. Epochs trained: 80
+ Training neural network. Epochs trained: 81
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 82
+ Training neural network. Epochs trained: 83
+ Training neural network. Epochs trained: 84
+ Training neural network. Epochs trained: 85
+ Training neural network. Epochs trained: 86
+ Training neural network. Epochs trained: 87
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 88
+ Training neural network. Epochs trained: 89
+ Training neural network. Epochs trained: 90
+ Training neural network. Epochs trained: 91
+ Training neural network. Epochs trained: 92
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 93
+ Training neural network. Epochs trained: 94
+ Training neural network. Epochs trained: 95
+ Training neural network. Epochs trained: 96
+ Training neural network. Epochs trained: 97
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 98
+ Training neural network. Epochs trained: 99
+ Training neural network. Epochs trained: 100
+ Training neural network. Epochs trained: 101
+ Training neural network. Epochs trained: 102
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 103
+ Training neural network. Epochs trained: 104
+ Training neural network. Epochs trained: 105
+ Training neural network. Epochs trained: 106
+ Training neural network. Epochs trained: 107
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 108
+ Training neural network. Epochs trained: 109
+ Training neural network. Epochs trained: 110
+ Training neural network. Epochs trained: 111
+ Training neural network. Epochs trained: 112
+ Training neural network. Epochs trained: 113
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 114
+ Training neural network. Epochs trained: 115
+ Training neural network. Epochs trained: 116
+ Training neural network. Epochs trained: 117
+ Training neural network. Epochs trained: 118
+ Training neural network. Epochs trained: 119
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 120
+ Training neural network. Epochs trained: 121
+ Training neural network. Epochs trained: 122
+ Training neural network. Epochs trained: 123
+ Training neural network. Epochs trained: 124
+ Training neural network. Epochs trained: 125
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 126
+ Neural network successfully converged after 126 epochs.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="mi">100_000</span><span class="p">,),</span> <span class="n">x</span><span class="o">=</span><span class="n">x_obs</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">samples</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span>
+    <span class="n">points</span><span class="o">=</span><span class="n">theta_obs</span><span class="p">,</span>
+    <span class="n">points_colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
+    <span class="n">upper</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "67ab26ba6655461295e0db3524112665"}</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:root:upper is deprecated, use offdiag instead.
+</pre></div>
+</div>
+<img alt="_images/562bb1d368d971efac43c87a4ed9feb93a856b47fe879f2e4affe53047a6f698.png" src="_images/562bb1d368d971efac43c87a4ed9feb93a856b47fe879f2e4affe53047a6f698.png" />
+</div>
+</div>
+</section>
+<section id="example-application-of-nle-on-the-sir-dataset">
+<h2>Example: Application of NLE on the SIR Dataset<a class="headerlink" href="#example-application-of-nle-on-the-sir-dataset" title="Permalink to this heading">#</a></h2>
+<p>We will use the same data as in the previous notebook, but now we will use the
+neural likelihood estimator to construct the posterior.</p>
+<p><strong>Task:</strong> Use the provided the pseudo simulator to obtain the SIR dataset and
+split it into a training and test set. Note, <code class="docutils literal notranslate"><span class="pre">sbi</span></code> standardizes the data itself. Therefore, this step can be omitted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the pre-simulated data from disk</span>
+<span class="c1"># todo: utilize the config here to load the data</span>
+<span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="s2">&quot;./data/&quot;</span><span class="p">)</span>
+<span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_theta</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span>
+
+<span class="c1"># separate the &quot;observed&quot; data from the training data</span>
+<span class="n">theta_obs</span><span class="p">,</span> <span class="n">x_obs</span> <span class="o">=</span> <span class="n">data_theta</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">data_x</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span> <span class="o">=</span> <span class="n">data_theta</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:],</span> <span class="n">data_x</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># load the pre-simulated data from disk</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># todo: utilize the config here to load the data</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="s2">&quot;./data/&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_theta</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># separate the &quot;observed&quot; data from the training data</span>
+
+<span class="nn">File ~/code/tfl-training-sbi/src/tfl_training_sbi/data_utils.py:161,</span> in <span class="ni">load_sir_data</span><span class="nt">(base_path, file_name_thetas, file_name_x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="k">def</span> <span class="nf">load_sir_data</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>     <span class="n">base_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="n">file_name_thetas</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sir_thetas.npy&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>     <span class="n">file_name_x</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sir_x_obs.npy&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load the pre-generated data.</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span><span class="sd">     Args:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span><span class="sd">         tuple: theta, x</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">161</span>     <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">file_name_thetas</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">file_name_x</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">164</span>     <span class="k">return</span> <span class="n">theta</span><span class="p">,</span> <span class="n">x</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi-test/lib/python3.10/site-packages/numpy/lib/npyio.py:405,</span> in <span class="ni">load</span><span class="nt">(file, mmap_mode, allow_pickle, fix_imports, encoding, max_header_size)</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span>     <span class="n">own_fid</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">405</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os_fspath</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>     <span class="n">own_fid</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="c1"># Code to distinguish from NumPy binary files and pickles.</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;./data/sir_thetas.npy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Task:</strong> Furthermore, we have to define a suitable prior to the task. As defined in the benchmarking paper by Lueckmann et al., we’ll use a LogNormal distribution with the following parameters:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\theta_1 \sim \operatorname{LogNormal}(\log 0.4, 0.5^2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta_2 \sim \operatorname{LogNormal}(\log 0.125, 0.2^2)\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prior</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">process_prior</span><span class="p">([</span>
+    <span class="n">LogNormal</span><span class="p">(</span>
+        <span class="n">loc</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)]),</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])</span>
+    <span class="p">),</span> 
+    <span class="n">LogNormal</span><span class="p">(</span>
+        <span class="n">loc</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.125</span><span class="p">)]),</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.2</span><span class="p">])</span>
+    <span class="p">),</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Task:</strong> Finally, we can train the NDE. Therefore, we have to initialize a SNLE object with the respective prior and method for density estimation. Further, the training data has to be passed to the inference object. The NDE is trained by calling the <code class="docutils literal notranslate"><span class="pre">.train()</span></code> method on the inference object. Feel free to use the above example as blueprint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># obtain a posterior approx. via NPE</span>
+<span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNLE</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span> <span class="n">density_estimator</span><span class="o">=</span><span class="s2">&quot;maf&quot;</span><span class="p">)</span>
+<span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="n">training_batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_num_epochs</span><span class="o">=</span><span class="mi">200</span>
+<span class="p">)</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">(</span><span class="n">density_estimator</span><span class="p">,</span> <span class="n">sample_with</span><span class="o">=</span><span class="s2">&quot;mcmc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 201
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-the-inference-object">
+<h2>Saving the Inference Object<a class="headerlink" href="#saving-the-inference-object" title="Permalink to this heading">#</a></h2>
+<p>The training process of NLE inference objects can take long. Therefore, saving
+the inference objects is advised.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># saving the inference object for possible later use</span>
+<span class="n">save_posterior_obj</span><span class="p">(</span><span class="s2">&quot;./notebooks/models/snle_sir.pl&quot;</span><span class="p">,</span> <span class="n">inference</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="let-s-investigate-the-learned-posterior">
+<h2>Let’s Investigate the Learned Posterior<a class="headerlink" href="#let-s-investigate-the-learned-posterior" title="Permalink to this heading">#</a></h2>
+<p>In order to investigate the quality of approximation, we’ll sample a large
+number of <span class="math notranslate nohighlight">\(\theta\)</span> from the conditional density <span class="math notranslate nohighlight">\(p(\theta \mid
+\mathbf{x}_o)\)</span>.</p>
+<p>We’ll compare the resulting distribution to the actual <span class="math notranslate nohighlight">\(\theta^{\ast}\)</span> that was
+used to generate <span class="math notranslate nohighlight">\(\mathbf{x}_o\)</span>.</p>
+<p><strong>Task:</strong> Similar to the example above, use the posterior, conditioned on <code class="docutils literal notranslate"><span class="pre">x_obs</span></code> to sample a large number of <span class="math notranslate nohighlight">\(\theta\)</span>. Then, plot the resulting samples using the pairplot, provided by the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> toolkit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="mi">100_000</span><span class="p">,),</span> <span class="n">x</span><span class="o">=</span><span class="n">x_obs</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;slice_np_vectorized&quot;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">samples</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span>
+    <span class="n">points</span><span class="o">=</span><span class="n">theta_obs</span><span class="p">,</span>
+    <span class="n">points_colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
+    <span class="n">upper</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "aa01c7fd2be74e70b882de3081b6f7ea", "version_major": 2, "version_minor": 0}</script><img alt="_images/fce1e82606471ba246707cef3015c9103bef04c42953651e68fb7a7f9c4849c0.png" src="_images/fce1e82606471ba246707cef3015c9103bef04c42953651e68fb7a7f9c4849c0.png" />
+</div>
+</div>
+</section>
+<section id="neural-ratio-estimation">
+<h2>Neural Ratio Estimation<a class="headerlink" href="#neural-ratio-estimation" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>The Likelihood-ratio is a popular test statistic
+$<span class="math notranslate nohighlight">\(
+  r(\mathbf{x} \mid \theta_0, \theta_1) = \frac{p(\mathbf{x} \mid \theta_0)}{p(\mathbf{x} \mid \theta_1)}
+  \)</span>$</p></li>
+<li><p>Cranmer et al (2015) have shown that <span class="math notranslate nohighlight">\(r(\mathbf{x}\mid \theta_0, \theta_1)\)</span>
+can be expressed by a classifier <span class="math notranslate nohighlight">\(d(\mathbf{x}, \theta)\)</span> trained on
+samples from the true <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta)\)</span> and an arbitrary but fixed
+hypothisis <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta_{\text{ref}})\)</span>
+$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-33dae67c-8a3f-475d-a6d9-c74ab53a2676">
+<span class="eqno">(7)<a class="headerlink" href="#equation-33dae67c-8a3f-475d-a6d9-c74ab53a2676" title="Permalink to this equation">#</a></span>\[\begin{align}
+    d(\mathbf{x}, \theta) &amp;= p(y=1 \mid \mathbf{x}) =
+    \frac{p(\mathbf{x}\mid \theta)}{p(\mathbf{x}\mid \theta) + p(\mathbf{x}\mid
+    \theta_{\text{ref}})}  \\
+    r(\mathbf{x} \mid \theta_0, \theta_1) &amp;= \frac{d(\mathbf{x},
+    \theta)}{ 1 - d(\mathbf{x}, \theta) }
+    \end{align}\]</div>
+<p>$$</p>
+<ul class="simple">
+<li><p>Thus, learn a classifier to distinguish samples from <span class="math notranslate nohighlight">\(p(\mathbf{x},
+\theta)\)</span> from <span class="math notranslate nohighlight">\(p(\mathbf{x})p(\theta)\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="considerations-about-nre">
+<h2>Considerations about NRE<a class="headerlink" href="#considerations-about-nre" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Same concept as NLE but obtaining a normalized posterior</p></li>
+<li><p>Sampling via MCMC</p></li>
+<li><p>Training a classifier is easier than training a density estimator</p></li>
+<li><p><span class="math notranslate nohighlight">\(d(\mathbf{x}, \theta)\)</span> will be either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span> for many samples form
+<span class="math notranslate nohighlight">\(p(\mathbf{x}, \theta)\)</span>, makeing training more difficult</p></li>
+</ul>
+</section>
+<section id="usage-of-nre">
+<h2>Usage of NRE<a class="headerlink" href="#usage-of-nre" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>NRE is also implemented in the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> toolkit</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNRE</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span>
+<span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">(</span><span class="n">density_estimator</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="practical-considerations-for-npe-vs-nle-and-nre">
+<h2>Practical Considerations for NPE vs. NLE and NRE<a class="headerlink" href="#practical-considerations-for-npe-vs-nle-and-nre" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>NLE and NRE require MCMC; success depends on the shape and dimension of the
+posterior</p></li>
+<li><p>Sequential approaches are helpful for high dimensional problems or costly
+simulations. However, SNPE might have issues on sharp boundaries of the prior
+and MCMC is slow</p></li>
+<li><p>Neural networks can take high dimensional inputs easily. Therefore, use NPE
+when <span class="math notranslate nohighlight">\(\dim(\mathbf{x}) \gg \dim(\theta)\)</span> and NLE / NRE when <span class="math notranslate nohighlight">\(\dim(\mathbf{x})
+\ll \dim(\theta)\)</span></p></li>
+<li><p>An appropriate feature extractor should be based on the data’s structure. E.g.
+CNNs for images or RNNs for sequential data.</p></li>
+</ul>
+<p>Luckily, SBI and its facets is an active area of research!</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Method</p></th>
+<th class="head text-left"><p>Pros</p></th>
+<th class="head text-left"><p>Cons</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>NPE</p></td>
+<td class="text-left"><p>Amortized inference</p></td>
+<td class="text-left"><p>Sequential version requires correction</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>NLE</p></td>
+<td class="text-left"><p>Likelihood factors for i.i.d. samples, easy usage for hierarchical  problems</p></td>
+<td class="text-left"><p>Requires MCMC, can be constly in higher dimensions</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>NRE</p></td>
+<td class="text-left"><p>Likelihood factors for i.i.d. samples, training a classifier is easier than training an NDE</p></td>
+<td class="text-left"><p>Requires MCMC, possible issues for <span class="math notranslate nohighlight">\(d\)</span> close to either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>sbi: A toolkit for simulation-based inference;
+<a class="reference external" href="https://www.mackelab.org/sbi/credits/">GitHub</a></p></li>
+<li><p>Cranmer et al. (2015), <em>“Approximating Likelihood Ratios with Calibrated Discriminative Classifiers”</em></p></li>
+<li><p>Lueckmann et al. (2021), <em>“Benchmarking Simulation-Based Inference”</em></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nb_03_neural_density_estimation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to Neural Density Estimation with SBI</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nb_05_evaluation_of_sbi.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How can we evaluate the performance of SBI?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-the-goal-of-sbi">Recap: the Goal of SBI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-neural-posterior-estimation">Recap: Neural Posterior Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-likelihood">The Likelihood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-likelihood-with-a-neural-network">Learning the Likelihood with a Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-the-nle-posterior">Sampling from the NLE Posterior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-use-nle">Why should I use NLE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-intro-to-the-sbi-toolkit">Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application-of-nle-on-the-sir-dataset">Example: Application of NLE on the SIR Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-inference-object">Saving the Inference Object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-investigate-the-learned-posterior">Let’s Investigate the Learned Posterior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-ratio-estimation">Neural Ratio Estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-about-nre">Considerations about NRE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-nre">Usage of NRE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations-for-npe-vs-nle-and-nre">Practical Considerations for NPE vs. NLE and NRE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By appliedAI TransferLab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
