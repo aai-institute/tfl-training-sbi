@@ -3,7 +3,6 @@
 
 import numpy as np
 import os
-import sbibm
 import time
 import torch
 
@@ -41,7 +40,7 @@ class SIRSimulation(Dataset):
         self.data_x = data_x
         self.data_length = data_theta.shape[0]
         self.lag = simulator_lag
-        self.prior = sbibm.get_task("sir").get_prior() if prior is None else prior
+        self.prior = prior
         self.transformations = transformations
 
     def __call__(self, num_samples: int = 1) -> tuple:
@@ -59,7 +58,7 @@ class SIRSimulation(Dataset):
         # draw an index at random
         idx = torch.randint(low=0, high=self.data_length, size=(num_samples,))
 
-        return self.data_theta[idx], self.data_x[idx]
+        return torch.tensor(self.data_theta[idx]), torch.tensor(self.data_x[idx])
 
     def __len__(self) -> int:
         """Length of the dataset.
