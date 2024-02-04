@@ -581,18 +581,14 @@ div.plan-container {
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">ones</span><span class="p">,</span> <span class="n">zeros</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
 
 <span class="kn">from</span> <span class="nn">tfl_training_sbi.config</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">default_remote_storage</span><span class="p">,</span>
     <span class="n">get_config</span><span class="p">,</span>
-    <span class="n">root_dir</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">tfl_training_sbi.data_utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">SIRSimulation</span><span class="p">,</span>
@@ -616,8 +612,8 @@ div.plan-container {
 <li><p>Implicit models: “simulator as black-box computer simulation”</p></li>
 <li><p>Anything in-between: input parameter <span class="math notranslate nohighlight">\(\theta\)</span> output simulated data <span class="math notranslate nohighlight">\(x\)</span></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-2b4f6b63-25ab-44a4-9407-5afdf8e59497">
-<span class="eqno">(1)<a class="headerlink" href="#equation-2b4f6b63-25ab-44a4-9407-5afdf8e59497" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac4aa1e6-dd6c-4cef-8934-401ca5a784c0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-ac4aa1e6-dd6c-4cef-8934-401ca5a784c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
     x = \mathcal{M}_{\text{simulator}}(\theta)
 \end{equation}\]</div>
 </section>
@@ -647,8 +643,8 @@ div.plan-container {
 <li><p>Recovery rate <span class="math notranslate nohighlight">\(\gamma\)</span></p></li>
 <li><p>Population size <span class="math notranslate nohighlight">\(N\)</span></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-a43904eb-fd5f-488b-9958-f84f24a1417c">
-<span class="eqno">(2)<a class="headerlink" href="#equation-a43904eb-fd5f-488b-9958-f84f24a1417c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-00760346-797d-4483-9b03-d9130d436897">
+<span class="eqno">(2)<a class="headerlink" href="#equation-00760346-797d-4483-9b03-d9130d436897" title="Permalink to this equation">#</a></span>\[\begin{align}
 N &amp;= 100000\\
 \beta &amp;\sim \text{LogNormal}(\log(0.4), 0.5)\\ 
 \gamma &amp;\sim \text{LogNormal}(\log(1/8), 0.2) \\[5mm]
@@ -687,8 +683,8 @@ N &amp;= 100000\\
 <li><p>ODEs / black-box simulators do not have analytical expression for the likelihood <span class="math notranslate nohighlight">\(p(x | \theta)\)</span></p></li>
 <li><p><strong>MCMC</strong> or <strong>variational inference</strong> cannot be applied!</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-62c2b650-606f-4202-a418-5528ac96492f">
-<span class="eqno">(3)<a class="headerlink" href="#equation-62c2b650-606f-4202-a418-5528ac96492f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1c7b6db-e1ce-4ef1-97ea-9d6524e6e35f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-d1c7b6db-e1ce-4ef1-97ea-9d6524e6e35f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(\theta |x) = \frac{p(x | \theta) \; p(\theta)}{p(x)} \propto p(x | \theta) \; p(\theta)
 \end{equation}\]</div>
 </section>
@@ -731,8 +727,8 @@ p(\theta |x) = \frac{p(x | \theta) \; p(\theta)}{p(x)} \propto p(x | \theta) \; 
 <li><p>Population size <span class="math notranslate nohighlight">\(N\)</span></p></li>
 <li><p>Initial condition: <span class="math notranslate nohighlight">\(N=100000, \; S=N-1,\; I=1,\; R=0\)</span></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-75624697-3fa5-41ae-9fc5-2e3bea1002d6">
-<span class="eqno">(4)<a class="headerlink" href="#equation-75624697-3fa5-41ae-9fc5-2e3bea1002d6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-adbaa70a-46c0-4fea-8b35-ddc4a10d3dee">
+<span class="eqno">(4)<a class="headerlink" href="#equation-adbaa70a-46c0-4fea-8b35-ddc4a10d3dee" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dS}{dt} &amp;= -\beta \frac{SI}{N} \\ 
 \frac{dI}{dt} &amp;= \beta \frac{S I}{N} - \gamma I\\ 
 \frac{dR}{dt} &amp;= \gamma I
@@ -754,8 +750,8 @@ p(\theta |x) = \frac{p(x | \theta) \; p(\theta)}{p(x)} \propto p(x | \theta) \; 
 </ul>
 </li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-cd3a368e-7da0-4a17-98cc-28ba3b43cf98">
-<span class="eqno">(5)<a class="headerlink" href="#equation-cd3a368e-7da0-4a17-98cc-28ba3b43cf98" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0c7a40af-ecc8-49f0-aa06-f1e9884de31d">
+<span class="eqno">(5)<a class="headerlink" href="#equation-0c7a40af-ecc8-49f0-aa06-f1e9884de31d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \theta_i \sim p(\theta) &amp;= p(\beta)p(\gamma) \\[3mm]
 x_i | \theta_i &amp;\sim \text{SIR}(\beta_i, \gamma_i)
 \end{align}\]</div>
@@ -763,25 +759,11 @@ x_i | \theta_i &amp;\sim \text{SIR}(\beta_i, \gamma_i)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load pre-simulated SIR data.</span>
 <span class="n">sir_theta</span><span class="p">,</span> <span class="n">sir_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="n">sample_and_simulate</span> <span class="o">=</span> <span class="n">SIRSimulation</span><span class="p">(</span><span class="n">data_theta</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">data_x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">simulator_lag</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+<span class="n">sample_and_simulate</span> <span class="o">=</span> <span class="n">SIRSimulation</span><span class="p">(</span><span class="n">sir_theta</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">sir_x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">simulator_lag</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
 
 <span class="c1"># Simulate observed data (we take the last pre-simulated data point that is excluded above.)</span>
 <span class="n">true_theta</span> <span class="o">=</span> <span class="n">sir_theta</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">x_o</span> <span class="o">=</span> <span class="n">sir_x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># load pre-simulated SIR data.</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sir_theta</span><span class="p">,</span> <span class="n">sir_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">sample_and_simulate</span> <span class="o">=</span> <span class="n">SIRSimulation</span><span class="p">(</span><span class="n">data_theta</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">data_x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">simulator_lag</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Simulate observed data (we take the last pre-simulated data point that is excluded above.)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">true_theta</span> <span class="o">=</span> <span class="n">sir_theta</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;data_theta&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -830,7 +812,7 @@ x_i | \theta_i &amp;\sim \text{SIR}(\beta_i, \gamma_i)
 <span class="sd">    Returns: </span>
 <span class="sd">        distance: Tensor of MSEs, (batch, 1)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_o</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_o</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -896,7 +878,7 @@ x_i | \theta_i &amp;\sim \text{SIR}(\beta_i, \gamma_i)
     <span class="n">theta</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
     
-    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
         
         <span class="n">theta_i</span><span class="p">,</span> <span class="n">x_i</span> <span class="o">=</span> <span class="n">sample_and_simulate</span><span class="p">()</span>
         <span class="n">theta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta_i</span><span class="p">)</span>
@@ -936,6 +918,11 @@ x_i | \theta_i &amp;\sim \text{SIR}(\beta_i, \gamma_i)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rejection ABC: 4406 accepted samples.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -954,6 +941,9 @@ x_i | \theta_i &amp;\sim \text{SIR}(\beta_i, \gamma_i)
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b0866f4dcbc75f1dccb250329e630a2966c33d05e545c2ddaace7bb76f7de6be.png" src="_images/b0866f4dcbc75f1dccb250329e630a2966c33d05e545c2ddaace7bb76f7de6be.png" />
 </div>
 </div>
 </section>
