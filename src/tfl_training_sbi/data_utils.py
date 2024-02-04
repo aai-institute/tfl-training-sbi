@@ -1,16 +1,18 @@
 """Several functions that ease the work with simulated data. """
 
 
-import numpy as np
 import os
 import time
-import torch
 
+import numpy as np
+import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
 
 
 class SIRSimulation(Dataset):
+    """Dataset that imitates the simulation of the SIR model."""
+
     def __init__(
         self,
         data_theta: torch.tensor,
@@ -27,17 +29,17 @@ class SIRSimulation(Dataset):
         evaluate the simulation on the sampled parameters.
 
         Args:
-            data_theta (torch.tensor): Parameters. 
-            data_x (torch.tensor): Observations. 
+            data_theta (torch.tensor): Parameters.
+            data_x (torch.tensor): Observations.
             simulator_lag (float, optional): Time to sleep to imitate the lag of
-            a simulation. Defaults to 0.1. 
+            a simulation. Defaults to 0.1.
             prior (torch.distributions.Distribution, optional): Prior. Defaults to
-            None. 
+            None.
             transformations (transforms.Compose, optional): Transformations.
         """
         super().__init__()
-        self.data_theta = data_theta
-        self.data_x = data_x
+        self.data_theta = torch.from_numpy(data_theta)
+        self.data_x = torch.from_numpy(data_x)
         self.data_length = data_theta.shape[0]
         self.lag = simulator_lag
         self.prior = prior
@@ -58,7 +60,11 @@ class SIRSimulation(Dataset):
         # draw an index at random
         idx = torch.randint(low=0, high=self.data_length, size=(num_samples,))
 
-        return torch.tensor(self.data_theta[idx]), torch.tensor(self.data_x[idx])
+        # add dim when num_samples == 1
+        return (
+            torch.atleast_2d(self.data_theta[idx]),
+            torch.atleast_2d(self.data_x[idx]),
+        )
 
     def __len__(self) -> int:
         """Length of the dataset.
@@ -87,6 +93,8 @@ class SIRSimulation(Dataset):
 
 
 class SIRStdScaler:
+    """Standardize the SIR data."""
+
     def __init__(
         self,
         mean_theta: torch.Tensor = torch.tensor([0.45, 0.13]),
