@@ -44,18 +44,15 @@ Then, install the dependencies and the package with
     bash build_scripts/install_presentation_requirements.sh
     pip install -e .
     ```
-
-3. If you want to use docker instead, you can build the image locally.
-First, set the variable `PARTICIPANT_BUCKET_READ_SECRET` to the secret found in
-`config.yaml`, and then build the image with
+3. Adapt the data path in `config.yml` to point to the correct location on your machine.
+4. If you want to use docker instead, you can build the image locally.
     ```shell
-    docker build --build-arg PARTICIPANT_BUCKET_READ_SECRET=$PARTICIPANT_BUCKET_READ_SECRET -t tfl_training_sbi .
+    docker build -t tfl_training_sbi .
     ```
     You can then start the container e.g., with
     ```shell
     docker run -it -p 8888:8888 tfl_training_sbi jupyter notebook
     ```
-4. The data will be downloaded on the fly when you run the notebooks.
 5. Finally, for creating source code documentation, you can run
     ```shell
     bash build_scripts/build_docs.sh
