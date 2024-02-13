@@ -552,17 +552,17 @@ div.plan-container {
 <span class="kn">from</span> <span class="nn">torchvision.transforms</span> <span class="kn">import</span> <span class="n">Compose</span>
 <span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">trange</span><span class="p">,</span> <span class="n">tqdm</span>
 
-<span class="c1"># from tfl_training_sbi.config import (</span>
-<span class="c1">#     default_remote_storage,</span>
-<span class="c1">#     get_config,</span>
-<span class="c1">#     root_dir,</span>
-<span class="c1"># )</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.config</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">default_remote_storage</span><span class="p">,</span>
+    <span class="n">get_config</span><span class="p">,</span>
+    <span class="n">root_dir</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">tfl_training_sbi.data_utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">SIRSimulation</span><span class="p">,</span>
     <span class="n">load_sir_data</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">tfl_training_sbi.utils_models</span> <span class="kn">import</span> <span class="n">save_posterior_obj</span>
-<span class="c1"># from tfl_training_sbi.utils_sir import eval_sir_model</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.utils_sir</span> <span class="kn">import</span> <span class="n">eval_sir_model</span>
 
 <span class="c1"># set manual seed for reproducibility</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -571,8 +571,8 @@ div.plan-container {
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
 <span class="c1"># configure storage location</span>
-<span class="c1"># storage = default_remote_storage()</span>
-<span class="c1"># c = get_config(reload=True)</span>
+<span class="n">storage</span> <span class="o">=</span> <span class="n">default_remote_storage</span><span class="p">()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">(</span><span class="n">reload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -705,29 +705,31 @@ more in-depth coverage of accessing the posterior with MCMC</p></li>
  Training neural network. Epochs trained: 13
  Training neural network. Epochs trained: 14
  Training neural network. Epochs trained: 15
- Training neural network. Epochs trained: 16
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 17
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 16
+ Training neural network. Epochs trained: 17
  Training neural network. Epochs trained: 18
  Training neural network. Epochs trained: 19
  Training neural network. Epochs trained: 20
- Training neural network. Epochs trained: 21
- Training neural network. Epochs trained: 22
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 21
+ Training neural network. Epochs trained: 22
+ Training neural network. Epochs trained: 23
  Training neural network. Epochs trained: 24
  Training neural network. Epochs trained: 25
  Training neural network. Epochs trained: 26
- Training neural network. Epochs trained: 27
- Training neural network. Epochs trained: 28
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 29
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 27
+ Training neural network. Epochs trained: 28
+ Training neural network. Epochs trained: 29
  Training neural network. Epochs trained: 30
  Training neural network. Epochs trained: 31
- Training neural network. Epochs trained: 32
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 32
  Training neural network. Epochs trained: 33
  Training neural network. Epochs trained: 34
 </pre></div>
@@ -744,20 +746,22 @@ more in-depth coverage of accessing the posterior with MCMC</p></li>
  Training neural network. Epochs trained: 42
  Training neural network. Epochs trained: 43
  Training neural network. Epochs trained: 44
- Training neural network. Epochs trained: 45
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 46
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 45
+ Training neural network. Epochs trained: 46
  Training neural network. Epochs trained: 47
  Training neural network. Epochs trained: 48
- Training neural network. Epochs trained: 49
- Training neural network. Epochs trained: 50
- Training neural network. Epochs trained: 51
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 52
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 49
+ Training neural network. Epochs trained: 50
+ Training neural network. Epochs trained: 51
+ Training neural network. Epochs trained: 52
  Training neural network. Epochs trained: 53
- Training neural network. Epochs trained: 54
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 54
  Training neural network. Epochs trained: 55
  Training neural network. Epochs trained: 56
  Training neural network. Epochs trained: 57
@@ -768,94 +772,96 @@ more in-depth coverage of accessing the posterior with MCMC</p></li>
  Training neural network. Epochs trained: 60
  Training neural network. Epochs trained: 61
  Training neural network. Epochs trained: 62
- Training neural network. Epochs trained: 63
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 64
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 63
+ Training neural network. Epochs trained: 64
  Training neural network. Epochs trained: 65
  Training neural network. Epochs trained: 66
- Training neural network. Epochs trained: 67
- Training neural network. Epochs trained: 68
- Training neural network. Epochs trained: 69
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 70
- Training neural network. Epochs trained: 71
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 67
+ Training neural network. Epochs trained: 68
+ Training neural network. Epochs trained: 69
+ Training neural network. Epochs trained: 70
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 71
  Training neural network. Epochs trained: 72
  Training neural network. Epochs trained: 73
  Training neural network. Epochs trained: 74
- Training neural network. Epochs trained: 75
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 76
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 75
+ Training neural network. Epochs trained: 76
  Training neural network. Epochs trained: 77
  Training neural network. Epochs trained: 78
- Training neural network. Epochs trained: 79
- Training neural network. Epochs trained: 80
- Training neural network. Epochs trained: 81
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 82
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 79
+ Training neural network. Epochs trained: 80
+ Training neural network. Epochs trained: 81
+ Training neural network. Epochs trained: 82
  Training neural network. Epochs trained: 83
- Training neural network. Epochs trained: 84
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 84
  Training neural network. Epochs trained: 85
  Training neural network. Epochs trained: 86
  Training neural network. Epochs trained: 87
+ Training neural network. Epochs trained: 88
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 88
- Training neural network. Epochs trained: 89
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 89
  Training neural network. Epochs trained: 90
  Training neural network. Epochs trained: 91
  Training neural network. Epochs trained: 92
+ Training neural network. Epochs trained: 93
+ Training neural network. Epochs trained: 94
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 93
- Training neural network. Epochs trained: 94
- Training neural network. Epochs trained: 95
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 95
  Training neural network. Epochs trained: 96
  Training neural network. Epochs trained: 97
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 98
+ Training neural network. Epochs trained: 98
  Training neural network. Epochs trained: 99
  Training neural network. Epochs trained: 100
- Training neural network. Epochs trained: 101
- Training neural network. Epochs trained: 102
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 103
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 101
+ Training neural network. Epochs trained: 102
+ Training neural network. Epochs trained: 103
  Training neural network. Epochs trained: 104
  Training neural network. Epochs trained: 105
  Training neural network. Epochs trained: 106
- Training neural network. Epochs trained: 107
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 108
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 107
+ Training neural network. Epochs trained: 108
  Training neural network. Epochs trained: 109
  Training neural network. Epochs trained: 110
  Training neural network. Epochs trained: 111
- Training neural network. Epochs trained: 112
- Training neural network. Epochs trained: 113
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 114
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 112
+ Training neural network. Epochs trained: 113
+ Training neural network. Epochs trained: 114
  Training neural network. Epochs trained: 115
  Training neural network. Epochs trained: 116
- Training neural network. Epochs trained: 117
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 117
  Training neural network. Epochs trained: 118
  Training neural network. Epochs trained: 119
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 120
+ Training neural network. Epochs trained: 120
  Training neural network. Epochs trained: 121
  Training neural network. Epochs trained: 122
- Training neural network. Epochs trained: 123
- Training neural network. Epochs trained: 124
- Training neural network. Epochs trained: 125
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 126
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 123
+ Training neural network. Epochs trained: 124
+ Training neural network. Epochs trained: 125
+ Training neural network. Epochs trained: 126
  Neural network successfully converged after 126 epochs.
 </pre></div>
 </div>
@@ -874,10 +880,10 @@ more in-depth coverage of accessing the posterior with MCMC</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "67ab26ba6655461295e0db3524112665"}</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:root:upper is deprecated, use offdiag instead.
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f0a62419d7714d59b66bc1d6cea75b75"}</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:root:upper is deprecated, use offdiag instead.
 </pre></div>
 </div>
-<img alt="_images/562bb1d368d971efac43c87a4ed9feb93a856b47fe879f2e4affe53047a6f698.png" src="_images/562bb1d368d971efac43c87a4ed9feb93a856b47fe879f2e4affe53047a6f698.png" />
+<img alt="_images/b20a85519c50321c5e13d701c0c5d7217cb541ce88f81e7d887052746f91c11a.png" src="_images/b20a85519c50321c5e13d701c0c5d7217cb541ce88f81e7d887052746f91c11a.png" />
 </div>
 </div>
 </section>
@@ -890,50 +896,12 @@ split it into a training and test set. Note, <code class="docutils literal notra
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the pre-simulated data from disk</span>
-<span class="c1"># todo: utilize the config here to load the data</span>
-<span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="s2">&quot;./data/&quot;</span><span class="p">)</span>
+<span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 <span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_theta</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span>
 
 <span class="c1"># separate the &quot;observed&quot; data from the training data</span>
 <span class="n">theta_obs</span><span class="p">,</span> <span class="n">x_obs</span> <span class="o">=</span> <span class="n">data_theta</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">data_x</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
 <span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span> <span class="o">=</span> <span class="n">data_theta</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:],</span> <span class="n">data_x</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># load the pre-simulated data from disk</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># todo: utilize the config here to load the data</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="s2">&quot;./data/&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_theta</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># separate the &quot;observed&quot; data from the training data</span>
-
-<span class="nn">File ~/code/tfl-training-sbi/src/tfl_training_sbi/data_utils.py:161,</span> in <span class="ni">load_sir_data</span><span class="nt">(base_path, file_name_thetas, file_name_x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="k">def</span> <span class="nf">load_sir_data</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span>     <span class="n">base_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="n">file_name_thetas</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sir_thetas.npy&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">148</span>     <span class="n">file_name_x</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sir_x_obs.npy&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">150</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load the pre-generated data.</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span><span class="sd">     Args:</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span><span class="sd">         tuple: theta, x</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">161</span>     <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">file_name_thetas</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">file_name_x</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">164</span>     <span class="k">return</span> <span class="n">theta</span><span class="p">,</span> <span class="n">x</span>
-
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi-test/lib/python3.10/site-packages/numpy/lib/npyio.py:405,</span> in <span class="ni">load</span><span class="nt">(file, mmap_mode, allow_pickle, fix_imports, encoding, max_header_size)</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span>     <span class="n">own_fid</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">405</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os_fspath</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span>     <span class="n">own_fid</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="c1"># Code to distinguish from NumPy binary files and pickles.</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;./data/sir_thetas.npy&#39;
 </pre></div>
 </div>
 </div>
@@ -972,7 +940,102 @@ split it into a training and test set. Note, <code class="docutils literal notra
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 201
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 7
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 8
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 10
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 11
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 12
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># obtain a posterior approx. via NPE</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNLE</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span> <span class="n">density_estimator</span><span class="o">=</span><span class="s2">&quot;maf&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">training_batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_num_epochs</span><span class="o">=</span><span class="mi">200</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">posterior</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">(</span><span class="n">density_estimator</span><span class="p">,</span> <span class="n">sample_with</span><span class="o">=</span><span class="s2">&quot;mcmc&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/sbi/inference/snle/snle_base.py:220,</span> in <span class="ni">LikelihoodEstimator.train</span><span class="nt">(self, training_batch_size, learning_rate, validation_fraction, stop_after_epochs, max_num_epochs, clip_max_norm, resume_training, discard_prior_samples, retrain_from_scratch, show_train_summary, dataloader_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="bp">self</span><span class="o">.</span><span class="n">_neural_net</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span> <span class="n">train_log_probs_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">--&gt; </span><span class="mi">220</span> <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>     <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="n">theta_batch</span><span class="p">,</span> <span class="n">x_batch</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/dataloader.py:630,</span> in <span class="ni">_BaseDataLoaderIter.__next__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">627</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampler_iter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">628</span>     <span class="c1"># TODO(https://github.com/pytorch/pytorch/issues/76750)</span>
+<span class="g g-Whitespace">    </span><span class="mi">629</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="ne">--&gt; </span><span class="mi">630</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_data</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">631</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">632</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_kind</span> <span class="o">==</span> <span class="n">_DatasetKind</span><span class="o">.</span><span class="n">Iterable</span> <span class="ow">and</span> \
+<span class="g g-Whitespace">    </span><span class="mi">633</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
+<span class="g g-Whitespace">    </span><span class="mi">634</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span><span class="p">:</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/dataloader.py:674,</span> in <span class="ni">_SingleProcessDataLoaderIter._next_data</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span> <span class="k">def</span> <span class="nf">_next_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>     <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_index</span><span class="p">()</span>  <span class="c1"># may raise StopIteration</span>
+<span class="ne">--&gt; </span><span class="mi">674</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_fetcher</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>  <span class="c1"># may raise StopIteration</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">pin_memory</span><span class="o">.</span><span class="n">pin_memory</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory_device</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py:51,</span> in <span class="ni">_MapDatasetFetcher.fetch</span><span class="nt">(self, possibly_batched_index)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">__getitems__</span><span class="p">(</span><span class="n">possibly_batched_index</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">possibly_batched_index</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py:51,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">__getitems__</span><span class="p">(</span><span class="n">possibly_batched_index</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">possibly_batched_index</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/dataset.py:208,</span> in <span class="ni">TensorDataset.__getitem__</span><span class="nt">(self, index)</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tensor</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/dataset.py:208,</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tensor</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1006,13 +1069,16 @@ used to generate <span class="math notranslate nohighlight">\(\mathbf{x}_o\)</sp
     <span class="n">samples</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span>
     <span class="n">points</span><span class="o">=</span><span class="n">theta_obs</span><span class="p">,</span>
     <span class="n">points_colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
-    <span class="n">upper</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span>
+    <span class="n">upper</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "aa01c7fd2be74e70b882de3081b6f7ea", "version_major": 2, "version_minor": 0}</script><img alt="_images/fce1e82606471ba246707cef3015c9103bef04c42953651e68fb7a7f9c4849c0.png" src="_images/fce1e82606471ba246707cef3015c9103bef04c42953651e68fb7a7f9c4849c0.png" />
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b399dcd3c8af4195a748716d74d05a38", "version_major": 2, "version_minor": 0}</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:root:upper is deprecated, use offdiag instead.
+</pre></div>
+</div>
+<img alt="_images/c873fa6ec8a2f1b0cca40e1f571610e5637d8e4fcd9a90173fbf0adaaf4b9a34.png" src="_images/c873fa6ec8a2f1b0cca40e1f571610e5637d8e4fcd9a90173fbf0adaaf4b9a34.png" />
 </div>
 </div>
 </section>
@@ -1028,8 +1094,8 @@ can be expressed by a classifier <span class="math notranslate nohighlight">\(d(
 samples from the true <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta)\)</span> and an arbitrary but fixed
 hypothisis <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta_{\text{ref}})\)</span>
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-33dae67c-8a3f-475d-a6d9-c74ab53a2676">
-<span class="eqno">(7)<a class="headerlink" href="#equation-33dae67c-8a3f-475d-a6d9-c74ab53a2676" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9ae2faae-b689-4376-a1a6-0607c0d788dc">
+<span class="eqno">(7)<a class="headerlink" href="#equation-9ae2faae-b689-4376-a1a6-0607c0d788dc" title="Permalink to this equation">#</a></span>\[\begin{align}
     d(\mathbf{x}, \theta) &amp;= p(y=1 \mid \mathbf{x}) =
     \frac{p(\mathbf{x}\mid \theta)}{p(\mathbf{x}\mid \theta) + p(\mathbf{x}\mid
     \theta_{\text{ref}})}  \\
