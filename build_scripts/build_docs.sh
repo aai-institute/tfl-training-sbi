@@ -103,6 +103,7 @@ DOCS_STATIC_DIR="docs/_static"
     mkdir -p $DOCS_STATIC_DIR
     jupyter nbconvert --to html notebooks/*.ipynb ${EXECUTE_FLAG}\
     --output-dir $DOCS_STATIC_DIR \
+    --ExecutePreprocessor.timeout=-1 \
     --TagRemovePreprocessor.enabled True \
     --TagRemovePreprocessor.remove_cell_tags remove-cell-nbconv \
     --TagRemovePreprocessor.remove_input_tags remove-input-nbconv \
