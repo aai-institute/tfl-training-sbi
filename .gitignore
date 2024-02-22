@@ -1,6 +1,7 @@
 #
 .idea
 .vscode
+.devcontainer/
 config_local.json
 config_local.yml
 config_local.yaml
