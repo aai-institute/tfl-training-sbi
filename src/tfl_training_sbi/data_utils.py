@@ -1,6 +1,5 @@
 """Several functions that ease the work with simulated data. """
 
-
 import os
 import time
 
@@ -83,7 +82,7 @@ class SIRSimulation(Dataset):
         Returns:
             dict: {"theta": theta, "obs": x}
         """
-        theta, x = torch.tensor(self.data_theta[idx]), torch.tensor(self.data_x[idx])
+        theta, x = self.data_theta[idx], self.data_x[idx]
         data = {"theta": theta, "obs": x}
 
         if self.transformations:
