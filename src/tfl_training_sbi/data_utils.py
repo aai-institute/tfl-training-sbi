@@ -2,6 +2,7 @@
 
 import os
 import time
+from typing import Dict, Tuple
 
 import numpy as np
 import torch
@@ -45,7 +46,7 @@ class SIRSimulation(Dataset):
         self.prior = prior
         self.transformations = transformations
 
-    def __call__(self, num_samples: int = 1) -> tuple:
+    def __call__(self, num_samples: int = 1) -> Tuple[Tensor, Tensor]:
         """Sample from the pre-generated data.
 
         Args:
@@ -71,7 +72,7 @@ class SIRSimulation(Dataset):
         """
         return self.data_length
 
-    def __getitem__(self, idx: int) -> dict:
+    def __getitem__(self, idx: int) -> Dict[str, Tensor]:
         """Get an item from the dataset.
 
         Args:
@@ -97,10 +98,10 @@ class SIRStdScaler:
 
     def __init__(
         self,
-        mean_theta: torch.Tensor = torch.tensor([0.45, 0.13]),
-        std_theta: torch.Tensor = torch.tensor([0.24, 0.026]),
-        mean_x: torch.Tensor = torch.tensor([40.5]),
-        std_x: torch.Tensor = torch.tensor([90.35]),
+        mean_theta: Tensor = torch.tensor([0.45, 0.13]),
+        std_theta: Tensor = torch.tensor([0.24, 0.026]),
+        mean_x: Tensor = torch.tensor([40.5]),
+        std_x: Tensor = torch.tensor([90.35]),
     ):
         """Standardize the SIR data.
 
@@ -115,7 +116,7 @@ class SIRStdScaler:
         self.mean_x = mean_x
         self.std_x = std_x
 
-    def __call__(self, batch: torch.tensor) -> dict:
+    def __call__(self, batch: Tensor) -> Dict[str, Tensor]:
         """Standardize theta and x.
 
         Args:
@@ -132,7 +133,7 @@ class SIRStdScaler:
 
         return {"theta": theta, "obs": x}
 
-    def rescale(self, batch: torch.tensor) -> dict:
+    def rescale(self, batch: Tensor) -> Dict[str, Tensor]:
         """Rescale theta and x.
 
         Args:
@@ -154,7 +155,7 @@ def load_sir_data(
     base_path: str,
     file_name_thetas: str = "sir_thetas.npy",
     file_name_x: str = "sir_x_obs.npy",
-) -> tuple:
+) -> Tuple[Tensor, Tensor]:
     """Load the pre-generated data.
 
     Args:
