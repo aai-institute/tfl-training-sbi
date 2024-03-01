@@ -1,4 +1,4 @@
-"""Several functions that ease the work with simulated data. """
+"""Several functions that ease the work with simulated data."""
 
 import os
 import time
@@ -168,4 +168,4 @@ def load_sir_data(
     theta = np.load(os.path.join(base_path, file_name_thetas))
     x = np.load(os.path.join(base_path, file_name_x))
 
-    return theta, x
+    return torch.from_numpy(theta), torch.from_numpy(x)
