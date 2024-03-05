@@ -1,4 +1,4 @@
-"""Several functions that ease the work with simulated data. """
+"""Several functions that ease the work with simulated data."""
 
 import os
 import time
