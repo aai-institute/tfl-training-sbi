@@ -37,8 +37,8 @@ class SIRSimulation(Dataset):
             transformations (transforms.Compose, optional): Transformations.
         """
         super().__init__()
-        self.data_theta = torch.from_numpy(data_theta)
-        self.data_x = torch.from_numpy(data_x)
+        self.data_theta = data_theta
+        self.data_x = data_x
         self.data_length = data_theta.shape[0]
         self.lag = simulator_lag
         self.prior = prior

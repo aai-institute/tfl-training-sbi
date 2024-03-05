@@ -23,7 +23,6 @@ class MultivariateGaussianMDN(nn.Module):
 
         self._features = features
         self._num_components = num_components
-
         self._hidden_net = hidden_net
         self._logits_layer = nn.Linear(hidden_features, num_components)
         self._means_layer = nn.Linear(hidden_features, num_components * features)
@@ -46,7 +45,7 @@ class MultivariateGaussianMDN(nn.Module):
         return logits, means, variances
 
     def sample(self, num_samples: int, context: Tensor):
-        """Samples from the mdn givne context.
+        """Samples from the mdn given the context.
 
         Note: samples num_samples samples for each context in the batch.
 
@@ -68,6 +67,7 @@ class MultivariateGaussianMDN(nn.Module):
         return samples.view(-1, num_samples, self._features)
 
     def log_prob(self, theta, context):
+        """Returns the log probability of theta conditioned on the context."""
         logits, means, variances = self.get_mixture_components(context)
         return mog_log_prob(theta, logits, means, variances)
 
