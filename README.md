@@ -1,18 +1,19 @@
 # TransferLab Training: Simulation-based Inference
 
-Welcome to the TransferLab training: Simulation-based Inference.
+Welcome to the TransferLab training: Simulation-Based Inference (SBI).
 This is the readme for the participants of the training.
 
 Simulation-based inference is a statistical method used to enable Bayesian
 inference when the likelihood function of a complex model is computationally
-intractable or unknown. It does so by approximating a certain part of Bayes
-theorem from observations of the model. 
+intractable or unknown. It does so by using neural network-based density
+estimation methods to approximate a specific part of Bayes' theorem using data
+simulated from the model.
 
 This training provides the participants with a thorough understanding of the
-fundamental principles and methods of Simulation-based Inference, including why
-and when to use these methods in place of traditional likelihood-based inference
-techniques. The training will also provide the participants with hands-on
-experience in applying these methods.
+fundamental principles and methods of SBI, including why and when to use these
+methods in place of traditional likelihood-based inference techniques. The
+training will also provide the participants with hands-on experience in applying
+SBI.
 
 <figure>
     <center>
@@ -40,30 +41,48 @@ install the dependencies or use docker.
 For running without docker, create a conda environment (with python 3.9),
 e.g., with `conda create -n tfl_training_sbi python=3.9`.
 Then, install the dependencies and the package with
+
     ```shell
     bash build_scripts/install_presentation_requirements.sh
     pip install -e .
     ```
+
 3. Adapt the data path in `config.yml` to point to the correct location on your machine.
 4. If you want to use docker instead, you can build the image locally.
+
     ```shell
     docker build -t tfl_training_sbi .
     ```
+
     You can then start the container e.g., with
+
     ```shell
     docker run -it -p 8888:8888 tfl_training_sbi jupyter notebook
     ```
+
 5. Finally, for creating source code documentation, you can run
+
     ```shell
     bash build_scripts/build_docs.sh
     ```
+
     and then open `docs/build/html/index.html` in your browser.
     This will also rebuild the jupyter-book based notebook documentation
     that was originally found in the `html` directory.
 
 Note that there is some non-trivial logic in the entrypoint that may collide
-with mounting volumes to paths directly inside 
-`/home/jovyan/tfl_training_sbi`. If you want to do that, 
-the easiest way is to override the entrypoint or to mount somewhere else
-and create a symbolic link. For details on that see the `Dockerfile` and
-`entrypoint.sh`.
+with mounting volumes to paths directly inside `/home/jovyan/tfl_training_sbi`.
+If you want to do that, the easiest way is to override the entrypoint or to
+mount somewhere else and create a symbolic link. For details on that see the
+`Dockerfile` and `entrypoint.sh`.
+
+## License
+
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
