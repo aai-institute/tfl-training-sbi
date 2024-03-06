@@ -2,6 +2,7 @@
 Collection of solutions to the exercises provided in notebook 1 - Introduction to SBI.
 """
 
+
 # Part 1 solution.
 def distance(x: Tensor, x_o: Tensor) -> Tensor:
     """Returns the mean squared error (MSE) between x and x_o.
@@ -50,7 +51,7 @@ def rejection_abc(
     theta = []
     x = []
 
-    for _ in tnrange(num_simulations):
+    for _ in trange(num_simulations):
         theta_i, x_i = sample_and_simulate(1)
         theta.append(theta_i)
         x.append(x_i)
