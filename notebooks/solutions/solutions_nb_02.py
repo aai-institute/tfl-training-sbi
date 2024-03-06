@@ -3,8 +3,7 @@ Collection of solutions to the exercises provided in notebook 2 - Conditional
 Density Estimation.
 """
 
-
-# Part 1 solution.
+# Solution task 1.
 ataset = TensorDataset(theta, x)
 
 train_loader = DataLoader(dataset, batch_size=20)
@@ -36,7 +35,7 @@ for e in trange(100):
         opt.step()
 
 
-# Part 2 solution.
+# Solution task 2.
 # initialize the mixture density network, parameterizing a
 # `num_components`-component mixture of Gaussians with `features`
 # features, i.e. variables
@@ -58,7 +57,7 @@ mixture_density_net = mdn.MultivariateGaussianMDN(
 )
 
 
-# Part 3 solution.
+# Solution task 3.
 # chose value to condition on & compute the mixture components
 x_o = torch.as_tensor([[0.5]])
 logits, means, variances = mixture_density_net.get_mixture_components(x_o)
@@ -72,4 +71,3 @@ for theta_i in tqdm(theta_test):
     log_probs.append(log_prob)
 
 probs = torch.stack(log_probs).detach().exp()
-

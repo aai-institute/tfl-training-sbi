@@ -2,14 +2,6 @@
 Collection of solutions to the exercises provided in notebook 1 - Introduction to SBI.
 """
 
-
-import torch
-
-from torch import Tensor
-from tqdm.notebook import tnrange
-from typing import Callable
-
-
 # Part 1 solution.
 def distance(x: Tensor, x_o: Tensor) -> Tensor:
     """Returns the mean squared error (MSE) between x and x_o.
@@ -32,13 +24,17 @@ def distance(x: Tensor, x_o: Tensor) -> Tensor:
 
 # Part 2 solution.
 def rejection_abc(
-    num_simulations: int, sample_and_simulate: Callable, distance: Callable, epsilon: float, x_o: Tensor
+    num_simulations: int,
+    sample_and_simulate: Callable,
+    distance: Callable,
+    epsilon: float,
+    x_o: Tensor,
 ) -> Tensor:
     """Returns a tensor of accepted posteriors samples obtained with the rejection ABC algorithm.
 
     Args:
         num_simulations: simulation budget
-        sample_and_simulate: a function that samples a parameter from the prior and 
+        sample_and_simulate: a function that samples a parameter from the prior and
             simulates the SIR model: takes number of samples (int) as input and returns
             theta and x: theta_i, x_i = sample_and_simulate(num_samples)
         distance: a distance function.
@@ -62,8 +58,10 @@ def rejection_abc(
         if distance(x_i, x_o) < epsilon:
             posterior_samples.append(theta_i)
 
-    assert len(posterior_samples) > 0, "No samples accepted, consider increasing N or eps."
-    
+    assert (
+        len(posterior_samples) > 0
+    ), "No samples accepted, consider increasing N or eps."
+
     print(f"Rejection ABC: {len(posterior_samples)} accepted samples.")
 
     return torch.cat(posterior_samples), torch.cat(theta), torch.cat(x)
@@ -72,4 +70,6 @@ def rejection_abc(
 # Part 3 solution.
 eps = 120
 num_simulations = 50000
-posterior_samples, theta, x = rejection_abc(num_simulations, sample_and_simulate, distance, eps, x_o)
+posterior_samples, theta, x = rejection_abc(
+    num_simulations, sample_and_simulate, distance, eps, x_o
+)
