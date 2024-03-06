@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Neural Likelihood and Ratio Estimation &#8212; thesan_output</title>
+    <title>Outline &#8212; thesan_output</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="How can we evaluate the performance of SBI?" href="nb_05_evaluation_of_sbi.html" />
-    <link rel="prev" title="Introduction to Neural Density Estimation with SBI" href="nb_03_neural_density_estimation.html" />
+    <link rel="prev" title="Introduction to Neural Density Estimation for SBI" href="nb_03_neural_density_estimation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,11 +187,38 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="nb_02_conditional_density_estimation.html">Conditional Density Estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb_03_neural_density_estimation.html">Introduction to Neural Density Estimation with SBI</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Neural Likelihood and Ratio Estimation</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="nb_02_conditional_density_estimation.html">Conditional Density Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb_03_neural_density_estimation.html">Introduction to Neural Density Estimation for SBI</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Outline</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="nb_05_evaluation_of_sbi.html">How can we evaluate the performance of SBI?</a></li>
+
 
 
 
@@ -345,7 +372,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Neural Likelihood and Ratio Estimation</h1>
+    <h1>Outline</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -355,23 +382,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-the-goal-of-sbi">Recap: the Goal of SBI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-neural-posterior-estimation">Recap: Neural Posterior Estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-likelihood">The Likelihood</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-likelihood-with-a-neural-network">Learning the Likelihood with a Neural Network</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-the-nle-posterior">Sampling from the NLE Posterior</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-use-nle">Why should I use NLE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-intro-to-the-sbi-toolkit">Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application-of-nle-on-the-sir-dataset">Example: Application of NLE on the SIR Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-inference-object">Saving the Inference Object</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-investigate-the-learned-posterior">Let’s Investigate the Learned Posterior</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-ratio-estimation">Neural Ratio Estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-about-nre">Considerations about NRE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-nre">Usage of NRE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations-for-npe-vs-nle-and-nre">Practical Considerations for NPE vs. NLE and NRE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Outline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-the-goal-of-sbi">Recap: the Goal of SBI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-neural-posterior-estimation">Recap: Neural Posterior Estimation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-likelihood">The Likelihood</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-likelihood-with-a-neural-network">Learning the Likelihood with a Neural Network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-the-nle-posterior">Sampling from the NLE Posterior</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-use-nle">Why should I use NLE?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-intro-to-the-sbi-toolkit">Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-application-of-nle-on-the-sir-dataset">Exercise: Application of NLE on the SIR Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-inference-object">Saving the Inference Object</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-investigate-the-learned-posterior">Let’s Investigate the Learned Posterior</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-ratio-estimation">Neural Ratio Estimation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-about-nre">Considerations about NRE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-nre">Usage of NRE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations-for-npe-vs-nle-and-nre">Practical Considerations for NPE vs. NLE and NRE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -536,7 +565,10 @@ div.plan-container {
   margin-left: 5%;
 }</style></div></div>
 </div>
-<div class="cell docutils container">
+<img src="_static/images/aai-institute-cover.png" alt="Snow" style="width:100%;">
+<div class="md-slide title">
+    <h1>Neural Likelihood and Ratio Estimation</h1>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -577,55 +609,56 @@ div.plan-container {
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="neural-likelihood-and-ratio-estimation">
-<h1>Neural Likelihood and Ratio Estimation<a class="headerlink" href="#neural-likelihood-and-ratio-estimation" title="Permalink to this heading">#</a></h1>
+<section id="outline">
+<h1>Outline<a class="headerlink" href="#outline" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Recap of Neural Posterior Estimation</p></li>
 <li><p>Introduction to Neural Likelihood Estimation (NLE)</p></li>
+<li><p>Intro to SBI Python package <code class="docutils literal notranslate"><span class="pre">sbi</span></code></p></li>
 <li><p>Exercise</p></li>
 <li><p>Neural Ratio Estimation (NRE)</p></li>
 <li><p>Pros &amp; Cons of all three methods</p></li>
 </ul>
+</section>
 <section id="recap-the-goal-of-sbi">
-<h2>Recap: the Goal of SBI<a class="headerlink" href="#recap-the-goal-of-sbi" title="Permalink to this heading">#</a></h2>
+<h1>Recap: the Goal of SBI<a class="headerlink" href="#recap-the-goal-of-sbi" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>We want to learn the posterior <span class="math notranslate nohighlight">\(p(\theta | \mathbf{x})\)</span> of a model <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> given some data <span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p></li>
+<li><p>We want to learn the posterior <span class="math notranslate nohighlight">\(p(\theta | \mathbf{x})\)</span> of a simulator <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> given some data <span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p></li>
 <li><p>We do so using Bayes rule:
 $<span class="math notranslate nohighlight">\(
   p(\theta | \mathbf{x}) = \frac{p(\mathbf{x} | \theta)
   p(\theta)}{p(\mathbf{x})}
   \)</span>$</p></li>
 <li><p>However, the Likelihood is usually intractable</p></li>
-<li><p>We overcome this challenge by sampling from the joint distribution
-<span class="math notranslate nohighlight">\(p(\mathbf{x}, \theta)=p(\mathbf{x}\mid \theta)p(\theta)\)</span> and learn a conditional density estimator</p></li>
+<li><p>We overcome this challenge by learning a conditional density estimator <span class="math notranslate nohighlight">\(q_{\phi}(\theta | x)\)</span> from simulated data <span class="math notranslate nohighlight">\((\theta_i, x_i) \sim p(x \mid \theta)p(\theta)\)</span></p></li>
 </ul>
 </section>
 <section id="recap-neural-posterior-estimation">
-<h2>Recap: Neural Posterior Estimation<a class="headerlink" href="#recap-neural-posterior-estimation" title="Permalink to this heading">#</a></h2>
+<h1>Recap: Neural Posterior Estimation<a class="headerlink" href="#recap-neural-posterior-estimation" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Direct mapping from observations <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to posterior <span class="math notranslate nohighlight">\(p(\theta|\mathbf{x})\)</span></p></li>
 <li><p>E.g. learning Gaussian mixture, parameterized by neural network</p></li>
 </ul>
 </section>
 <section id="the-likelihood">
-<h2>The Likelihood<a class="headerlink" href="#the-likelihood" title="Permalink to this heading">#</a></h2>
+<h1>The Likelihood<a class="headerlink" href="#the-likelihood" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>The Likelihood is the conditional probability density of the data given the model parameters, i.e. <span class="math notranslate nohighlight">\(p(\mathbf{x}|\theta)\)</span></p></li>
 <li><p>This is a density function in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> for fixed <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
 </ul>
 </section>
 <section id="learning-the-likelihood-with-a-neural-network">
-<h2>Learning the Likelihood with a Neural Network<a class="headerlink" href="#learning-the-likelihood-with-a-neural-network" title="Permalink to this heading">#</a></h2>
+<h1>Learning the Likelihood with a Neural Network<a class="headerlink" href="#learning-the-likelihood-with-a-neural-network" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>NLE learns <span class="math notranslate nohighlight">\(p(\mathbf{x}|\theta)\)</span> instead of <span class="math notranslate nohighlight">\(p(\theta|\mathbf{x})\)</span></p></li>
 <li><p>Both are conditional density estimation problems (<a class="reference internal" href="nb_02_conditional_density_estimation.html"><span class="doc std std-doc">NB 02</span></a>)</p></li>
 <li><p>NLE is a Maximum Likelihood Estimation problem on <span class="math notranslate nohighlight">\(\{(\theta, \mathbf{x})_i
 \}^N_{i=1}\)</span> where <span class="math notranslate nohighlight">\(\mathcal{M}(\theta_i) = \mathbf{x}_i\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\hat{p}(\theta \mid \mathbf{x}) = p(\theta\mid\mathbf{x})p(\theta)\)</span> is a scaled version with constant <span class="math notranslate nohighlight">\(\frac{1}{p(\mathbf{x})}\)</span></p></li>
+<li><p>We can obtain posterior samples via <span class="math notranslate nohighlight">\(\hat{p}(\theta \mid \mathbf{x}) \propto p(\theta\mid\mathbf{x})p(\theta)\)</span>, using MCMC or variational inference</p></li>
 </ul>
 </section>
 <section id="sampling-from-the-nle-posterior">
-<h2>Sampling from the NLE Posterior<a class="headerlink" href="#sampling-from-the-nle-posterior" title="Permalink to this heading">#</a></h2>
+<h1>Sampling from the NLE Posterior<a class="headerlink" href="#sampling-from-the-nle-posterior" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>In contrast to NPE, NLE and NRE require MCMC to sample from the posterior</p></li>
 <li><p>This should be taken into account when deciding which method to use</p></li>
@@ -634,38 +667,48 @@ more in-depth coverage of accessing the posterior with MCMC</p></li>
 </ul>
 </section>
 <section id="why-should-i-use-nle">
-<h2>Why should I use NLE<a class="headerlink" href="#why-should-i-use-nle" title="Permalink to this heading">#</a></h2>
+<h1>Why should I use NLE?<a class="headerlink" href="#why-should-i-use-nle" title="Permalink to this heading">#</a></h1>
 <p>The goal is to obtain the posterior <span class="math notranslate nohighlight">\(p(\theta \mid \mathbf{x})\)</span>, why learn
 <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta)\)</span>?</p>
 <ul class="simple">
-<li><p>Reduced complexity due to factorization for i.i.d. observations</p></li>
-<li><p>Amortized when increasing the hierarchy</p></li>
+<li><p>We learn the likelihood for a single <span class="math notranslate nohighlight">\(x_i\)</span>: efficient for i.i.d. observations</p></li>
+<li><p>Hierarchical inference: no re-training when I change the hierarchy.</p></li>
 <li><p>Advantage when <span class="math notranslate nohighlight">\(\operatorname{dim}(\theta) \gg \operatorname{dim}(\mathbf{x})\)</span></p></li>
-<li><p>Only the Likelihood is intractable</p></li>
+<li><p>We obtain an emulator: replace expensive simulators</p></li>
 <li><p>No correction for sequential learning</p></li>
 </ul>
 </section>
 <section id="quick-intro-to-the-sbi-toolkit">
-<h2>Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit<a class="headerlink" href="#quick-intro-to-the-sbi-toolkit" title="Permalink to this heading">#</a></h2>
+<h1>Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit<a class="headerlink" href="#quick-intro-to-the-sbi-toolkit" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Open Source Software for Simulation-Based Inference; <i class="fa-brands fa-github"></i><a class="reference external" href="https://www.mackelab.org/sbi/">GitHub</a></p></li>
-<li><p>Provides SNPE, SNLE and SNRE as well as analysis tools out of the box</p></li>
+<li><p>Open Source Software for SBI on <a class="reference external" href="https://sbi-dev.github.io/sbi/">GitHub</a></p></li>
+<li><p>User-friendly implementations of:</p>
+<ul>
+<li><p>ABC,</p></li>
+<li><p>(S)NPE, (S)NLE, (S)NRE</p></li>
+<li><p>MCMC, variational inference</p></li>
+<li><p>analysis tools</p></li>
+<li><p>plotting</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a uninformative prior</span>
+<span class="n">num_dims</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">num_simulations</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">prior</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">BoxUniform</span><span class="p">(</span>
-    <span class="n">low</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span> <span class="n">high</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="n">low</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_dims</span><span class="p">),</span> <span class="n">high</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">num_dims</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="p">)</span>
 
 
 <span class="c1"># define a simple simulator</span>
 <span class="k">def</span> <span class="nf">example_simulator</span><span class="p">(</span><span class="n">theta</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+    <span class="k">return</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
 
 
 <span class="c1"># obtain samples from joint distribution</span>
-<span class="n">thetas</span> <span class="o">=</span> <span class="n">prior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="mi">1_000</span><span class="p">,))</span>
+<span class="n">thetas</span> <span class="o">=</span> <span class="n">prior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">num_simulations</span><span class="p">,))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">example_simulator</span><span class="p">(</span><span class="n">thetas</span><span class="p">)</span>
 
 
@@ -679,8 +722,8 @@ more in-depth coverage of accessing the posterior with MCMC</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># obtain a posterior approx. via NPE</span>
-<span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNPE</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span> <span class="n">density_estimator</span><span class="o">=</span><span class="s2">&quot;maf&quot;</span><span class="p">)</span>
-<span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNPE</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span> <span class="n">density_estimator</span><span class="o">=</span><span class="s2">&quot;mdn&quot;</span><span class="p">)</span>  <span class="c1"># also supports flows!</span>
+<span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">training_batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">posterior</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">(</span><span class="n">density_estimator</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -691,23 +734,17 @@ more in-depth coverage of accessing the posterior with MCMC</p></li>
  Training neural network. Epochs trained: 3
  Training neural network. Epochs trained: 4
  Training neural network. Epochs trained: 5
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 6
+ Training neural network. Epochs trained: 6
  Training neural network. Epochs trained: 7
  Training neural network. Epochs trained: 8
  Training neural network. Epochs trained: 9
  Training neural network. Epochs trained: 10
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 11
+ Training neural network. Epochs trained: 11
  Training neural network. Epochs trained: 12
  Training neural network. Epochs trained: 13
  Training neural network. Epochs trained: 14
  Training neural network. Epochs trained: 15
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 16
+ Training neural network. Epochs trained: 16
  Training neural network. Epochs trained: 17
  Training neural network. Epochs trained: 18
  Training neural network. Epochs trained: 19
@@ -720,220 +757,137 @@ more in-depth coverage of accessing the posterior with MCMC</p></li>
  Training neural network. Epochs trained: 24
  Training neural network. Epochs trained: 25
  Training neural network. Epochs trained: 26
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 27
+ Training neural network. Epochs trained: 27
  Training neural network. Epochs trained: 28
  Training neural network. Epochs trained: 29
  Training neural network. Epochs trained: 30
  Training neural network. Epochs trained: 31
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 32
+ Training neural network. Epochs trained: 32
  Training neural network. Epochs trained: 33
  Training neural network. Epochs trained: 34
+ Training neural network. Epochs trained: 35
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 35
- Training neural network. Epochs trained: 36
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 36
  Training neural network. Epochs trained: 37
  Training neural network. Epochs trained: 38
  Training neural network. Epochs trained: 39
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 40
+ Training neural network. Epochs trained: 40
  Training neural network. Epochs trained: 41
  Training neural network. Epochs trained: 42
  Training neural network. Epochs trained: 43
  Training neural network. Epochs trained: 44
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 45
+ Training neural network. Epochs trained: 45
  Training neural network. Epochs trained: 46
  Training neural network. Epochs trained: 47
  Training neural network. Epochs trained: 48
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 49
+ Training neural network. Epochs trained: 49
  Training neural network. Epochs trained: 50
  Training neural network. Epochs trained: 51
  Training neural network. Epochs trained: 52
  Training neural network. Epochs trained: 53
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 54
+ Training neural network. Epochs trained: 54
  Training neural network. Epochs trained: 55
- Training neural network. Epochs trained: 56
- Training neural network. Epochs trained: 57
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 58
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 56
+ Training neural network. Epochs trained: 57
+ Training neural network. Epochs trained: 58
  Training neural network. Epochs trained: 59
  Training neural network. Epochs trained: 60
  Training neural network. Epochs trained: 61
  Training neural network. Epochs trained: 62
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 63
+ Training neural network. Epochs trained: 63
  Training neural network. Epochs trained: 64
  Training neural network. Epochs trained: 65
  Training neural network. Epochs trained: 66
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 67
+ Training neural network. Epochs trained: 67
  Training neural network. Epochs trained: 68
  Training neural network. Epochs trained: 69
  Training neural network. Epochs trained: 70
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 71
+ Training neural network. Epochs trained: 71
  Training neural network. Epochs trained: 72
  Training neural network. Epochs trained: 73
  Training neural network. Epochs trained: 74
+ Training neural network. Epochs trained: 75
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 75
- Training neural network. Epochs trained: 76
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 76
  Training neural network. Epochs trained: 77
  Training neural network. Epochs trained: 78
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 79
+ Training neural network. Epochs trained: 79
  Training neural network. Epochs trained: 80
  Training neural network. Epochs trained: 81
  Training neural network. Epochs trained: 82
  Training neural network. Epochs trained: 83
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 84
+ Training neural network. Epochs trained: 84
  Training neural network. Epochs trained: 85
  Training neural network. Epochs trained: 86
  Training neural network. Epochs trained: 87
  Training neural network. Epochs trained: 88
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 89
- Training neural network. Epochs trained: 90
- Training neural network. Epochs trained: 91
- Training neural network. Epochs trained: 92
- Training neural network. Epochs trained: 93
- Training neural network. Epochs trained: 94
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 95
- Training neural network. Epochs trained: 96
- Training neural network. Epochs trained: 97
- Training neural network. Epochs trained: 98
- Training neural network. Epochs trained: 99
- Training neural network. Epochs trained: 100
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 101
- Training neural network. Epochs trained: 102
- Training neural network. Epochs trained: 103
- Training neural network. Epochs trained: 104
- Training neural network. Epochs trained: 105
- Training neural network. Epochs trained: 106
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 107
- Training neural network. Epochs trained: 108
- Training neural network. Epochs trained: 109
- Training neural network. Epochs trained: 110
- Training neural network. Epochs trained: 111
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 112
- Training neural network. Epochs trained: 113
- Training neural network. Epochs trained: 114
- Training neural network. Epochs trained: 115
- Training neural network. Epochs trained: 116
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 117
- Training neural network. Epochs trained: 118
- Training neural network. Epochs trained: 119
- Training neural network. Epochs trained: 120
- Training neural network. Epochs trained: 121
- Training neural network. Epochs trained: 122
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 123
- Training neural network. Epochs trained: 124
- Training neural network. Epochs trained: 125
- Training neural network. Epochs trained: 126
- Neural network successfully converged after 126 epochs.
+ Neural network successfully converged after 88 epochs.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="mi">100_000</span><span class="p">,),</span> <span class="n">x</span><span class="o">=</span><span class="n">x_obs</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
-    <span class="n">samples</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span>
-    <span class="n">points</span><span class="o">=</span><span class="n">theta_obs</span><span class="p">,</span>
-    <span class="n">points_colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
-    <span class="n">upper</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="mi">10_000</span><span class="p">,),</span> <span class="n">x</span><span class="o">=</span><span class="n">x_obs</span><span class="p">)</span>
+<span class="n">sbi</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">samples</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="n">theta_obs</span><span class="p">,</span> <span class="n">points_colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f0a62419d7714d59b66bc1d6cea75b75"}</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:root:upper is deprecated, use offdiag instead.
-</pre></div>
-</div>
-<img alt="_images/b20a85519c50321c5e13d701c0c5d7217cb541ce88f81e7d887052746f91c11a.png" src="_images/b20a85519c50321c5e13d701c0c5d7217cb541ce88f81e7d887052746f91c11a.png" />
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "422403f9722f4a03b30cb68a9905a808"}</script><img alt="_images/6ab73257290d5c586a43e355822af9907d9e42419605b4ce35642b0b735f34d6.png" src="_images/6ab73257290d5c586a43e355822af9907d9e42419605b4ce35642b0b735f34d6.png" />
 </div>
 </div>
 </section>
-<section id="example-application-of-nle-on-the-sir-dataset">
-<h2>Example: Application of NLE on the SIR Dataset<a class="headerlink" href="#example-application-of-nle-on-the-sir-dataset" title="Permalink to this heading">#</a></h2>
+<section id="exercise-application-of-nle-on-the-sir-dataset">
+<h1>Exercise: Application of NLE on the SIR Dataset<a class="headerlink" href="#exercise-application-of-nle-on-the-sir-dataset" title="Permalink to this heading">#</a></h1>
 <p>We will use the same data as in the previous notebook, but now we will use the
 neural likelihood estimator to construct the posterior.</p>
-<p><strong>Task:</strong> Use the provided the pseudo simulator to obtain the SIR dataset and
-split it into a training and test set. Note, <code class="docutils literal notranslate"><span class="pre">sbi</span></code> standardizes the data itself. Therefore, this step can be omitted.</p>
+<p><strong>Task 1:</strong> Load the pre-simulated SIR data set from disk and split it into a training and test set (a single pair of “observed” <code class="docutils literal notranslate"><span class="pre">(theta_o,</span> <span class="pre">x_o)</span></code>).</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">sbi</span></code> standardizes the data automatically. Therefore, the scaling step we performed in notebook 3 can be omitted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the pre-simulated data from disk</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load -r 6-12 solutions/solutions_nb_04.py</span>
+<span class="c1"># load the pre-simulated data from disk</span>
 <span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="n">data_theta</span><span class="p">,</span> <span class="n">data_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_theta</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span>
 
 <span class="c1"># separate the &quot;observed&quot; data from the training data</span>
-<span class="n">theta_obs</span><span class="p">,</span> <span class="n">x_obs</span> <span class="o">=</span> <span class="n">data_theta</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">data_x</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
-<span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span> <span class="o">=</span> <span class="n">data_theta</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:],</span> <span class="n">data_x</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>
+<span class="n">theta_obs</span><span class="p">,</span> <span class="n">x_obs</span> <span class="o">=</span> <span class="n">data_theta</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">data_x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span> <span class="o">=</span> <span class="n">data_theta</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:],</span> <span class="n">data_x</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Task:</strong> Furthermore, we have to define a suitable prior to the task. As defined in the benchmarking paper by Lueckmann et al., we’ll use a LogNormal distribution with the following parameters:</p>
+<p><strong>Task 2:</strong> Furthermore, we have to define a suitable prior to the task. As defined in the benchmarking paper by Lueckmann et al., we’ll use a LogNormal distribution with the following parameters:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\theta_1 \sim \operatorname{LogNormal}(\log 0.4, 0.5^2)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\theta_2 \sim \operatorname{LogNormal}(\log 0.125, 0.2^2)\)</span></p></li>
 </ul>
+<p>Hint: <code class="docutils literal notranslate"><span class="pre">sbi</span></code> has a method <code class="docutils literal notranslate"><span class="pre">process_prior</span></code> (imported above) that takes as input a list of <code class="docutils literal notranslate"><span class="pre">torch</span></code> distributions and combines the entries in the list into a single joint prior distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prior</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">process_prior</span><span class="p">([</span>
-    <span class="n">LogNormal</span><span class="p">(</span>
-        <span class="n">loc</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)]),</span>
-        <span class="n">scale</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])</span>
-    <span class="p">),</span> 
-    <span class="n">LogNormal</span><span class="p">(</span>
-        <span class="n">loc</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.125</span><span class="p">)]),</span>
-        <span class="n">scale</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.2</span><span class="p">])</span>
-    <span class="p">),</span>
-<span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load -r 15-21 solutions/solutions_nb_04.py</span>
+<span class="n">prior</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">process_prior</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">LogNormal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)]),</span> <span class="n">scale</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])),</span>
+        <span class="n">LogNormal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.125</span><span class="p">)]),</span> <span class="n">scale</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.2</span><span class="p">])),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Task:</strong> Finally, we can train the NDE. Therefore, we have to initialize a SNLE object with the respective prior and method for density estimation. Further, the training data has to be passed to the inference object. The NDE is trained by calling the <code class="docutils literal notranslate"><span class="pre">.train()</span></code> method on the inference object. Feel free to use the above example as blueprint.</p>
+<p><strong>Task 3:</strong> Finally, we can train the NDE. To that end, we have to initialize a SNLE object with the respective prior and method for density estimation. Further, the training data has to be passed to the inference object. The NDE is trained by calling the <code class="docutils literal notranslate"><span class="pre">.train()</span></code> method on the inference object. Feel free to use the above example as blueprint.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># obtain a posterior approx. via NPE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load -r 24-30 solutions/solutions_nb_04.py</span>
+<span class="c1"># obtain a posterior approx. via NPE</span>
 <span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNLE</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span> <span class="n">density_estimator</span><span class="o">=</span><span class="s2">&quot;maf&quot;</span><span class="p">)</span>
 <span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-    <span class="n">training_batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_num_epochs</span><span class="o">=</span><span class="mi">200</span>
+    <span class="n">training_batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_num_epochs</span><span class="o">=</span><span class="mi">200</span>
 <span class="p">)</span>
 <span class="n">posterior</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">(</span><span class="n">density_estimator</span><span class="p">,</span> <span class="n">sample_with</span><span class="o">=</span><span class="s2">&quot;mcmc&quot;</span><span class="p">)</span>
 </pre></div>
@@ -976,64 +930,182 @@ split it into a training and test set. Note, <code class="docutils literal notra
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 12
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 13
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 14
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 15
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 18
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 19
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 20
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 21
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 22
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 23
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 24
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 25
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 26
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Training neural network. Epochs trained: 27
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># obtain a posterior approx. via NPE</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNLE</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span> <span class="n">density_estimator</span><span class="o">=</span><span class="s2">&quot;maf&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">training_batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_num_epochs</span><span class="o">=</span><span class="mi">200</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">posterior</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">(</span><span class="n">density_estimator</span><span class="p">,</span> <span class="n">sample_with</span><span class="o">=</span><span class="s2">&quot;mcmc&quot;</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># %load -r 24-30 solutions/solutions_nb_04.py</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># obtain a posterior approx. via NPE</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNLE</span><span class="p">(</span><span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span> <span class="n">density_estimator</span><span class="o">=</span><span class="s2">&quot;maf&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">density_estimator</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">append_simulations</span><span class="p">(</span><span class="n">theta_train</span><span class="p">,</span> <span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">training_batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_num_epochs</span><span class="o">=</span><span class="mi">200</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">posterior</span> <span class="o">=</span> <span class="n">inference</span><span class="o">.</span><span class="n">build_posterior</span><span class="p">(</span><span class="n">density_estimator</span><span class="p">,</span> <span class="n">sample_with</span><span class="o">=</span><span class="s2">&quot;mcmc&quot;</span><span class="p">)</span>
 
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/sbi/inference/snle/snle_base.py:220,</span> in <span class="ni">LikelihoodEstimator.train</span><span class="nt">(self, training_batch_size, learning_rate, validation_fraction, stop_after_epochs, max_num_epochs, clip_max_norm, resume_training, discard_prior_samples, retrain_from_scratch, show_train_summary, dataloader_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="bp">self</span><span class="o">.</span><span class="n">_neural_net</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span> <span class="n">train_log_probs_sum</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="ne">--&gt; </span><span class="mi">220</span> <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">221</span>     <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="n">theta_batch</span><span class="p">,</span> <span class="n">x_batch</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span>     <span class="p">)</span>
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/sbi/inference/snle/snle_base.py:256,</span> in <span class="ni">LikelihoodEstimator.train</span><span class="nt">(self, training_batch_size, learning_rate, validation_fraction, stop_after_epochs, max_num_epochs, clip_max_norm, resume_training, discard_prior_samples, retrain_from_scratch, show_train_summary, dataloader_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>         <span class="n">theta_batch</span><span class="p">,</span> <span class="n">x_batch</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>             <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>             <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span>         <span class="c1"># Evaluate on x with theta as context.</span>
+<span class="ne">--&gt; </span><span class="mi">256</span>         <span class="n">val_losses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loss</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">theta_batch</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x_batch</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>         <span class="n">val_log_prob_sum</span> <span class="o">-=</span> <span class="n">val_losses</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span> <span class="c1"># Take mean over all validation samples.</span>
 
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/dataloader.py:630,</span> in <span class="ni">_BaseDataLoaderIter.__next__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampler_iter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">628</span>     <span class="c1"># TODO(https://github.com/pytorch/pytorch/issues/76750)</span>
-<span class="g g-Whitespace">    </span><span class="mi">629</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="ne">--&gt; </span><span class="mi">630</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_data</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">631</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">632</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_kind</span> <span class="o">==</span> <span class="n">_DatasetKind</span><span class="o">.</span><span class="n">Iterable</span> <span class="ow">and</span> \
-<span class="g g-Whitespace">    </span><span class="mi">633</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
-<span class="g g-Whitespace">    </span><span class="mi">634</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span><span class="p">:</span>
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/sbi/inference/snle/snle_base.py:394,</span> in <span class="ni">LikelihoodEstimator._loss</span><span class="nt">(self, theta, x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span> <span class="k">def</span> <span class="nf">_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">theta</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span><span class="w">     </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Return loss for SNLE, which is the likelihood of $-\log q(x_i | \theta_i)$.</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span><span class="sd">     Returns:</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span><span class="sd">         Negative log prob.</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">394</span>     <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_neural_net</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">theta</span><span class="p">)</span>
 
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/dataloader.py:674,</span> in <span class="ni">_SingleProcessDataLoaderIter._next_data</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">672</span> <span class="k">def</span> <span class="nf">_next_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">673</span>     <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_index</span><span class="p">()</span>  <span class="c1"># may raise StopIteration</span>
-<span class="ne">--&gt; </span><span class="mi">674</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_fetcher</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>  <span class="c1"># may raise StopIteration</span>
-<span class="g g-Whitespace">    </span><span class="mi">675</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">pin_memory</span><span class="o">.</span><span class="n">pin_memory</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory_device</span><span class="p">)</span>
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/nflows/distributions/base.py:40,</span> in <span class="ni">Distribution.log_prob</span><span class="nt">(self, inputs, context)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="k">if</span> <span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">context</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>             <span class="s2">&quot;Number of input items must be equal to number of context items.&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">40</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_prob</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py:51,</span> in <span class="ni">_MapDatasetFetcher.fetch</span><span class="nt">(self, possibly_batched_index)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">__getitems__</span><span class="p">(</span><span class="n">possibly_batched_index</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">possibly_batched_index</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/nflows/flows/base.py:39,</span> in <span class="ni">Flow._log_prob</span><span class="nt">(self, inputs, context)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="k">def</span> <span class="nf">_log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">embedded_context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_embedding_net</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">39</span>     <span class="n">noise</span><span class="p">,</span> <span class="n">logabsdet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">embedded_context</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="n">log_prob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_distribution</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">embedded_context</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">log_prob</span> <span class="o">+</span> <span class="n">logabsdet</span>
 
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py:51,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">__getitems__</span><span class="p">(</span><span class="n">possibly_batched_index</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">possibly_batched_index</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/nn/modules/module.py:1518,</span> in <span class="ni">Module._wrapped_call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1516</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1517</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1518</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/dataset.py:208,</span> in <span class="ni">TensorDataset.__getitem__</span><span class="nt">(self, index)</span>
-<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tensor</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span>
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/nn/modules/module.py:1527,</span> in <span class="ni">Module._call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1522</span> <span class="c1"># If we don&#39;t have any hooks, we want to skip the rest of the logic in</span>
+<span class="g g-Whitespace">   </span><span class="mi">1523</span> <span class="c1"># this function, and just call forward.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1524</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backward_pre_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1525</span>         <span class="ow">or</span> <span class="n">_global_backward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1526</span>         <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1527</span>     <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1529</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1530</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/utils/data/dataset.py:208,</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tensor</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span>
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/nflows/transforms/base.py:56,</span> in <span class="ni">CompositeTransform.forward</span><span class="nt">(self, inputs, context)</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">funcs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transforms</span>
+<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cascade</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">funcs</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/nflows/transforms/base.py:50,</span> in <span class="ni">CompositeTransform._cascade</span><span class="nt">(inputs, funcs, context)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">total_logabsdet</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">new_zeros</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">funcs</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">50</span>     <span class="n">outputs</span><span class="p">,</span> <span class="n">logabsdet</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="n">total_logabsdet</span> <span class="o">+=</span> <span class="n">logabsdet</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">return</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">total_logabsdet</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/nn/modules/module.py:1518,</span> in <span class="ni">Module._wrapped_call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1516</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1517</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1518</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/nn/modules/module.py:1527,</span> in <span class="ni">Module._call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1522</span> <span class="c1"># If we don&#39;t have any hooks, we want to skip the rest of the logic in</span>
+<span class="g g-Whitespace">   </span><span class="mi">1523</span> <span class="c1"># this function, and just call forward.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1524</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backward_pre_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1525</span>         <span class="ow">or</span> <span class="n">_global_backward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1526</span>         <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1527</span>     <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1529</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1530</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/nflows/transforms/autoregressive.py:38,</span> in <span class="ni">AutoregressiveTransform.forward</span><span class="nt">(self, inputs, context)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">38</span>     <span class="n">autoregressive_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">autoregressive_net</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">outputs</span><span class="p">,</span> <span class="n">logabsdet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elementwise_forward</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">autoregressive_params</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="k">return</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">logabsdet</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/nn/modules/module.py:1518,</span> in <span class="ni">Module._wrapped_call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1516</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1517</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1518</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/nn/modules/module.py:1527,</span> in <span class="ni">Module._call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1522</span> <span class="c1"># If we don&#39;t have any hooks, we want to skip the rest of the logic in</span>
+<span class="g g-Whitespace">   </span><span class="mi">1523</span> <span class="c1"># this function, and just call forward.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1524</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backward_pre_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1525</span>         <span class="ow">or</span> <span class="n">_global_backward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1526</span>         <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1527</span>     <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1529</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1530</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/nflows/transforms/made.py:275,</span> in <span class="ni">MADE.forward</span><span class="nt">(self, inputs, context)</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">275</span>     <span class="n">temps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>     <span class="k">if</span> <span class="n">context</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>         <span class="n">temps</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context_layer</span><span class="p">(</span><span class="n">context</span><span class="p">))</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/nn/modules/module.py:1518,</span> in <span class="ni">Module._wrapped_call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1516</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1517</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1518</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/torch/nn/modules/module.py:1527,</span> in <span class="ni">Module._call_impl</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1522</span> <span class="c1"># If we don&#39;t have any hooks, we want to skip the rest of the logic in</span>
+<span class="g g-Whitespace">   </span><span class="mi">1523</span> <span class="c1"># this function, and just call forward.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1524</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backward_pre_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1525</span>         <span class="ow">or</span> <span class="n">_global_backward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
+<span class="g g-Whitespace">   </span><span class="mi">1526</span>         <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1527</span>     <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1529</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1530</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/sbi/lib/python3.10/site-packages/nflows/transforms/made.py:72,</span> in <span class="ni">MaskedLinear.forward</span><span class="nt">(self, x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -1042,86 +1114,89 @@ split it into a training and test set. Note, <code class="docutils literal notra
 </div>
 </section>
 <section id="saving-the-inference-object">
-<h2>Saving the Inference Object<a class="headerlink" href="#saving-the-inference-object" title="Permalink to this heading">#</a></h2>
+<h1>Saving the Inference Object<a class="headerlink" href="#saving-the-inference-object" title="Permalink to this heading">#</a></h1>
 <p>The training process of NLE inference objects can take long. Therefore, saving
 the inference objects is advised.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># saving the inference object for possible later use</span>
-<span class="n">save_posterior_obj</span><span class="p">(</span><span class="s2">&quot;./notebooks/models/snle_sir.pl&quot;</span><span class="p">,</span> <span class="n">inference</span><span class="p">)</span>
+<span class="n">save_posterior_obj</span><span class="p">(</span><span class="s2">&quot;../notebooks/models/snle_sir.pl&quot;</span><span class="p">,</span> <span class="n">inference</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="let-s-investigate-the-learned-posterior">
-<h2>Let’s Investigate the Learned Posterior<a class="headerlink" href="#let-s-investigate-the-learned-posterior" title="Permalink to this heading">#</a></h2>
+<h1>Let’s Investigate the Learned Posterior<a class="headerlink" href="#let-s-investigate-the-learned-posterior" title="Permalink to this heading">#</a></h1>
 <p>In order to investigate the quality of approximation, we’ll sample a large
-number of <span class="math notranslate nohighlight">\(\theta\)</span> from the conditional density <span class="math notranslate nohighlight">\(p(\theta \mid
-\mathbf{x}_o)\)</span>.</p>
-<p>We’ll compare the resulting distribution to the actual <span class="math notranslate nohighlight">\(\theta^{\ast}\)</span> that was
+number of <span class="math notranslate nohighlight">\(\theta\)</span> from the posterior <span class="math notranslate nohighlight">\(p(\theta \mid
+\mathbf{x}_o)\)</span> using MCMC sampling.</p>
+<p>Then, we’ll compare the resulting distribution to the actual <span class="math notranslate nohighlight">\(\theta^{\ast}\)</span> that was
 used to generate <span class="math notranslate nohighlight">\(\mathbf{x}_o\)</span>.</p>
-<p><strong>Task:</strong> Similar to the example above, use the posterior, conditioned on <code class="docutils literal notranslate"><span class="pre">x_obs</span></code> to sample a large number of <span class="math notranslate nohighlight">\(\theta\)</span>. Then, plot the resulting samples using the pairplot, provided by the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> toolkit.</p>
+<p><strong>Task 4:</strong> Similar to the example above, use the posterior, conditioned on <code class="docutils literal notranslate"><span class="pre">x_obs</span></code> to sample 1000 <span class="math notranslate nohighlight">\(\theta\)</span>s. Then, plot the resulting samples using the <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> method, provided by the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> toolkit.</p>
+<p><strong>Note</strong> that because you are using <code class="docutils literal notranslate"><span class="pre">NLE</span></code>, you are effectively using <code class="docutils literal notranslate"><span class="pre">MCMC</span></code> to sample from the posterior (happens by default). To make sampling faster, we recommend passing <code class="docutils literal notranslate"><span class="pre">method=&quot;slice_np_vectorized&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">num_chains=10</span></code> to <code class="docutils literal notranslate"><span class="pre">sample(...)</span></code>.</p>
+<p>Optional: Use <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> to additionally plot the prior samples as a comparison, e.g., by passing a list of samples <code class="docutils literal notranslate"><span class="pre">[prior_samples,</span> <span class="pre">posterior_sample]</span></code>. Use <code class="docutils literal notranslate"><span class="pre">offdiag=&quot;scatter&quot;</span></code> option to plot the joint as a scatter plot for better visual comparison.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="mi">100_000</span><span class="p">,),</span> <span class="n">x</span><span class="o">=</span><span class="n">x_obs</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;slice_np_vectorized&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load -r 33-45 solutions/solutions_nb_04.py</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">posterior_samples</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">num_samples</span><span class="p">,),</span> <span class="n">x</span><span class="o">=</span><span class="n">x_obs</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;slice_np_vectorized&quot;</span><span class="p">,</span> <span class="n">num_chains</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+<span class="n">prior_samples</span> <span class="o">=</span> <span class="n">theta_train</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
-    <span class="n">samples</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">prior_samples</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">],</span> <span class="n">posterior_samples</span><span class="p">],</span>
     <span class="n">points</span><span class="o">=</span><span class="n">theta_obs</span><span class="p">,</span>
     <span class="n">points_colors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
-    <span class="n">upper</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span>
+    <span class="n">offdiag</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span>
+    <span class="n">hist_diag</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b399dcd3c8af4195a748716d74d05a38", "version_major": 2, "version_minor": 0}</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:root:upper is deprecated, use offdiag instead.
-</pre></div>
-</div>
-<img alt="_images/c873fa6ec8a2f1b0cca40e1f571610e5637d8e4fcd9a90173fbf0adaaf4b9a34.png" src="_images/c873fa6ec8a2f1b0cca40e1f571610e5637d8e4fcd9a90173fbf0adaaf4b9a34.png" />
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "37c5286606a443e79addfe2ccde4e329", "version_major": 2, "version_minor": 0}</script><img alt="_images/ff76f4180039c56516a30298901a0d1d89527adc070311a71f591b7f27e56600.png" src="_images/ff76f4180039c56516a30298901a0d1d89527adc070311a71f591b7f27e56600.png" />
 </div>
 </div>
 </section>
 <section id="neural-ratio-estimation">
-<h2>Neural Ratio Estimation<a class="headerlink" href="#neural-ratio-estimation" title="Permalink to this heading">#</a></h2>
+<h1>Neural Ratio Estimation<a class="headerlink" href="#neural-ratio-estimation" title="Permalink to this heading">#</a></h1>
 <ul>
-<li><p>The Likelihood-ratio is a popular test statistic
-$<span class="math notranslate nohighlight">\(
-  r(\mathbf{x} \mid \theta_0, \theta_1) = \frac{p(\mathbf{x} \mid \theta_0)}{p(\mathbf{x} \mid \theta_1)}
-  \)</span>$</p></li>
-<li><p>Cranmer et al (2015) have shown that <span class="math notranslate nohighlight">\(r(\mathbf{x}\mid \theta_0, \theta_1)\)</span>
-can be expressed by a classifier <span class="math notranslate nohighlight">\(d(\mathbf{x}, \theta)\)</span> trained on
-samples from the true <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta)\)</span> and an arbitrary but fixed
-hypothisis <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta_{\text{ref}})\)</span>
-$$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ae2faae-b689-4376-a1a6-0607c0d788dc">
-<span class="eqno">(7)<a class="headerlink" href="#equation-9ae2faae-b689-4376-a1a6-0607c0d788dc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<li><p>The Likelihood-ratio is a popular test statistic,</p>
+<div class="math notranslate nohighlight">
+\[
+    r(\mathbf{x} \mid \theta_0, \theta_1) = \frac{p(\mathbf{x} \mid \theta_0)}{p(\mathbf{x} \mid \theta_1)}
+    \]</div>
+</li>
+<li><p>The ratio also appears in the MCMC sampling scheme - having access to it allows us to run MCMC</p></li>
+<li><p>idea for SBI: approximate the ratio to enable MCMC.</p></li>
+<li><p>Cranmer et al (2015) showed that <span class="math notranslate nohighlight">\(r(\mathbf{x}\mid \theta_0, \theta_1)\)</span>
+can be approximated by a classifier <span class="math notranslate nohighlight">\(d(\mathbf{x}, \theta)\)</span> trained on
+samples from the true <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta)\)</span> (label <span class="math notranslate nohighlight">\(y=1\)</span>) and an arbitrary but fixed
+hypothesis <span class="math notranslate nohighlight">\(p(\mathbf{x} \mid \theta_{\text{ref}})\)</span> (label <span class="math notranslate nohighlight">\(y=0\)</span>).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{align}
     d(\mathbf{x}, \theta) &amp;= p(y=1 \mid \mathbf{x}) =
     \frac{p(\mathbf{x}\mid \theta)}{p(\mathbf{x}\mid \theta) + p(\mathbf{x}\mid
     \theta_{\text{ref}})}  \\
     r(\mathbf{x} \mid \theta_0, \theta_1) &amp;= \frac{d(\mathbf{x},
     \theta)}{ 1 - d(\mathbf{x}, \theta) }
-    \end{align}\]</div>
-<p>$$</p>
-<ul class="simple">
-<li><p>Thus, learn a classifier to distinguish samples from <span class="math notranslate nohighlight">\(p(\mathbf{x},
-\theta)\)</span> from <span class="math notranslate nohighlight">\(p(\mathbf{x})p(\theta)\)</span></p></li>
-</ul>
+    \end{align}
+    \end{split}\]</div>
 </li>
 </ul>
 </section>
 <section id="considerations-about-nre">
-<h2>Considerations about NRE<a class="headerlink" href="#considerations-about-nre" title="Permalink to this heading">#</a></h2>
+<h1>Considerations about NRE<a class="headerlink" href="#considerations-about-nre" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Same concept as NLE but obtaining a normalized posterior</p></li>
-<li><p>Sampling via MCMC</p></li>
-<li><p>Training a classifier is easier than training a density estimator</p></li>
-<li><p><span class="math notranslate nohighlight">\(d(\mathbf{x}, \theta)\)</span> will be either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span> for many samples form
-<span class="math notranslate nohighlight">\(p(\mathbf{x}, \theta)\)</span>, makeing training more difficult</p></li>
+<li><p>Same concept as NLE but training a classifier rather than a density estimator (can be easier)</p></li>
+<li><p>Sampling via MCMC or VI</p></li>
+<li><p>Allows learning <strong>embeddings for both</strong> <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
 </ul>
 </section>
 <section id="usage-of-nre">
-<h2>Usage of NRE<a class="headerlink" href="#usage-of-nre" title="Permalink to this heading">#</a></h2>
+<h1>Usage of NRE<a class="headerlink" href="#usage-of-nre" title="Permalink to this heading">#</a></h1>
 <ul>
 <li><p>NRE is also implemented in the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> toolkit</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inference</span> <span class="o">=</span> <span class="n">sbi</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">SNRE</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span>
@@ -1133,23 +1208,27 @@ $$</p>
 </ul>
 </section>
 <section id="practical-considerations-for-npe-vs-nle-and-nre">
-<h2>Practical Considerations for NPE vs. NLE and NRE<a class="headerlink" href="#practical-considerations-for-npe-vs-nle-and-nre" title="Permalink to this heading">#</a></h2>
+<h1>Practical Considerations for NPE vs. NLE and NRE<a class="headerlink" href="#practical-considerations-for-npe-vs-nle-and-nre" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>NLE and NRE require MCMC; success depends on the shape and dimension of the
-posterior</p></li>
+<li><p>NPE enables fully amortized inference: train once, infer for many different <span class="math notranslate nohighlight">\(x_o\)</span> in no-time.</p></li>
+<li><p>NLE and NRE require MCMC; success depends on the shape and dimension of the posterior</p></li>
 <li><p>Sequential approaches are helpful for high dimensional problems or costly
-simulations. However, SNPE might have issues on sharp boundaries of the prior
-and MCMC is slow</p></li>
-<li><p>Neural networks can take high dimensional inputs easily. Therefore, use NPE
-when <span class="math notranslate nohighlight">\(\dim(\mathbf{x}) \gg \dim(\theta)\)</span> and NLE / NRE when <span class="math notranslate nohighlight">\(\dim(\mathbf{x})
-\ll \dim(\theta)\)</span></p></li>
-<li><p>An appropriate feature extractor should be based on the data’s structure. E.g.
-CNNs for images or RNNs for sequential data.</p></li>
+simulations. However, SNPE requires a correction term that can make training unstable, SNLE and SNRE require running MCMC for every round.</p></li>
+<li><p>The type of embeddings that can be learned depend on the method:</p>
+<ul>
+<li><p>Neural networks can take high dimensional inputs easily.</p></li>
+<li><p>NPE can learn embeddings for <code class="docutils literal notranslate"><span class="pre">x</span></code>: helpful when <span class="math notranslate nohighlight">\(\dim(\mathbf{x}) \gg \dim(\theta)\)</span></p></li>
+<li><p>NLE can learn embeddings for <code class="docutils literal notranslate"><span class="pre">theta</span></code>: helpful when <span class="math notranslate nohighlight">\(\dim(\mathbf{x}) \ll \dim(\theta)\)</span></p></li>
+<li><p>NRE can learn embeddings for both</p></li>
 </ul>
-<p>Luckily, SBI and its facets is an active area of research!</p>
+</li>
+<li><p>embedding network should take into account the structure of the data. E.g. CNNs for images or RNNs for sequential data.</p></li>
+</ul>
+<p>SBI is an active field of research: new methods and improvements are appearing regularly, e.g., score matching or flow matching methods for SBI.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbi</span></code> package is actively developed (and there are other packages too).</p>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Method</p></th>
@@ -1168,20 +1247,19 @@ CNNs for images or RNNs for sequential data.</p></li>
 </tr>
 <tr class="row-even"><td class="text-left"><p>NRE</p></td>
 <td class="text-left"><p>Likelihood factors for i.i.d. samples, training a classifier is easier than training an NDE</p></td>
-<td class="text-left"><p>Requires MCMC, possible issues for <span class="math notranslate nohighlight">\(d\)</span> close to either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-left"><p>Requires MCMC</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>sbi: A toolkit for simulation-based inference;
 <a class="reference external" href="https://www.mackelab.org/sbi/credits/">GitHub</a></p></li>
 <li><p>Cranmer et al. (2015), <em>“Approximating Likelihood Ratios with Calibrated Discriminative Classifiers”</em></p></li>
 <li><p>Lueckmann et al. (2021), <em>“Benchmarking Simulation-Based Inference”</em></p></li>
 </ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1220,7 +1298,7 @@ CNNs for images or RNNs for sequential data.</p></li>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to Neural Density Estimation with SBI</p>
+        <p class="prev-next-title">Introduction to Neural Density Estimation for SBI</p>
       </div>
     </a>
     <a class="right-next"
@@ -1248,23 +1326,25 @@ CNNs for images or RNNs for sequential data.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-the-goal-of-sbi">Recap: the Goal of SBI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-neural-posterior-estimation">Recap: Neural Posterior Estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-likelihood">The Likelihood</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-likelihood-with-a-neural-network">Learning the Likelihood with a Neural Network</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-the-nle-posterior">Sampling from the NLE Posterior</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-use-nle">Why should I use NLE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-intro-to-the-sbi-toolkit">Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-application-of-nle-on-the-sir-dataset">Example: Application of NLE on the SIR Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-inference-object">Saving the Inference Object</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-investigate-the-learned-posterior">Let’s Investigate the Learned Posterior</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-ratio-estimation">Neural Ratio Estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-about-nre">Considerations about NRE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-nre">Usage of NRE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations-for-npe-vs-nle-and-nre">Practical Considerations for NPE vs. NLE and NRE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Outline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-the-goal-of-sbi">Recap: the Goal of SBI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-neural-posterior-estimation">Recap: Neural Posterior Estimation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-likelihood">The Likelihood</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-likelihood-with-a-neural-network">Learning the Likelihood with a Neural Network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-the-nle-posterior">Sampling from the NLE Posterior</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-use-nle">Why should I use NLE?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-intro-to-the-sbi-toolkit">Quick Intro to the <code class="docutils literal notranslate"><span class="pre">sbi</span></code> Toolkit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-application-of-nle-on-the-sir-dataset">Exercise: Application of NLE on the SIR Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-inference-object">Saving the Inference Object</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-investigate-the-learned-posterior">Let’s Investigate the Learned Posterior</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-ratio-estimation">Neural Ratio Estimation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-about-nre">Considerations about NRE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-nre">Usage of NRE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations-for-npe-vs-nle-and-nre">Practical Considerations for NPE vs. NLE and NRE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>
