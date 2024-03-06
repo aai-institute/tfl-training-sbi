@@ -124,14 +124,14 @@ class SIRStdScaler:
             x (torch.Tensor): Observations.
 
         Returns:
-            dict: {"theta": theta, "obs": x}
+            dict: {"theta": theta, "x": x}
         """
-        theta, x = batch["theta"], batch["obs"]
+        theta, x = batch["theta"], batch["x"]
 
         theta = (theta - self.mean_theta) / self.std_theta
         x = (x - self.mean_x) / self.std_x
 
-        return {"theta": theta, "obs": x}
+        return {"theta": theta, "x": x}
 
     def rescale(self, batch: Tensor) -> Dict[str, Tensor]:
         """Rescale theta and x.
@@ -141,14 +141,14 @@ class SIRStdScaler:
             x (torch.Tensor): Observations.
 
         Returns:
-            dict: {"theta": theta, "obs": x}
+            dict: {"theta": theta, "x": x}
         """
-        theta, x = batch["theta"], batch["obs"]
+        theta, x = batch["theta"], batch["x"]
 
         theta = theta * self.std_theta + self.mean_theta
         x = x * self.std_x + self.mean_x
 
-        return {"theta": theta, "obs": x}
+        return {"theta": theta, "x": x}
 
 
 def load_sir_data(
