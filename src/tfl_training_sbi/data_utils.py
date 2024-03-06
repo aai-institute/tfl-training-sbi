@@ -1,10 +1,12 @@
-"""Several functions that ease the work with simulated data. """
+"""Several functions that ease the work with simulated data."""
 
 import os
 import time
+from typing import Dict, Tuple
 
 import numpy as np
 import torch
+from torch import Tensor, atleast_2d
 from torch.utils.data import Dataset
 from torchvision import transforms
 
@@ -14,8 +16,8 @@ class SIRSimulation(Dataset):
 
     def __init__(
         self,
-        data_theta: torch.tensor,
-        data_x: torch.tensor,
+        data_theta: Tensor,
+        data_x: Tensor,
         simulator_lag: float = 0.1,
         prior: torch.distributions.Distribution = None,
         transformations: transforms.Compose = None,
@@ -37,14 +39,14 @@ class SIRSimulation(Dataset):
             transformations (transforms.Compose, optional): Transformations.
         """
         super().__init__()
-        self.data_theta = torch.from_numpy(data_theta)
-        self.data_x = torch.from_numpy(data_x)
+        self.data_theta = data_theta
+        self.data_x = data_x
         self.data_length = data_theta.shape[0]
         self.lag = simulator_lag
         self.prior = prior
         self.transformations = transformations
 
-    def __call__(self, num_samples: int = 1) -> tuple:
+    def __call__(self, num_samples: int = 1) -> Tuple[Tensor, Tensor]:
         """Sample from the pre-generated data.
 
         Args:
@@ -60,10 +62,7 @@ class SIRSimulation(Dataset):
         idx = torch.randint(low=0, high=self.data_length, size=(num_samples,))
 
         # add dim when num_samples == 1
-        return (
-            torch.atleast_2d(self.data_theta[idx]),
-            torch.atleast_2d(self.data_x[idx]),
-        )
+        return self.__getitem__(idx)["theta"], self.__getitem__(idx)["x"]
 
     def __len__(self) -> int:
         """Length of the dataset.
@@ -73,18 +72,21 @@ class SIRSimulation(Dataset):
         """
         return self.data_length
 
-    def __getitem__(self, idx: int) -> dict:
+    def __getitem__(self, idx: int) -> Dict[str, Tensor]:
         """Get an item from the dataset.
 
         Args:
             idx (int): Index of the item.
 
         Returns:
-            dict: {"theta": theta, "obs": x}
+            dict: {"theta": theta, "x": x}
         """
-        theta, x = self.data_theta[idx], self.data_x[idx]
-        data = {"theta": theta, "obs": x}
+        data = {
+            "theta": atleast_2d(self.data_theta[idx]),
+            "x": atleast_2d(self.data_x[idx]),
+        }
 
+        # apply transformations
         if self.transformations:
             data = self.transformations(data)
 
@@ -96,25 +98,25 @@ class SIRStdScaler:
 
     def __init__(
         self,
-        mean_theta: torch.Tensor = torch.tensor([0.45, 0.13]),
-        std_theta: torch.Tensor = torch.tensor([0.24, 0.026]),
-        mean_x: torch.Tensor = torch.tensor([40.5]),
-        std_x: torch.Tensor = torch.tensor([90.35]),
+        mean_theta: Tensor = torch.tensor([0.45, 0.13]),
+        std_theta: Tensor = torch.tensor([0.24, 0.026]),
+        mean_x: Tensor = torch.tensor([40.5]),
+        std_x: Tensor = torch.tensor([90.35]),
     ):
         """Standardize the SIR data.
 
         Args:
-            mean_theta (torch.Tensor, optional): Empirical mean of theta. Defaults to torch.tensor([0.45, 0.13]).
-            std_theta (torch.Tensor, optional): Empirical std of theta. Defaults to torch.tensor([0.24, 0.026]).
-            mean_x (torch.Tensor, optional): Empirical mean of x. Defaults to torch.tensor([40.5]).
-            std_x (torch.Tensor, optional): Empirical std of x. Defaults to torch.tensor([90.35]).
+            mean_theta (torch.Tensor, optional): Empirical mean of theta.
+            std_theta (torch.Tensor, optional): Empirical std of theta.
+            mean_x (torch.Tensor, optional): Empirical mean of x.
+            std_x (torch.Tensor, optional): Empirical std of x.
         """
         self.mean_theta = mean_theta
         self.std_theta = std_theta
         self.mean_x = mean_x
         self.std_x = std_x
 
-    def __call__(self, batch: torch.tensor) -> dict:
+    def __call__(self, batch: Tensor) -> Dict[str, Tensor]:
         """Standardize theta and x.
 
         Args:
@@ -122,16 +124,16 @@ class SIRStdScaler:
             x (torch.Tensor): Observations.
 
         Returns:
-            dict: {"theta": theta, "obs": x}
+            dict: {"theta": theta, "x": x}
         """
-        theta, x = batch["theta"], batch["obs"]
+        theta, x = batch["theta"], batch["x"]
 
         theta = (theta - self.mean_theta) / self.std_theta
         x = (x - self.mean_x) / self.std_x
 
-        return {"theta": theta, "obs": x}
+        return {"theta": theta, "x": x}
 
-    def rescale(self, batch: torch.tensor) -> dict:
+    def rescale(self, batch: Tensor) -> Dict[str, Tensor]:
         """Rescale theta and x.
 
         Args:
@@ -139,21 +141,21 @@ class SIRStdScaler:
             x (torch.Tensor): Observations.
 
         Returns:
-            dict: {"theta": theta, "obs": x}
+            dict: {"theta": theta, "x": x}
         """
-        theta, x = batch["theta"], batch["obs"]
+        theta, x = batch["theta"], batch["x"]
 
         theta = theta * self.std_theta + self.mean_theta
         x = x * self.std_x + self.mean_x
 
-        return {"theta": theta, "obs": x}
+        return {"theta": theta, "x": x}
 
 
 def load_sir_data(
     base_path: str,
     file_name_thetas: str = "sir_thetas.npy",
     file_name_x: str = "sir_x_obs.npy",
-) -> tuple:
+) -> Tuple[Tensor, Tensor]:
     """Load the pre-generated data.
 
     Args:
@@ -168,4 +170,4 @@ def load_sir_data(
     theta = np.load(os.path.join(base_path, file_name_thetas))
     x = np.load(os.path.join(base_path, file_name_x))
 
-    return theta, x
+    return torch.from_numpy(theta), torch.from_numpy(x)
