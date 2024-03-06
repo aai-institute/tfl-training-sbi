@@ -4,7 +4,7 @@ Density Estimation.
 """
 
 # Solution task 1.
-ataset = TensorDataset(theta, x)
+dataset = TensorDataset(theta, x)
 
 train_loader = DataLoader(dataset, batch_size=20)
 
