@@ -60,14 +60,14 @@ mixture_density_net = mdn.MultivariateGaussianMDN(
 # Solution task 3.
 # chose value to condition on & compute the mixture components
 x_o = torch.as_tensor([[0.5]])
-logits, means, variances = mixture_density_net.get_mixture_components(x_o)
+weights, means, variances = mixture_density_net.get_mixture_components(x_o)
 theta_test = torch.linspace(-0.1, 1.0, 100)
 
 log_probs = []
 
 for theta_i in tqdm(theta_test):
     # compute probability of different values of theta for the current parameterization
-    log_prob = mdn.mog_log_prob(theta_i, logits, means, variances)
+    log_prob = mdn.mog_log_prob(theta_i, weights, means, variances)
     log_probs.append(log_prob)
 
 probs = torch.stack(log_probs).detach().exp()
