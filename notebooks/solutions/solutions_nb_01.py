@@ -30,7 +30,7 @@ def rejection_abc(
     distance: Callable,
     epsilon: float,
     x_o: Tensor,
-) -> Tensor:
+) -> tuple[Tensor, Tensor, Tensor]:
     """Returns a tensor of accepted posteriors samples obtained with the rejection ABC algorithm.
 
     Args:
@@ -42,7 +42,7 @@ def rejection_abc(
         epsilon: the rejection threshold for the distance between x and x_o.
         x_o: the observed data.
     Returns:
-        posterior_samples: the accepted theta, i.e., theta for which d(x, x_o) < epsilon.
+        posterior_samples: the accepted thetas, i.e., thetas for which d(x, x_o) < epsilon.
         theta: all sampled parameters
         x: all simulated data
     """
