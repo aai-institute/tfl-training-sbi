@@ -94,6 +94,16 @@ somewhere else and create a symbolic link. For details, see the `Dockerfile` and
 Feel free to reach out if you have any questions or need assistance during the
 training. Enjoy your learning experience!
 
+## Collaborators
+
+We would like to thank the The [Machine Learning ⇌ Science
+Collaboratory](https://mlcolab.org/) and the [Mackelab, Machine Learning in
+Science](https://www.mackelab.org/) for their collaboration on this training.
+Both are part of the Cluster of Excellence - Machine Learning for Science at the
+University of Tübingen.
+
+![Figure](./notebooks/_static/images/logos_collaborators.svg)
+
 ## License
 
 This work is licensed under a
