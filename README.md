@@ -102,7 +102,7 @@ Science](https://www.mackelab.org/) for their collaboration on this training.
 Both are part of the Cluster of Excellence - Machine Learning for Science at the
 University of Tübingen.
 
-![Figure](./notebooks/_static/images/logos_collaborators.svg)
+![Figure](./notebooks/_static/images/logos_collaborators.png)
 
 ## License
 
