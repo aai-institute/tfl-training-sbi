@@ -1,0 +1,1292 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Simulators are abundant in science and engineering &#8212; thesan_output</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configmacros"]}, "tex": {"packages": {"[+]": ["configmacros"]}, "macros": {"vect": ["{\\mathbf{\\boldsymbol{#1}} }", 1], "E": "{\\mathbb{E}}", "P": "{\\mathbb{P}}", "R": "{\\mathbb{R}}", "abs": ["{\\left| #1 \\right|}", 1], "simpl": ["{\\Delta^{#1} }", 1], "amax": "{\\text{argmax}}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb_01_introduction_to_sbi';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conditional Density Estimation" href="nb_02_conditional_density_estimation.html" />
+    <link rel="prev" title="Simulation-based Inference - Notebook Pages" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/transferlab-logo.svg" class="logo__image only-light" alt="thesan_output - Home"/>
+    <script>document.write(`<img src="_static/transferlab-logo.svg" class="logo__image only-dark" alt="thesan_output - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Simulation-based Inference - Notebook Pages
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Simulators are abundant in science and engineering</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="nb_02_conditional_density_estimation.html">Conditional Density Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb_03_neural_density_estimation.html">Introduction to Neural Density Estimation for SBI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb_04_neural_likelihood_and_ratio_estimation.html">Outline</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="nb_05_evaluation_of_sbi.html">How can we evaluate the performance of SBI?</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/nb_01_introduction_to_sbi.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Simulators are abundant in science and engineering</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Simulators are abundant in science and engineering</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-simulation-based-models">What are simulation-based models?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-give-an-example-of-a-simulator-from-your-domain">Exercise 1: Give an example of a simulator from your domain</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulating-pandemics-with-the-sir-model">Example: Simulating pandemics with the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulating-the-covid-pandemic-with-the-sir-model">Example: Simulating the covid pandemic with the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-discovery-with-simulation-based-models">Scientific discovery with simulation-based models</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example: Simulating pandemics with the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#central-challenge-find-parameters-theta-that-reproduce-data-x">Central challenge: find parameters <span class="math notranslate nohighlight">\(\theta\)</span> that reproduce data <span class="math notranslate nohighlight">\(x\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-single-best-fitting-parameters">Search single-best fitting parameters:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-does-not-scale-to-high-dimensional-applications">Problem:  Does not scale to high-dimensional applications</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Central challenge: find parameters <span class="math notranslate nohighlight">\(\theta\)</span> that reproduce data <span class="math notranslate nohighlight">\(x\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">~~search single best-fitting parameters~~</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference">Bayesian inference</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference-for-simulation-based-models">Bayesian inference for simulation-based models</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difficult-because-likelihood-usually-not-accessible">Difficult because likelihood usually not accessible</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#idea-use-simulated-data-to-circumvent-lack-of-likelihood-access">Idea: use simulated data to circumvent lack of likelihood-access</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediate-summary">Intermediate summary</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-based-inference-sbi-in-a-nutshell">Simulation-based inference (SBI) in a nutshell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline-for-the-training">Outline for the training</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-classical-sbi-approximate-bayesian-computatin-abc">Part 1) classical SBI: <strong>Approximate Bayesian Computatin (ABC)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-modern-sbi-neural-simulation-based-inference-sbi">Part 2) modern SBI: <em>neural</em> <strong>Simulation-Based Inference (SBI)</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-bayesian-computation-abc">Approximate Bayesian Computation (ABC)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rejection-sampling">Rejection sampling</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Approximate Bayesian Computation (ABC)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-implement-rejection-abc-for-the-sir-model">Exercise 1: Implement rejection ABC for the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Exercise 1: Implement rejection ABC for the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-implement-a-distance-function">Task 1: Implement a distance function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-implement-the-rejection-abc-algorithm">Task 2: Implement the rejection ABC algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-obtain-about-100-posterior-samples">Task 3: Obtain about 100 posterior samples</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-based-inference-sbi">Simulation-Based inference (SBI)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-classical-sbi-aka-approximate-bayesian-computation-abc">Part 1: “Classical SBI” aka Approximate Bayesian Computation (ABC)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-machine-learning-powered-sbi">Part 2: Machine learning-powered SBI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#anything-unclear-please-ask">Anything unclear? Please ask</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Part 2: Machine learning-powered SBI</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell tag_remove-input tag_remove-input-nbconv docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style>/*
+This file is mainly copy-pasta from rise's examples
+https://github.com/damianavila/RISE/blob/master/examples/rise.css
+that was further customized for appliedAI purposes
+*/
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
+
+
+body {
+    font-family: 'Work Sans', sans-serif !important;
+    text-transform: initial !important;
+    letter-spacing: initial !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    text-size-adjust: 100% !important;
+    ‑webkit‑text‑size‑adjust: 100% !important;
+}
+
+
+.reveal, div.text_cell_render, .md-slide, .sidebar-wrapper {
+    font-size: 1.5rem !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #00747b !important;
+}
+
+.filename {
+    font-size: 2.4rem !important;
+    color: #212529 !important;
+    font-weight: 600 !important;
+}
+
+.reveal, .md-slide {
+    color: white !important;
+}
+
+h1, h2 {
+    color: #00747b !important;
+}
+
+h3, h4, h5, h6 {
+    color: #808080 !important;
+}
+
+.reveal p, .reveal ol, .reveal dl, .reveal ul,
+div.text_cell_render {
+    color: #212529 !important;
+}
+
+/*copied from stackoverflow, better spacing between list items*/
+li + li {
+  margin-top: 0.2em;
+}
+
+body.rise-enabled .reveal ol, body.rise-enabled .reveal dl, body.rise-enabled .reveal ul {
+    margin-left: 0.1em;
+    margin-top: 0.2em;
+}
+
+.reveal .rendered_html h1:first-child,
+.reveal .rendered_html h2:first-child,
+.reveal .rendered_html h3:first-child,
+.reveal .rendered_html h4:first-child,
+.reveal .rendered_html h5:first-child {
+    margin-top: 0.2em;
+}
+
+.CodeMirror-lines, .output_text {
+    font-size: 1.5rem !important;
+}
+
+
+h1.plan, h2.plan, h3.plan {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+ul.plan>li>span.plan-bold {
+    font-size: 110%;
+    padding: 4px;
+    font-weight: bold;
+    background-color: #eee;
+}
+
+ul.plan>li>ul.subplan>li>span.plan-bold {
+    font-weight: bold;
+}
+
+.plan-strike {
+    opacity: 0.4;
+/*    text-decoration: line-through; */
+}
+
+div.plan-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+/*
+ * this is to void xarray's html output to show the fallback textual representation
+ * see also
+   * xarray.md and
+   * https://github.com/damianavila/RISE/issues/594
+ */
+.reveal pre.xr-text-repr-fallback {
+    display: none;
+}
+
+#toc-header, .toc-item li {
+    margin: auto !important;
+    color: #808080 !important;
+}
+
+#toc, #toc-wrapper, .toc-item-num, #toc a, .toc {
+    margin: auto !important;
+    color: #00747b !important;
+}
+
+#toc-wrapper {
+    top: auto !important;
+    bottom: auto !important;
+    margin-top: 2rem !important;
+    color: #00747b !important;
+}
+
+
+#rise-header {
+    margin: 10px;
+    left: 5%;
+}
+
+#rise-footer {
+    margin: 10px;
+    right: 5%;
+}
+
+#rise-backimage {
+    opacity: 0.70;
+}
+
+.reveal img {
+    max-width: 100%;
+}
+
+
+.md-slide.title {
+  position: relative;
+  top: -50%;
+  margin-left: 5%;
+}</style></div></div>
+</div>
+<img src="_static/images/aai-institute-cover.png" alt="Snow" style="width:100%;">
+<div class="md-slide title">
+    <h1>Introduction to Simulation-Based Inference</h1>
+</div>
+<div class="md-slide title">
+</div>
+<div class="md-slide title">
+    <h2>Bayesian Parameter Inference for Simulation-Based Models</h2>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.config</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">default_remote_storage</span><span class="p">,</span>
+    <span class="n">get_config</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tfl_training_sbi.data_utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SIRSimulation</span><span class="p">,</span>
+    <span class="n">load_sir_data</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">trange</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">default_remote_storage</span><span class="p">()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">(</span><span class="n">reload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="simulators-are-abundant-in-science-and-engineering">
+<h1>Simulators are abundant in science and engineering<a class="headerlink" href="#simulators-are-abundant-in-science-and-engineering" title="Permalink to this heading">#</a></h1>
+<img src="_static/images/simulator_scales.png" alt="Snow" style="width:100%;">
+</section>
+<section id="what-are-simulation-based-models">
+<h1>What are simulation-based models?<a class="headerlink" href="#what-are-simulation-based-models" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Explicit models, e.g., ODEs, PDEs: “simulator as numerical solver”</p></li>
+<li><p>Implicit models: “simulator as black-box computer simulation”</p></li>
+<li><p>Anything in-between: input parameter <span class="math notranslate nohighlight">\(\theta\)</span>, output simulated data <span class="math notranslate nohighlight">\(x\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-d2d8d361-6660-4c4b-816f-7260f00196fd">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d2d8d361-6660-4c4b-816f-7260f00196fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+x = \mathcal{M}_{\text{simulator}}(\theta)
+\end{equation}\]</div>
+</section>
+<section id="exercise-1-give-an-example-of-a-simulator-from-your-domain">
+<h1>Exercise 1: Give an example of a simulator from your domain<a class="headerlink" href="#exercise-1-give-an-example-of-a-simulator-from-your-domain" title="Permalink to this heading">#</a></h1>
+</section>
+<section id="example-simulating-pandemics-with-the-sir-model">
+<h1>Example: Simulating pandemics with the SIR model<a class="headerlink" href="#example-simulating-pandemics-with-the-sir-model" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Models epidemiological dynamics <span class="math notranslate nohighlight">\(\to\)</span> used during covid-19</p></li>
+<li><p>Three states: <strong>S</strong>usceptible <strong>I</strong>nfected <strong>R</strong>ecovered</p></li>
+</ul>
+<img src="_static/images/sir_grey.png" alt="Snow" style="width:30%;">
+<p>Dehning et al., Science, 2020</p>
+</section>
+<section id="example-simulating-the-covid-pandemic-with-the-sir-model">
+<h1>Example: Simulating the covid pandemic with the SIR model<a class="headerlink" href="#example-simulating-the-covid-pandemic-with-the-sir-model" title="Permalink to this heading">#</a></h1>
+<img src="_static/images/covid_modelling_example.png" alt="Snow" style="width:80%;">
+<p><a class="reference external" href="http://tagesschau.de">tagesschau.de</a>; Dehning et al., Science, 2020</p>
+</section>
+<section id="scientific-discovery-with-simulation-based-models">
+<h1>Scientific discovery with simulation-based models<a class="headerlink" href="#scientific-discovery-with-simulation-based-models" title="Permalink to this heading">#</a></h1>
+<img src="_static/images/scientific_discovery_loop.png" alt="Snow" style="width:100%;">
+</section>
+<section id="id1">
+<h1>Example: Simulating pandemics with the SIR model<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Initial condition: <span class="math notranslate nohighlight">\(S=N-1,\; I=1,\; R=0\)</span></p></li>
+<li><p>Infection rate <span class="math notranslate nohighlight">\(\beta\)</span></p></li>
+<li><p>Recovery rate <span class="math notranslate nohighlight">\(\gamma\)</span></p></li>
+<li><p>Population size <span class="math notranslate nohighlight">\(N\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-4dc21090-7037-4765-ac8d-e9aa3da78d93">
+<span class="eqno">(2)<a class="headerlink" href="#equation-4dc21090-7037-4765-ac8d-e9aa3da78d93" title="Permalink to this equation">#</a></span>\[\begin{align}
+N &amp;= 100000\\
+\beta &amp;\sim \text{LogNormal}(\log(0.4), 0.5)\\
+\gamma &amp;\sim \text{LogNormal}(\log(1/8), 0.2) \\[5mm]
+\frac{dS}{dt} &amp;= -\beta \frac{SI}{N} \\
+\frac{dI}{dt} &amp;= \beta \frac{S I}{N} - \gamma I\\
+\frac{dR}{dt} &amp;= \gamma I
+\end{align}\]</div>
+</section>
+<section id="central-challenge-find-parameters-theta-that-reproduce-data-x">
+<h1>Central challenge: find parameters <span class="math notranslate nohighlight">\(\theta\)</span> that reproduce data <span class="math notranslate nohighlight">\(x\)</span><a class="headerlink" href="#central-challenge-find-parameters-theta-that-reproduce-data-x" title="Permalink to this heading">#</a></h1>
+<section id="search-single-best-fitting-parameters">
+<h2>Search single-best fitting parameters:<a class="headerlink" href="#search-single-best-fitting-parameters" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>hand-tuning</p></li>
+<li><p>grid-search</p></li>
+<li><p>optimization, e.g., maximum likelihood estimation</p></li>
+</ul>
+</section>
+<section id="problem-does-not-scale-to-high-dimensional-applications">
+<h2>Problem:  Does not scale to high-dimensional applications<a class="headerlink" href="#problem-does-not-scale-to-high-dimensional-applications" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>What if there are multiple solutions?</p></li>
+<li><p>What about uncertainty in data (aleatoric) and parameter estimates (epistemic)?</p></li>
+<li><p>Parameter correlations will be informative</p></li>
+<li><p>…?</p></li>
+</ul>
+<img src="_static/images/drake_pro_bayesian_inference.jpeg" alt="Snow" style="width:50%;">
+</section>
+</section>
+<section id="id2">
+<h1>Central challenge: find parameters <span class="math notranslate nohighlight">\(\theta\)</span> that reproduce data <span class="math notranslate nohighlight">\(x\)</span><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h1>
+<section id="id3">
+<h2>~~search single best-fitting parameters~~<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="bayesian-inference">
+<h2>Bayesian inference<a class="headerlink" href="#bayesian-inference" title="Permalink to this heading">#</a></h2>
+<img src="_static/images/bayesian_inference.png" alt="Snow" style="width:90%;">
+</section>
+</section>
+<section id="bayesian-inference-for-simulation-based-models">
+<h1>Bayesian inference for simulation-based models<a class="headerlink" href="#bayesian-inference-for-simulation-based-models" title="Permalink to this heading">#</a></h1>
+<section id="difficult-because-likelihood-usually-not-accessible">
+<h2>Difficult because likelihood usually not accessible<a class="headerlink" href="#difficult-because-likelihood-usually-not-accessible" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>ODEs / black-box simulators do not have analytical expression for the likelihood <span class="math notranslate nohighlight">\(p(x | \theta)\)</span></p></li>
+<li><p><strong>MCMC</strong> or <strong>variational inference</strong> cannot be applied!</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-959bca14-0092-44f4-9e34-d0c411b10631">
+<span class="eqno">(3)<a class="headerlink" href="#equation-959bca14-0092-44f4-9e34-d0c411b10631" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(\theta |x) = \frac{p(x | \theta) \; p(\theta)}{p(x)} \propto p(x | \theta) \; p(\theta)
+\end{equation}\]</div>
+</section>
+<section id="idea-use-simulated-data-to-circumvent-lack-of-likelihood-access">
+<h2>Idea: use simulated data to circumvent lack of likelihood-access<a class="headerlink" href="#idea-use-simulated-data-to-circumvent-lack-of-likelihood-access" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We cannot evaluate the likelihood, but we can simulate data!</p></li>
+<li><p>“Likelihood-free” inference or “Simulation-Based” inference</p></li>
+</ul>
+</section>
+</section>
+<section id="intermediate-summary">
+<h1>Intermediate summary<a class="headerlink" href="#intermediate-summary" title="Permalink to this heading">#</a></h1>
+<section id="simulation-based-inference-sbi-in-a-nutshell">
+<h2>Simulation-based inference (SBI) in a nutshell<a class="headerlink" href="#simulation-based-inference-sbi-in-a-nutshell" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Perform Bayesian inference over the parameters <span class="math notranslate nohighlight">\(\theta\)</span> of a simulator, given observed data <span class="math notranslate nohighlight">\(x_o\)</span>.</p></li>
+<li><p>Goal: infer the posterior <span class="math notranslate nohighlight">\(p(\theta | x_o)\)</span>.</p></li>
+<li><p>Classical Bayesian inference do not apply, because the likelihood <span class="math notranslate nohighlight">\(p(x | \theta)\)</span> is not available</p></li>
+<li><p>Use <em>simulated data</em> to approximate the posterior</p></li>
+</ul>
+</section>
+<section id="outline-for-the-training">
+<h2>Outline for the training<a class="headerlink" href="#outline-for-the-training" title="Permalink to this heading">#</a></h2>
+<section id="part-1-classical-sbi-approximate-bayesian-computatin-abc">
+<h3>Part 1) classical SBI: <strong>Approximate Bayesian Computatin (ABC)</strong><a class="headerlink" href="#part-1-classical-sbi-approximate-bayesian-computatin-abc" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="part-2-modern-sbi-neural-simulation-based-inference-sbi">
+<h3>Part 2) modern SBI: <em>neural</em> <strong>Simulation-Based Inference (SBI)</strong><a class="headerlink" href="#part-2-modern-sbi-neural-simulation-based-inference-sbi" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+</section>
+<section id="approximate-bayesian-computation-abc">
+<h1>Approximate Bayesian Computation (ABC)<a class="headerlink" href="#approximate-bayesian-computation-abc" title="Permalink to this heading">#</a></h1>
+<section id="rejection-sampling">
+<h2>Rejection sampling<a class="headerlink" href="#rejection-sampling" title="Permalink to this heading">#</a></h2>
+<img src="_static/images/ABC_concept_figure.png" alt="Snow" style="width:100%;">
+<p>Diggle et al. (1984), Beaumont et al. (2002), Figure from Boelts (2023)</p>
+</section>
+</section>
+<section id="id4">
+<h1>Approximate Bayesian Computation (ABC)<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h1>
+<img src="_static/images/ABC_algorithm.png" alt="Snow" style="width:100%;">
+</section>
+<section id="questions">
+<h1>Questions?<a class="headerlink" href="#questions" title="Permalink to this heading">#</a></h1>
+</section>
+<section id="exercise-1-implement-rejection-abc-for-the-sir-model">
+<h1>Exercise 1: Implement rejection ABC for the SIR model<a class="headerlink" href="#exercise-1-implement-rejection-abc-for-the-sir-model" title="Permalink to this heading">#</a></h1>
+<img src="_static/images/sir_grey.png" alt="Snow" style="width:40%;">
+<ul class="simple">
+<li><p>Infection rate <span class="math notranslate nohighlight">\(\beta\)</span></p></li>
+<li><p>Recovery rate <span class="math notranslate nohighlight">\(\gamma\)</span></p></li>
+<li><p>Population size <span class="math notranslate nohighlight">\(N\)</span></p></li>
+<li><p>Initial condition: <span class="math notranslate nohighlight">\(N=100000, \; S=N-1,\; I=1,\; R=0\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-1b8a7293-f063-48e7-ab7d-0b5583bd8bfa">
+<span class="eqno">(4)<a class="headerlink" href="#equation-1b8a7293-f063-48e7-ab7d-0b5583bd8bfa" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{dS}{dt} &amp;= -\beta \frac{SI}{N} \\
+\frac{dI}{dt} &amp;= \beta \frac{S I}{N} - \gamma I\\
+\frac{dR}{dt} &amp;= \gamma I
+\end{align}\]</div>
+</section>
+<section id="id5">
+<h1>Exercise 1: Implement rejection ABC for the SIR model<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Setup</strong></p>
+<ul>
+<li><p>We collected some PCR test results <span class="math notranslate nohighlight">\(x_o\)</span></p></li>
+<li><p>Prior and simulator are given:</p></li>
+<li><p><span class="math notranslate nohighlight">\(x = \)</span> “10 evenly spaced samples in time from the infectious group <span class="math notranslate nohighlight">\(I\)</span>.”</p></li>
+</ul>
+</li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-4becfaf3-c19f-4da7-a613-c326b5e20367">
+<span class="eqno">(5)<a class="headerlink" href="#equation-4becfaf3-c19f-4da7-a613-c326b5e20367" title="Permalink to this equation">#</a></span>\[\begin{align}
+\theta_i \sim p(\theta) &amp;= p(\beta)p(\gamma) \\[3mm]
+x_i | \theta_i &amp;\sim \text{SIR}(\beta_i, \gamma_i)
+\end{align}\]</div>
+<ul class="simple">
+<li><p><strong>Task</strong>:</p>
+<ul>
+<li><p>Use the rejection ABC algorithm to infer the underlying rate <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load pre-simulated SIR data.</span>
+<span class="n">sir_theta</span><span class="p">,</span> <span class="n">sir_x</span> <span class="o">=</span> <span class="n">load_sir_data</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Select (pseudo) observed data.</span>
+<span class="n">x_o_idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="c1"># NOTE: in practice, we usually do not know theta_o</span>
+<span class="n">theta_o</span> <span class="o">=</span> <span class="n">sir_theta</span><span class="p">[</span><span class="n">x_o_idx</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x_o</span> <span class="o">=</span> <span class="n">sir_x</span><span class="p">[</span><span class="n">x_o_idx</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Create a pseudo simulator that returns sample from prior and corresponding simulation.</span>
+<span class="n">sample_and_simulate</span> <span class="o">=</span> <span class="n">SIRSimulation</span><span class="p">(</span><span class="n">sir_theta</span><span class="p">[:</span><span class="n">x_o_idx</span><span class="p">],</span> <span class="n">sir_x</span><span class="p">[:</span><span class="n">x_o_idx</span><span class="p">],</span> <span class="n">simulator_lag</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task">
+<h1>Task<a class="headerlink" href="#task" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Implement a distance function</p></li>
+<li><p>Implement the rejection ABC algorithm</p></li>
+<li><p>Select an epsilon to obtain about 100 posterior samples</p></li>
+</ol>
+<section id="task-1-implement-a-distance-function">
+<h2>Task 1: Implement a distance function<a class="headerlink" href="#task-1-implement-a-distance-function" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">x_o</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the mean squared error (MSE) between x and x_o.</span>
+
+<span class="sd">    Note: the mean is taken over data dimensions, i.e., over the second dimension of x.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x: Simulated data, shape (batch, dim_x)</span>
+<span class="sd">        x_o: Observed data, (1, dim_x)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        distance: MSEs, (batch, 1)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Your code goes here...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load -r 7-24 ./solutions/solutions_nb_01.py</span>
+<span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">x_o</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the mean squared error (MSE) between x and x_o.</span>
+
+<span class="sd">    Note: the mean is taken over data dimensions, i.e., over the second dimension of x.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x: Simulated data, shape (batch, dim_x)</span>
+<span class="sd">        x_o: Observed data, (1, dim_x)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        distance: MSEs, (batch, 1)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_o</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;x and x_o must be 2D.&quot;</span>
+    <span class="k">assert</span> <span class="n">x_o</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;x_o should have shape (1, dim_x)&quot;</span>
+    <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">x_o</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;x and x_o should have the same last dimension&quot;</span>
+
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_o</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2-implement-the-rejection-abc-algorithm">
+<h2>Task 2: Implement the rejection ABC algorithm<a class="headerlink" href="#task-2-implement-the-rejection-abc-algorithm" title="Permalink to this heading">#</a></h2>
+<p>Implement rejection ABC:</p>
+<ul class="simple">
+<li><p>A loop that repeatedly samples theta from the prior</p></li>
+<li><p>Simulates corresponding data x (using the sample_and_simulate function)</p></li>
+<li><p>And then accepts only those theta for which <span class="math notranslate nohighlight">\(x\)</span> is close to <span class="math notranslate nohighlight">\(x_o\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rejection_abc</span><span class="p">(</span>
+    <span class="n">num_simulations</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">sample_and_simulate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">distance</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">x_o</span><span class="p">:</span> <span class="n">Tensor</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a tensor of accepted posteriors samples obtained with the rejection ABC algorithm.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        num_simulations: simulation budget</span>
+<span class="sd">        sample_and_simulate: a function that samples a parameter from the prior and </span>
+<span class="sd">            simulates the SIR model: takes number of samples (int) as input and returns</span>
+<span class="sd">            theta and x: theta_i, x_i = sample_and_simulate(num_samples)</span>
+<span class="sd">        distance: a distance function.</span>
+<span class="sd">        epsilon: the rejection threshold for the distance between x and x_o.</span>
+<span class="sd">        x_o: the observed data.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        posterior_samples: the accepted theta, i.e., theta for which d(x, x_o) &lt; epsilon.</span>
+<span class="sd">        theta: all sampled parameters</span>
+<span class="sd">        x: all simulated data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">posterior_samples</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Your code goes here...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load -r 27-69 ./solutions/solutions_nb_01.py</span>
+<span class="k">def</span> <span class="nf">rejection_abc</span><span class="p">(</span>
+    <span class="n">num_simulations</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">sample_and_simulate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">distance</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">x_o</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a tensor of accepted posteriors samples obtained with the rejection ABC algorithm.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        num_simulations: simulation budget</span>
+<span class="sd">        sample_and_simulate: a function that samples a parameter from the prior and</span>
+<span class="sd">            simulates the SIR model: takes number of samples (int) as input and returns</span>
+<span class="sd">            theta and x: theta_i, x_i = sample_and_simulate(num_samples)</span>
+<span class="sd">        distance: a distance function.</span>
+<span class="sd">        epsilon: the rejection threshold for the distance between x and x_o.</span>
+<span class="sd">        x_o: the observed data.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        posterior_samples: the accepted theta, i.e., theta for which d(x, x_o) &lt; epsilon.</span>
+<span class="sd">        theta: all sampled parameters</span>
+<span class="sd">        x: all simulated data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">posterior_samples</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
+        <span class="n">theta_i</span><span class="p">,</span> <span class="n">x_i</span> <span class="o">=</span> <span class="n">sample_and_simulate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">theta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta_i</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_i</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">distance</span><span class="p">(</span><span class="n">x_i</span><span class="p">,</span> <span class="n">x_o</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="n">posterior_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta_i</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">posterior_samples</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="p">),</span> <span class="s2">&quot;No samples accepted, consider increasing N or eps.&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rejection ABC: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">posterior_samples</span><span class="p">)</span><span class="si">}</span><span class="s2"> accepted samples.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">posterior_samples</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-3-obtain-about-100-posterior-samples">
+<h2>Task 3: Obtain about 100 posterior samples<a class="headerlink" href="#task-3-obtain-about-100-posterior-samples" title="Permalink to this heading">#</a></h2>
+<p>Choose an epsilon and run the rejection ABC algorithm such that obtain about 100 posterior samples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code goes here...</span>
+
+<span class="c1"># eps = ?</span>
+<span class="c1"># num_simulations = 50000</span>
+<span class="c1"># posterior_samples, theta, x = rejection_abc(...)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load -r 72-77 ./solutions/solutions_nb_01.py</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">num_simulations</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="n">posterior_samples</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rejection_abc</span><span class="p">(</span>
+    <span class="n">num_simulations</span><span class="p">,</span> <span class="n">sample_and_simulate</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">x_o</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5f0f4bf82a2d46bc9883f341b43d8a7a"}</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">eps</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">num_simulations</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">posterior_samples</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rejection_abc</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">num_simulations</span><span class="p">,</span> <span class="n">sample_and_simulate</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">x_o</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="p">)</span>
+
+<span class="nn">Cell In [10], line 30,</span> in <span class="ni">rejection_abc</span><span class="nt">(num_simulations, sample_and_simulate, distance, epsilon, x_o)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">30</span>     <span class="n">theta_i</span><span class="p">,</span> <span class="n">x_i</span> <span class="o">=</span> <span class="n">sample_and_simulate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="n">theta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta_i</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_i</span><span class="p">)</span>
+
+<span class="nn">File ~/code/tfl-training-sbi/src/tfl_training_sbi/data_utils.py:60,</span> in <span class="ni">SIRSimulation.__call__</span><span class="nt">(self, num_samples)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Sample from the pre-generated data.</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span><span class="sd"> Args:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="sd">     tuple: theta, x</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="c1"># imitate the lag of the simulator</span>
+<span class="ne">---&gt; </span><span class="mi">60</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lag</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="c1"># draw an index at random</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_length</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,))</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plotting">
+<h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h1>
+<p>Plot prior and posterior samples, and “true” underlying theta.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select number of samples for scatter plot.</span>
+<span class="n">num_prior_samples</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">theta</span><span class="p">[:</span><span class="n">num_prior_samples</span><span class="p">]</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;prior&quot;</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">posterior_samples</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ABC-posterior&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">theta_o</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;theta_o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;infection rate $\beta$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;recovery rate $\gamma$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/836de87ae2075c779e1990bc1f6c792b90ab068658d64067d2b21716f192a142.png" src="_images/836de87ae2075c779e1990bc1f6c792b90ab068658d64067d2b21716f192a142.png" />
+</div>
+</div>
+</section>
+<section id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+</section>
+<section id="simulation-based-inference-sbi">
+<h1>Simulation-Based inference (SBI)<a class="headerlink" href="#simulation-based-inference-sbi" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Use Bayesian inference to identify parameters of simulation-based models</p></li>
+<li><p>Likelihood is not accessible <span class="math notranslate nohighlight">\(\to\)</span> use data simulated from the model instead</p></li>
+</ul>
+</section>
+<section id="part-1-classical-sbi-aka-approximate-bayesian-computation-abc">
+<h1>Part 1: “Classical SBI” aka Approximate Bayesian Computation (ABC)<a class="headerlink" href="#part-1-classical-sbi-aka-approximate-bayesian-computation-abc" title="Permalink to this heading">#</a></h1>
+<img src="_static/images/ABC_concept_figure.png" alt="Snow" style="width:100%;">
+<section id="advantages">
+<h2>Advantages<a class="headerlink" href="#advantages" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Conceptually simple: fast to implement</p></li>
+</ul>
+</section>
+<section id="disadvantages">
+<h2>Disadvantages<a class="headerlink" href="#disadvantages" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Curse of dimensionality: what if <span class="math notranslate nohighlight">\(\theta\)</span> or <span class="math notranslate nohighlight">\(x\)</span> is high-dimensional?</p></li>
+<li><p>Ad-hoc choices neccessary: distance metric, rejection threshold <span class="math notranslate nohighlight">\(\epsilon\)</span>, summary statistics</p></li>
+</ul>
+</section>
+</section>
+<section id="part-2-machine-learning-powered-sbi">
+<h1>Part 2: Machine learning-powered SBI<a class="headerlink" href="#part-2-machine-learning-powered-sbi" title="Permalink to this heading">#</a></h1>
+</section>
+<section id="learning-goals">
+<h1>Learning goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>What is a simulation-based model / a simulator?</p></li>
+<li><p>Why do we need to infer the parameters?</p></li>
+<li><p>What is Bayesian inference, and why is it better than getting point estimates?</p></li>
+<li><p>Why can’t we just use MCMC or variational inference to get posterior samples?</p></li>
+<li><p>What is simulation-based inference?</p></li>
+<li><p>How does rejection ABC work?</p></li>
+<li><p>What are the benefits, what the downsides of rejection ABC?</p></li>
+</ul>
+</section>
+<section id="anything-unclear-please-ask">
+<h1>Anything unclear? Please ask<a class="headerlink" href="#anything-unclear-please-ask" title="Permalink to this heading">#</a></h1>
+</section>
+<section id="id6">
+<h1>Part 2: Machine learning-powered SBI<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h1>
+<p>Use <em>conditional density estimation</em> to learn a parametric approximation to the
+posterior distribution: <strong>neural density estimation</strong>.</p>
+<img src="_static/images/sbi_concept_figure.png" alt="Snow" style="width:100%;">
+<p>Papamakarios et al. 2016; Cranmer et al. 2020, Figure from Boelts (2023)</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Simulation-based Inference - Notebook Pages</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nb_02_conditional_density_estimation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Conditional Density Estimation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Simulators are abundant in science and engineering</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-simulation-based-models">What are simulation-based models?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-give-an-example-of-a-simulator-from-your-domain">Exercise 1: Give an example of a simulator from your domain</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulating-pandemics-with-the-sir-model">Example: Simulating pandemics with the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simulating-the-covid-pandemic-with-the-sir-model">Example: Simulating the covid pandemic with the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-discovery-with-simulation-based-models">Scientific discovery with simulation-based models</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example: Simulating pandemics with the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#central-challenge-find-parameters-theta-that-reproduce-data-x">Central challenge: find parameters <span class="math notranslate nohighlight">\(\theta\)</span> that reproduce data <span class="math notranslate nohighlight">\(x\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-single-best-fitting-parameters">Search single-best fitting parameters:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-does-not-scale-to-high-dimensional-applications">Problem:  Does not scale to high-dimensional applications</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Central challenge: find parameters <span class="math notranslate nohighlight">\(\theta\)</span> that reproduce data <span class="math notranslate nohighlight">\(x\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">~~search single best-fitting parameters~~</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference">Bayesian inference</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-inference-for-simulation-based-models">Bayesian inference for simulation-based models</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difficult-because-likelihood-usually-not-accessible">Difficult because likelihood usually not accessible</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#idea-use-simulated-data-to-circumvent-lack-of-likelihood-access">Idea: use simulated data to circumvent lack of likelihood-access</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediate-summary">Intermediate summary</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-based-inference-sbi-in-a-nutshell">Simulation-based inference (SBI) in a nutshell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline-for-the-training">Outline for the training</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-classical-sbi-approximate-bayesian-computatin-abc">Part 1) classical SBI: <strong>Approximate Bayesian Computatin (ABC)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-modern-sbi-neural-simulation-based-inference-sbi">Part 2) modern SBI: <em>neural</em> <strong>Simulation-Based Inference (SBI)</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-bayesian-computation-abc">Approximate Bayesian Computation (ABC)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rejection-sampling">Rejection sampling</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Approximate Bayesian Computation (ABC)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-implement-rejection-abc-for-the-sir-model">Exercise 1: Implement rejection ABC for the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Exercise 1: Implement rejection ABC for the SIR model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-implement-a-distance-function">Task 1: Implement a distance function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-implement-the-rejection-abc-algorithm">Task 2: Implement the rejection ABC algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-obtain-about-100-posterior-samples">Task 3: Obtain about 100 posterior samples</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-based-inference-sbi">Simulation-Based inference (SBI)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-classical-sbi-aka-approximate-bayesian-computation-abc">Part 1: “Classical SBI” aka Approximate Bayesian Computation (ABC)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-machine-learning-powered-sbi">Part 2: Machine learning-powered SBI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning goals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#anything-unclear-please-ask">Anything unclear? Please ask</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Part 2: Machine learning-powered SBI</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By appliedAI TransferLab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
