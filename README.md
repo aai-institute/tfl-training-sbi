@@ -98,7 +98,7 @@ training. Enjoy your learning experience!
 
 We would like to thank the The [Machine Learning ⇌ Science
 Collaboratory](https://mlcolab.org/) and the [Mackelab, Machine Learning in
-Science](https://www.mackelab.org/) for their collaboration on this training.
+Science](https://www.mackelab.org/) for their collaboration on this training. They shared materials of previous SBI workshops with us and helped with the initial design of the new training. 
 Both are part of the Cluster of Excellence - Machine Learning for Science at the
 University of Tübingen.
 
