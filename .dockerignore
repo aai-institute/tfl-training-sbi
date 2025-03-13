@@ -2,6 +2,7 @@
 
 !src
 !notebooks
+!data
 !setup.py
 !scripts
 !build_scripts
