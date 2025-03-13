@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils_sir &mdash; tfl_training_sbi 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="utils_models" href="utils_models.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            tfl_training_sbi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">About this documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="_static/jupyter_book/index.html#http://">Jupyter Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">Exercises</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">tfl_training_sbi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#tfl_training_sbi.load_ipython_extension"><code class="docutils literal notranslate"><span class="pre">load_ipython_extension()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_utils.html">data_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdn.html">mdn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nb_utils.html">nb_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_models.html">utils_models</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils_sir</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tfl_training_sbi.utils_sir.eval_sir_model"><code class="docutils literal notranslate"><span class="pre">eval_sir_model()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">tfl_training_sbi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">tfl_training_sbi</a></li>
+      <li class="breadcrumb-item active">utils_sir</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tfl_training_sbi/utils_sir.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-tfl_training_sbi.utils_sir">
+<span id="utils-sir"></span><h1>utils_sir<a class="headerlink" href="#module-tfl_training_sbi.utils_sir" title="Link to this heading"></a></h1>
+<p>Utility functions for the SIR model.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="tfl_training_sbi.utils_sir.eval_sir_model">
+<span class="sig-name descname"><span class="pre">eval_sir_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_cond</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(999,</span> <span class="pre">1,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">1.00628931,</span> <span class="pre">2.01257862,</span> <span class="pre">3.01886792,</span> <span class="pre">4.02515723,</span> <span class="pre">5.03144654,</span> <span class="pre">6.03773585,</span> <span class="pre">7.04402516,</span> <span class="pre">8.05031447,</span> <span class="pre">9.05660377,</span> <span class="pre">10.06289308,</span> <span class="pre">11.06918239,</span> <span class="pre">12.0754717,</span> <span class="pre">13.08176101,</span> <span class="pre">14.08805031,</span> <span class="pre">15.09433962,</span> <span class="pre">16.10062893,</span> <span class="pre">17.10691824,</span> <span class="pre">18.11320755,</span> <span class="pre">19.11949686,</span> <span class="pre">20.12578616,</span> <span class="pre">21.13207547,</span> <span class="pre">22.13836478,</span> <span class="pre">23.14465409,</span> <span class="pre">24.1509434,</span> <span class="pre">25.1572327,</span> <span class="pre">26.16352201,</span> <span class="pre">27.16981132,</span> <span class="pre">28.17610063,</span> <span class="pre">29.18238994,</span> <span class="pre">30.18867925,</span> <span class="pre">31.19496855,</span> <span class="pre">32.20125786,</span> <span class="pre">33.20754717,</span> <span class="pre">34.21383648,</span> <span class="pre">35.22012579,</span> <span class="pre">36.22641509,</span> <span class="pre">37.2327044,</span> <span class="pre">38.23899371,</span> <span class="pre">39.24528302,</span> <span class="pre">40.25157233,</span> <span class="pre">41.25786164,</span> <span class="pre">42.26415094,</span> <span class="pre">43.27044025,</span> <span class="pre">44.27672956,</span> <span class="pre">45.28301887,</span> <span class="pre">46.28930818,</span> <span class="pre">47.29559748,</span> <span class="pre">48.30188679,</span> <span class="pre">49.3081761,</span> <span class="pre">50.31446541,</span> <span class="pre">51.32075472,</span> <span class="pre">52.32704403,</span> <span class="pre">53.33333333,</span> <span class="pre">54.33962264,</span> <span class="pre">55.34591195,</span> <span class="pre">56.35220126,</span> <span class="pre">57.35849057,</span> <span class="pre">58.36477987,</span> <span class="pre">59.37106918,</span> <span class="pre">60.37735849,</span> <span class="pre">61.3836478,</span> <span class="pre">62.38993711,</span> <span class="pre">63.39622642,</span> <span class="pre">64.40251572,</span> <span class="pre">65.40880503,</span> <span class="pre">66.41509434,</span> <span class="pre">67.42138365,</span> <span class="pre">68.42767296,</span> <span class="pre">69.43396226,</span> <span class="pre">70.44025157,</span> <span class="pre">71.44654088,</span> <span class="pre">72.45283019,</span> <span class="pre">73.4591195,</span> <span class="pre">74.46540881,</span> <span class="pre">75.47169811,</span> <span class="pre">76.47798742,</span> <span class="pre">77.48427673,</span> <span class="pre">78.49056604,</span> <span class="pre">79.49685535,</span> <span class="pre">80.50314465,</span> <span class="pre">81.50943396,</span> <span class="pre">82.51572327,</span> <span class="pre">83.52201258,</span> <span class="pre">84.52830189,</span> <span class="pre">85.53459119,</span> <span class="pre">86.5408805,</span> <span class="pre">87.54716981,</span> <span class="pre">88.55345912,</span> <span class="pre">89.55974843,</span> <span class="pre">90.56603774,</span> <span class="pre">91.57232704,</span> <span class="pre">92.57861635,</span> <span class="pre">93.58490566,</span> <span class="pre">94.59119497,</span> <span class="pre">95.59748428,</span> <span class="pre">96.60377358,</span> <span class="pre">97.61006289,</span> <span class="pre">98.6163522,</span> <span class="pre">99.62264151,</span> <span class="pre">100.62893082,</span> <span class="pre">101.63522013,</span> <span class="pre">102.64150943,</span> <span class="pre">103.64779874,</span> <span class="pre">104.65408805,</span> <span class="pre">105.66037736,</span> <span class="pre">106.66666667,</span> <span class="pre">107.67295597,</span> <span class="pre">108.67924528,</span> <span class="pre">109.68553459,</span> <span class="pre">110.6918239,</span> <span class="pre">111.69811321,</span> <span class="pre">112.70440252,</span> <span class="pre">113.71069182,</span> <span class="pre">114.71698113,</span> <span class="pre">115.72327044,</span> <span class="pre">116.72955975,</span> <span class="pre">117.73584906,</span> <span class="pre">118.74213836,</span> <span class="pre">119.74842767,</span> <span class="pre">120.75471698,</span> <span class="pre">121.76100629,</span> <span class="pre">122.7672956,</span> <span class="pre">123.77358491,</span> <span class="pre">124.77987421,</span> <span class="pre">125.78616352,</span> <span class="pre">126.79245283,</span> <span class="pre">127.79874214,</span> <span class="pre">128.80503145,</span> <span class="pre">129.81132075,</span> <span class="pre">130.81761006,</span> <span class="pre">131.82389937,</span> <span class="pre">132.83018868,</span> <span class="pre">133.83647799,</span> <span class="pre">134.8427673,</span> <span class="pre">135.8490566,</span> <span class="pre">136.85534591,</span> <span class="pre">137.86163522,</span> <span class="pre">138.86792453,</span> <span class="pre">139.87421384,</span> <span class="pre">140.88050314,</span> <span class="pre">141.88679245,</span> <span class="pre">142.89308176,</span> <span class="pre">143.89937107,</span> <span class="pre">144.90566038,</span> <span class="pre">145.91194969,</span> <span class="pre">146.91823899,</span> <span class="pre">147.9245283,</span> <span class="pre">148.93081761,</span> <span class="pre">149.93710692,</span> <span class="pre">150.94339623,</span> <span class="pre">151.94968553,</span> <span class="pre">152.95597484,</span> <span class="pre">153.96226415,</span> <span class="pre">154.96855346,</span> <span class="pre">155.97484277,</span> <span class="pre">156.98113208,</span> <span class="pre">157.98742138,</span> <span class="pre">158.99371069,</span> <span class="pre">160.])</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/appliedAI-Initiative/tfl-training-sbi/blob/master/src/tfl_training_sbi/utils_sir.py#L9"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tfl_training_sbi.utils_sir.eval_sir_model" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the SIR model for given number of parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theta</strong> (<em>np.array</em>) – Input params beta and gamma.</p></li>
+<li><p><strong>initial_cond</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Initial cond. S0, I0 and R0. Defaults to</p></li>
+<li><p><strong>(</strong><strong>999</strong> (<em>N-1</em><em>, </em><em>1</em><em>, </em><em>0</em>)</p></li>
+<li><p><strong>1</strong> (<em>N-1</em><em>, </em><em>1</em><em>, </em><em>0</em>)</p></li>
+<li><p><strong>0</strong><strong>)</strong> (<em>N-1</em><em>, </em><em>1</em><em>, </em><em>0</em>)</p></li>
+<li><p><strong>i.e.</strong> (<em>N-1</em><em>, </em><em>1</em><em>, </em><em>0</em>)</p></li>
+<li><p><strong>population_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Population size. Defaults to 1_000.</p></li>
+<li><p><strong>grid_points</strong> (<em>np.array</em><em>, </em><em>optional</em>) – Grid point, i.e. time. Defaults to np.linspace(0, 160, 160).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>three dim. array of shape (grid_points.shape[0], 3) where the
+order is SIR.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="utils_models.html" class="btn btn-neutral float-left" title="utils_models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
